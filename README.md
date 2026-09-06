@@ -33,7 +33,7 @@ Enquanto as URLs estiverem vazias, os botões abrem o aviso de checkout não con
 - Avatar único: montar o presépio em casa (hobby natalino)
 - Urgência dinâmica até 25/12
 - Prova social (troque os 3 depoimentos por relatos reais antes de anunciar)
-- Transparência de materiais (R$60–90 à parte)
+- Transparência de materiais (R$60 a R$90 à parte)
 - Order bump + total dinâmico
 - Sticky CTA e garantia de 7 dias
 
@@ -51,4 +51,4 @@ Enquanto as URLs estiverem vazias, os botões abrem o aviso de checkout não con
 - `dist/assets/presepio-feltro.png`: imagem principal
 - `.openai/hosting.json`: configuração ChatGPT Sites
 
-O pacote não contém os moldes finais PDF — só a página de venda.
+O pacote não contém os moldes finais PDF, só a página de venda.

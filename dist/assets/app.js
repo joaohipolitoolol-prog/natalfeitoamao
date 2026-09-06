@@ -1,4 +1,4 @@
-/* ========= Configuração — preencha antes de anunciar ========= */
+/* ========= Configuração: preencha antes de anunciar ========= */
 const checkoutUrls = {
   feltro: "", // checkout só do presépio (R$37)
   feltroBump: "", // checkout com order bump (R$37 + R$27)
@@ -47,22 +47,30 @@ const daysLeft = Math.max(0, Math.ceil((christmas - now) / 86400000));
 const weeksLeft = Math.max(1, Math.ceil(daysLeft / 7));
 
 const urgencyLine = document.querySelector("#urgency-line");
+const urgencyCount = document.querySelector("#urgency-count");
 const offerDeadline = document.querySelector("#offer-deadline");
 
+if (urgencyCount) {
+  if (daysLeft === 0) {
+    urgencyLine.innerHTML = "<p>É Natal <span>25/12</span></p>";
+  } else {
+    urgencyCount.textContent = String(daysLeft);
+    const line = urgencyLine.querySelector("p");
+    if (line) {
+      line.innerHTML = `Faltam <strong id="urgency-count">${daysLeft}</strong> ${
+        daysLeft === 1 ? "dia" : "dias"
+      } para o Natal <span>25/12</span>`;
+    }
+  }
+}
+
 if (daysLeft === 0) {
-  if (urgencyLine) urgencyLine.textContent = "É Natal — monte a cena para o próximo ano com calma.";
   if (offerDeadline) offerDeadline.textContent = "Arquivos com acesso imediato para você guardar e costurar quando quiser.";
 } else if (daysLeft <= 21) {
-  if (urgencyLine) {
-    urgencyLine.textContent = `Faltam ${daysLeft} dias para o Natal — priorize as peças principais esta semana.`;
-  }
   if (offerDeadline) {
     offerDeadline.textContent = `Restam ${daysLeft} dias. Comece pelas figuras centrais e finalize o restante no seu ritmo.`;
   }
 } else {
-  if (urgencyLine) {
-    urgencyLine.textContent = `Faltam cerca de ${weeksLeft} semanas para o Natal — ainda dá tempo de costurar com calma.`;
-  }
   if (offerDeadline) {
     offerDeadline.textContent = `${weeksLeft} semanas até 25/12. Comece agora para montar sem pressa.`;
   }
@@ -131,7 +139,7 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && modal.classList.contains("open")) closeModal();
 });
 
-/* Sticky só depois da galeria — some quando a oferta já está na tela */
+/* Sticky só depois da galeria: some quando a oferta já está na tela */
 const updateSticky = () => {
   if (!sticky || !stickyTrigger || !offer) return;
   const triggerTop = stickyTrigger.getBoundingClientRect().top;
