@@ -1,0 +1,406 @@
+/* Upsell Coleção Natal — cream / artesanal (pós-compra) */
+.upsell-page{
+  --up-cream:#f7f3eb;
+  --up-paper:#efe8dc;
+  --up-ink:#1f2a24;
+  --up-muted:#5d675f;
+  --up-green:#173d32;
+  --up-wine:#9a3f32;
+  --up-gold:#c4a46a;
+  --up-serif:"Libre Baskerville",Georgia,serif;
+  --up-sans:"Source Sans 3","Segoe UI",sans-serif;
+  --up-script:"Caveat",cursive;
+  margin:0;
+  background:var(--up-cream);
+  color:var(--up-ink);
+  font-family:var(--up-sans);
+  font-size:17px;
+  line-height:1.55
+}
+.upsell-page h1,
+.upsell-page h2,
+.upsell-page h3{
+  font-family:var(--up-serif);
+  letter-spacing:-.02em;
+  color:var(--up-green)
+}
+.upsell-page .button.wine{
+  background:linear-gradient(#b04a3c,#8d2437);
+  box-shadow:0 10px 24px rgba(141,36,55,.22);
+  color:#fffaf0;
+  border-radius:8px;
+  font-weight:700
+}
+.upsell-page .button.wine:focus-visible,
+.upsell-page #upsell-decline:focus-visible{
+  outline:2px solid var(--up-gold);
+  outline-offset:3px
+}
+
+.up-script{
+  margin:0;
+  font-family:var(--up-script);
+  font-size:clamp(1.35rem,3.5vw,1.85rem);
+  font-weight:500;
+  color:var(--up-wine);
+  line-height:1.25
+}
+.up-script.center{text-align:center;margin:1.5rem auto 0}
+.up-script.foot{margin-top:1.8rem;color:var(--up-green)}
+.up-script.on-photo{
+  position:absolute;
+  left:1rem;right:1rem;bottom:1rem;
+  margin:0;
+  color:#fff;
+  text-shadow:0 2px 12px rgba(0,0,0,.45);
+  text-align:center
+}
+
+.up-hero{padding:0 0 2.8rem}
+.up-hero-shot{
+  margin:0;
+  width:100%;
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:#2a2118
+}
+.up-hero-shot img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center 40%
+}
+.up-hero-copy{
+  width:min(640px,100%);
+  margin:-3.2rem auto 0;
+  padding:1.8rem 1.35rem 0;
+  position:relative;
+  z-index:2;
+  text-align:center;
+  background:linear-gradient(180deg,transparent,var(--up-cream) 18%)
+}
+.up-confirm{
+  margin:0 0 .85rem;
+  color:var(--up-green);
+  font-size:.88rem;
+  font-weight:700
+}
+.up-hero-copy h1{
+  margin:0 auto .9rem;
+  max-width:16ch;
+  font-size:clamp(1.75rem,5.8vw,2.65rem);
+  line-height:1.15
+}
+.up-hero-copy h1 em{
+  font-style:italic;
+  color:var(--up-wine);
+  font-weight:400
+}
+.up-sub{
+  max-width:34ch;
+  margin:0 auto 1rem;
+  color:var(--up-muted);
+  font-size:1.02rem
+}
+.up-hero-copy .up-script{margin:0 0 1.25rem}
+.up-cta{width:100%;max-width:420px}
+.up-cta-soft{
+  margin:.7rem 0 0;
+  color:var(--up-muted);
+  font-size:.86rem;
+  text-decoration:underline;
+  text-underline-offset:3px
+}
+.up-micro{
+  margin:.55rem 0 0;
+  color:#8a928a;
+  font-size:.78rem
+}
+
+.up-section{
+  max-width:1080px;
+  margin:0 auto;
+  padding:3.8rem 1.35rem
+}
+.up-section-head{
+  max-width:22ch;
+  margin:0 auto 2rem;
+  text-align:center
+}
+.up-section-head h2{
+  margin:0;
+  font-size:clamp(1.55rem,3.8vw,2.2rem);
+  line-height:1.2
+}
+
+.up-materials{padding-top:2.5rem}
+.up-materials-grid{
+  display:grid;
+  grid-template-columns:1fr 1.05fr;
+  gap:2.2rem;
+  align-items:center
+}
+.up-materials-copy h2{
+  margin:0 0 1.1rem;
+  font-size:clamp(1.55rem,3.5vw,2.15rem);
+  line-height:1.18
+}
+.up-materials-list{
+  margin:0 0 1.1rem;
+  font-family:var(--up-serif);
+  font-size:1.2rem;
+  font-weight:700;
+  color:var(--up-green);
+  line-height:1.55
+}
+.up-materials-copy>p:last-child{
+  margin:0;
+  color:var(--up-muted)
+}
+.up-materials-shot{
+  position:relative;
+  margin:0;
+  border-radius:12px;
+  overflow:hidden;
+  aspect-ratio:4/3;
+  background:var(--up-paper)
+}
+.up-materials-shot img{
+  width:100%;height:100%;
+  object-fit:cover
+}
+
+.up-projects{
+  background:linear-gradient(180deg,transparent,rgba(239,232,220,.55) 12%,transparent)
+}
+.up-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.35rem 1.1rem
+}
+.up-grid article{margin:0;text-align:center}
+.up-grid img{
+  width:100%;
+  aspect-ratio:1;
+  object-fit:cover;
+  border-radius:10px;
+  background:var(--up-paper);
+  margin-bottom:.75rem
+}
+.up-grid h3{
+  margin:0 0 .3rem;
+  font-size:1.12rem;
+  line-height:1.2
+}
+.up-grid p{
+  margin:0;
+  color:var(--up-muted);
+  font-size:.9rem
+}
+
+.up-compare{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1rem;
+  max-width:860px;
+  margin:0 auto
+}
+.up-compare-bad,
+.up-compare-good{
+  padding:1.4rem 1.25rem;
+  border-radius:10px;
+  background:#fff;
+  border:1px solid rgba(31,42,36,.1)
+}
+.up-compare-good{
+  background:linear-gradient(160deg,#173d32,#0c2c24);
+  color:#e8efeb;
+  border:0
+}
+.up-compare-good h3{color:#f3d993}
+.up-compare h3{
+  display:flex;
+  align-items:flex-start;
+  gap:.45rem;
+  margin:0 0 .9rem;
+  font-size:1.15rem;
+  line-height:1.25
+}
+.up-compare-bad h3 span{color:var(--up-wine)}
+.up-compare-good h3 span{color:#f3d993}
+.up-compare ul{margin:0;padding:0;list-style:none}
+.up-compare li{
+  position:relative;
+  padding:.4rem 0 .4rem 1.25rem;
+  font-size:.92rem
+}
+.up-compare-bad li{color:var(--up-muted)}
+.up-compare-bad li:before{
+  position:absolute;left:0;
+  content:"×";
+  color:var(--up-wine);
+  font-weight:800
+}
+.up-compare-good li{color:#d5e2db}
+.up-compare-good li:before{
+  position:absolute;left:0;
+  content:"✓";
+  color:#d8ab50;
+  font-weight:800
+}
+
+.up-vision{
+  display:grid;
+  grid-template-columns:1fr 1.05fr;
+  gap:0;
+  max-width:1100px;
+  margin:1rem auto 0;
+  align-items:stretch;
+  background:var(--up-paper);
+  border-radius:14px;
+  overflow:hidden
+}
+.up-vision-copy{
+  padding:2.4rem 1.8rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:center
+}
+.up-vision-copy h2{
+  margin:0 0 1.1rem;
+  font-size:clamp(1.45rem,3.2vw,2rem);
+  line-height:1.22
+}
+.up-vision-copy p{
+  margin:0 0 .85rem;
+  color:var(--up-muted)
+}
+.up-vision-copy p:last-child{margin:0}
+.up-vision-shot{
+  position:relative;
+  margin:0;
+  min-height:280px
+}
+.up-vision-shot img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  position:absolute;
+  inset:0
+}
+
+.up-offer{padding-bottom:4.5rem}
+.up-offer-box{
+  max-width:520px;
+  margin:0 auto;
+  padding:2.4rem 1.5rem 2rem;
+  text-align:center;
+  background:#fff;
+  border:1px solid rgba(196,164,106,.55);
+  box-shadow:0 18px 50px rgba(31,42,36,.08);
+  border-radius:14px
+}
+.up-badge{
+  display:inline-block;
+  margin:0 0 1rem;
+  padding:.35rem .75rem;
+  border:1px solid var(--up-gold);
+  border-radius:999px;
+  color:var(--up-green);
+  font-size:.68rem;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase
+}
+.up-offer-box h2{
+  margin:0 0 1.2rem;
+  font-size:clamp(1.55rem,3.5vw,2rem);
+  line-height:1.15
+}
+.up-check{
+  max-width:280px;
+  margin:0 auto 1.4rem;
+  padding:0;
+  list-style:none;
+  text-align:left
+}
+.up-check li{
+  position:relative;
+  padding:.42rem 0 .42rem 1.45rem;
+  color:var(--up-ink);
+  font-size:.95rem
+}
+.up-check li:before{
+  position:absolute;
+  left:0;
+  content:"✓";
+  color:var(--up-wine);
+  font-weight:800
+}
+.up-pay{
+  margin:0;
+  color:var(--up-muted);
+  font-size:.82rem;
+  font-weight:600
+}
+.up-price{
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  margin:.2rem 0 1rem;
+  line-height:1;
+  color:var(--up-green)
+}
+.up-price sup{
+  margin-top:.55rem;
+  font-size:1rem;
+  font-weight:700
+}
+.up-price strong{
+  font-family:var(--up-serif);
+  font-size:clamp(3.4rem,12vw,4.2rem);
+  letter-spacing:-.06em;
+  font-weight:700
+}
+.up-secure{
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  gap:.4rem;
+  margin:1.1rem 0 0;
+  color:var(--up-muted);
+  font-size:.78rem;
+  line-height:1.35
+}
+.up-decline{
+  margin:2.2rem 0 0;
+  text-align:center
+}
+#upsell-decline{
+  color:var(--up-muted);
+  font-size:.92rem;
+  text-decoration:underline;
+  text-underline-offset:3px
+}
+#upsell-decline:hover{color:var(--up-ink)}
+
+@media(max-width:900px){
+  .up-materials-grid,
+  .up-compare,
+  .up-vision{grid-template-columns:1fr}
+  .up-grid{grid-template-columns:1fr 1fr}
+  .up-hero-copy{margin-top:-2.2rem}
+  .up-vision-shot{min-height:240px}
+  .up-vision-shot img{
+    position:relative;
+    height:auto;
+    aspect-ratio:4/3
+  }
+  .up-vision{border-radius:0}
+}
+@media(max-width:560px){
+  .up-grid{grid-template-columns:1fr}
+  .up-hero-copy{padding:1.4rem 1.1rem 0}
+  .up-section{padding:3rem 1.1rem}
+  .up-cta,
+  .upsell-page .button{width:100%}
+  .up-offer-box{padding:2rem 1.15rem 1.6rem}
+}
