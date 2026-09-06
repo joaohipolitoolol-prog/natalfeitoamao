@@ -1,6 +1,6 @@
 /* ========= Configuração: preencha antes de anunciar ========= */
 const checkoutUrls = {
-  feltro: "", // checkout só do presépio (R$37)
+  feltro: "https://pay.cakto.com.br/3cacksx_1089575", // checkout só do presépio (R$37)
   feltroBump: "", // checkout com order bump (R$37 + R$27)
 };
 
