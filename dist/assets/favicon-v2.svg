@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Estrela do Natal Feito à Mão">
+  <rect width="64" height="64" rx="14" fill="#0c2c24"/>
+  <rect x="3" y="3" width="58" height="58" rx="11.5" fill="none" stroke="#d8ab50" stroke-width="1.5" opacity=".72"/>
+  <g transform="translate(32 31)">
+    <path d="M0-24C1.8-10.8 4.8-5.2 9.2-2.2 12.6-.1 17.4 1.2 24 2 17.4 2.8 12.6 4.1 9.2 6.2 4.8 9.2 1.8 14.8 0 28-1.8 14.8-4.8 9.2-9.2 6.2-12.6 4.1-17.4 2.8-24 2-17.4 1.2-12.6-.1-9.2-2.2-4.8-5.2-1.8-10.8 0-24Z" fill="#f3d993"/>
+    <circle cy="2" r="4.2" fill="#fffaf0"/>
+    <circle cy="2" r="1.8" fill="#d8ab50"/>
+  </g>
+</svg>
