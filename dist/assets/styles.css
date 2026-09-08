@@ -7,7 +7,7 @@
   --shadow:0 26px 70px rgba(5,20,31,.18)
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:auto}
 body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55}
 body.feltro{--navy:var(--green);--navy2:var(--green2);--wine:#9a3f32}
 img{display:block;max-width:100%;height:auto}
@@ -200,6 +200,79 @@ h1 em{color:var(--gold2);font-style:italic;font-weight:600}
 .deliverable h3{margin:.35rem 0 .35rem;font-family:var(--serif);font-size:1.25rem}
 .deliverable p{margin:0;color:#b9c7cf;font-size:.86rem}
 
+/* Prova real do material */
+.product-proof{
+  overflow:hidden;color:#fff;
+  background:
+    radial-gradient(circle at 8% 12%,rgba(216,171,80,.16),transparent 30%),
+    radial-gradient(circle at 92% 42%,rgba(154,63,50,.17),transparent 34%),
+    linear-gradient(150deg,#0c2c24,#071c17 72%)
+}
+.product-proof-inner{max-width:1120px}
+.deliverable-numbers{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  margin:0 0 2rem;background:rgba(255,255,255,.16);
+  border:1px solid rgba(255,255,255,.16)
+}
+.deliverable-numbers div{padding:1.35rem 1rem;background:rgba(7,28,23,.84);text-align:center}
+.deliverable-numbers strong{
+  display:block;color:var(--gold2);font-family:var(--serif);
+  font-size:clamp(2rem,4vw,3.25rem);line-height:1
+}
+.deliverable-numbers span{display:block;margin-top:.4rem;color:#d6e0dc;font-size:.9rem}
+.collection-proof-card{
+  position:relative;margin:0;background:#f2ebdc;border:1px solid rgba(255,255,255,.16);
+  box-shadow:0 28px 70px rgba(0,0,0,.28)
+}
+.collection-proof-card>img{width:100%;background:#f2ebdc}
+.collection-proof-card figcaption{
+  display:flex;align-items:center;justify-content:space-between;gap:1.25rem;
+  padding:1rem 1.2rem;background:#fff;color:var(--ink)
+}
+.collection-proof-card figcaption span{
+  flex:0 0 auto;padding:.35rem .65rem;background:var(--wine);color:#fff;
+  font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase
+}
+.collection-proof-card figcaption strong{font-family:var(--serif);font-size:1.05rem;text-align:right}
+.project-names{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin:1.5rem 0 4.5rem}
+.project-names span{
+  padding:.45rem .72rem;border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.06);color:#dfe9e4;font-size:.82rem
+}
+.inside-heading{max-width:720px;margin:0 auto 2rem;text-align:center}
+.inside-heading .eyebrow{margin-bottom:.65rem}
+.inside-heading h3{margin:0 0 .6rem;font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.08}
+.inside-heading>p:last-child{margin:0;color:#afc0b9}
+.inside-pages{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.inside-page{
+  overflow:hidden;background:var(--cream);border:1px solid rgba(255,255,255,.18);
+  color:var(--ink);box-shadow:0 14px 38px rgba(0,0,0,.16)
+}
+.inside-page figure{display:grid;height:340px;place-items:center;margin:0;padding:.8rem;background:#e7dece}
+.inside-page figure img{width:100%;height:100%;object-fit:contain}
+.inside-page>div{padding:1.25rem 1.25rem 1.4rem}
+.inside-page b{color:var(--wine);font-size:.72rem;letter-spacing:.09em;text-transform:uppercase}
+.inside-page h4{margin:.3rem 0 .45rem;font-family:var(--serif);font-size:1.35rem;line-height:1.12}
+.inside-page p{margin:0;color:var(--muted);font-size:.95rem}
+.inside-page-featured{display:grid;grid-column:1/-1;grid-template-columns:minmax(280px,.8fr) 1fr;align-items:center}
+.inside-page-featured figure{height:480px}
+.inside-page-featured>div{padding:2rem}
+.inside-page-featured h4{font-size:clamp(1.6rem,3vw,2.25rem)}
+.delivery-box{
+  display:flex;align-items:center;justify-content:space-between;gap:2rem;
+  margin-top:2rem;padding:1.4rem;background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.16)
+}
+.delivery-box>div{display:flex;align-items:center;gap:1rem;max-width:650px}
+.delivery-icon{
+  display:grid;flex:0 0 auto;width:62px;height:62px;place-items:center;
+  border:1px solid var(--gold2);border-radius:50%;color:var(--gold2);
+  font-size:.72rem;font-weight:900;letter-spacing:.08em
+}
+.delivery-box strong{display:block;font-family:var(--serif);font-size:1.25rem}
+.delivery-box p{margin:.2rem 0 0;color:#b8c8c1;font-size:.9rem}
+.delivery-box .button{flex:0 0 auto}
+
 .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
 .testimonial{
   display:flex;flex-direction:column;gap:1rem;margin:0;
@@ -224,6 +297,32 @@ h1 em{color:var(--gold2);font-style:italic;font-weight:600}
   font-family:var(--serif);font-size:clamp(2.2rem,4vw,3rem);font-weight:700;letter-spacing:-.04em;line-height:1
 }
 .materials-box>div>p:last-child{margin:0;color:var(--muted);font-size:.95rem}
+
+.creator-section{padding-top:5rem;padding-bottom:5rem}
+.creator-card{
+  display:grid;grid-template-columns:320px 1fr;gap:0;align-items:stretch;
+  max-width:920px;margin:0 auto;background:#fff;border:1px solid var(--line);
+  box-shadow:var(--shadow)
+}
+.creator-card figure{min-height:100%;margin:0;background:var(--green2)}
+.creator-card figure img{width:100%;height:100%;object-fit:cover}
+.creator-copy{padding:2.5rem 2.7rem}
+.creator-copy h2{margin:0 0 1rem;font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.08}
+.creator-copy>p:not(.eyebrow):not(.creator-name){margin:0 0 1.35rem;color:var(--muted)}
+.creator-name{display:flex;flex-direction:column;margin:0 0 1rem;padding-left:1rem;border-left:3px solid var(--wine)}
+.creator-name strong{font-family:var(--serif);font-size:1.2rem}
+.creator-name span{color:var(--muted);font-size:.85rem}
+.whatsapp-button{
+  display:inline-flex;min-height:52px;align-items:center;justify-content:center;gap:.65rem;
+  padding:.8rem 1.15rem;border:1px solid #178846;border-radius:5px;
+  background:#fff;color:#126c38;text-decoration:none;font-weight:800;
+  transition:background .2s,color .2s,transform .2s
+}
+.whatsapp-button:hover{background:#178846;color:#fff;transform:translateY(-2px)}
+.whatsapp-button:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.whatsapp-icon{display:grid;width:22px;height:22px;place-items:center;flex:0 0 auto}
+.whatsapp-icon svg{width:22px;height:22px}
+.creator-copy>small{display:block;margin-top:.65rem;color:var(--muted);font-size:.78rem}
 
 .audience-box{display:grid;grid-template-columns:1fr .8fr;gap:4rem;padding:2.2rem;background:var(--paper)}
 .audience-box>p{padding:1.2rem;border-left:3px solid var(--wine);color:var(--muted);margin:0}
@@ -321,6 +420,19 @@ footer p{margin:0}
   .icon-journey{grid-template-columns:1fr}
   .deliverable-grid{grid-template-columns:1fr}
   .deliverable{grid-template-columns:52px 1fr}
+  .deliverable-numbers{grid-template-columns:1fr 1fr}
+  .collection-proof-card figcaption{align-items:flex-start;flex-direction:column}
+  .collection-proof-card figcaption strong{text-align:left}
+  .inside-pages{grid-template-columns:1fr}
+  .inside-page-featured{grid-column:auto;grid-template-columns:1fr}
+  .inside-page-featured figure,.inside-page figure{height:min(115vw,500px)}
+  .inside-page-featured>div{padding:1.25rem}
+  .delivery-box{align-items:stretch;flex-direction:column}
+  .delivery-box .button{width:100%}
+  .creator-card{grid-template-columns:1fr}
+  .creator-card figure{min-height:0;aspect-ratio:16/11}
+  .creator-copy{padding:2rem 1.4rem}
+  .whatsapp-button{width:100%}
   .offer{padding:2rem 1.2rem}
   .order-bump{grid-template-columns:auto 1fr}
   .guarantee{align-items:flex-start}
@@ -336,6 +448,11 @@ footer p{margin:0}
   .guarantee{flex-direction:column}
   .piece-card{flex-basis:148px}
   .piece-card figcaption{font-size:.95rem;padding:.65rem .7rem .75rem}
+  .deliverable-numbers div{padding:1.1rem .65rem}
+  .deliverable-numbers span{font-size:.78rem}
+  .project-names{justify-content:flex-start;margin-bottom:3.5rem}
+  .project-names span{font-size:.76rem}
+  .delivery-box>div{align-items:flex-start}
 }
 .button.wine{
   background:linear-gradient(#b04a3c,#8d2437);

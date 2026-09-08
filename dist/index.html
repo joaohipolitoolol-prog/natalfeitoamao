@@ -5,14 +5,57 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Monte o presépio de feltro da foto neste Natal. Moldes A4 em tamanho real e guias em PDF, sem caçar moldes soltos.">
   <meta name="theme-color" content="#173d32">
-  <title>Natal Feito à Mão · Presépio de Feltro · R$37</title>
+  <title>Natal Feito à Mão | Presépio de Feltro</title>
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Natal Feito à Mão">
+  <meta property="og:url" content="https://natalfeitoamao.vercel.app/">
+  <meta property="og:title" content="Natal Feito à Mão">
+  <meta property="og:description" content="Faça o presépio da foto para a sua mesa neste Natal. Moldes A4 e passo a passo em PDF.">
+  <meta property="og:image" content="https://natalfeitoamao.vercel.app/assets/og.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Presépio de feltro feito à mão">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Natal Feito à Mão">
+  <meta name="twitter:description" content="Faça o presépio da foto para a sua mesa neste Natal.">
+  <meta name="twitter:image" content="https://natalfeitoamao.vercel.app/assets/og.jpg">
+
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/favicon.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/styles.css">
+
+  <!-- LCP: preload exact mobile hero -->
+  <link rel="preload" as="image" href="assets/presepio-lcp.webp" type="image/webp" fetchpriority="high">
+
+  <!-- Critical above-the-fold CSS (inline) -->
+  <style>
+    :root{--wine:#9a3f32;--gold2:#f3d993;--green:#173d32;--cream:#fffaf0;--serif:Georgia,"Times New Roman",serif;--sans:"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+    *{box-sizing:border-box}body{margin:0;background:var(--cream);color:#17212b;font-family:var(--sans);font-size:16px;line-height:1.55}
+    .hero-sales{display:flex;flex-direction:column;align-items:center;padding:0 0 3.2rem;color:#fff;background:radial-gradient(circle at 50% 12%,rgba(216,171,80,.18),transparent 42%),linear-gradient(145deg,#173d32,#081e18 70%)}
+    .urgency-bar{width:100%;min-height:2rem;margin:0;padding:.38rem 1rem;background:var(--wine);text-align:center}
+    .urgency-bar p{margin:0;font-size:.78rem;font-weight:500}.urgency-bar strong{font-family:var(--serif);font-size:1rem}
+    .hero-copy{width:min(720px,100%);padding:2.2rem 1.5rem 0;text-align:center;min-height:6.5rem}
+    h1{margin:0 0 1rem;font-family:var(--serif);font-size:clamp(1.85rem,4.84vw,2.95rem);line-height:1.08;letter-spacing:-.03em}
+    h1 em{color:var(--gold2);font-style:italic;font-weight:600}
+    .hero-mockup{width:100%;margin:0;aspect-ratio:2/1;background:#0a1f18}
+    .hero-mockup img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 40%}
+    .hero-cta{width:min(560px,100%);padding:1.6rem 1.5rem 0;text-align:center;min-height:11.5rem}
+    .lead{max-width:520px;margin:0 auto 1.35rem;color:#dfe8eb;font-size:.89rem;line-height:1.5;min-height:4.2em}
+    .button{display:inline-flex;min-height:55px;align-items:center;justify-content:center;border:0;border-radius:4px;padding:.9rem 1.45rem;text-decoration:none;font-weight:800;background:linear-gradient(#f5df9d,#d5a343);color:#251d0c}
+    .micro{margin:.7rem 0 0;color:#aab8c3;font-size:.77rem;text-align:center}
+    .micro-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.35rem .7rem;margin:.75rem 0 0;color:#aab8c3;font-size:.77rem}
+    .micro-row span{display:inline-flex;align-items:center;gap:.3rem;white-space:nowrap}
+    .micro-row .wa-ico{display:inline-grid;width:14px;height:14px;place-items:center;color:#25d366;flex:0 0 auto}
+    .micro-row .wa-ico svg{width:14px;height:14px;display:block}
+    @media(max-width:900px){.hero-cta .button,.button{width:100%}.hero-cta{min-height:12.5rem}}
+  </style>
+
+  <link rel="stylesheet" href="assets/styles.css?v=47" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="assets/styles.css?v=47"></noscript>
 </head>
 <body class="feltro">
   <main>
@@ -24,26 +67,45 @@
         <h1>Faça o presépio da foto <em>para a sua mesa neste Natal</em></h1>
       </div>
       <figure class="hero-mockup">
-        <img src="assets/presepio-feltro.png" alt="Presépio completo de feltro montado">
+        <picture>
+          <source type="image/webp" srcset="assets/presepio-lcp.webp" sizes="100vw">
+          <img
+            src="assets/presepio-lcp.jpg"
+            alt="Presépio completo de feltro montado"
+            width="750"
+            height="375"
+            fetchpriority="high"
+            decoding="async">
+        </picture>
       </figure>
       <div class="hero-cta">
         <p class="lead">Sem juntar moldes soltos, adivinhar medidas ou descobrir sozinha como cada peça deve ficar. Você recebe a cena completa em A4, escala real, com o passo a passo para recortar, costurar à mão e montar.</p>
-        <a class="button gold" href="#oferta">Quero montar meu presépio · R$37</a>
-        <p class="micro">Produto digital · Acesso imediato · Garantia de 7 dias</p>
+        <a class="button gold" href="#oferta">Quero montar meu presépio por R$37</a>
+        <p class="micro-row">
+          <span>Produto digital</span>
+          <span>Acesso imediato</span>
+          <span>Garantia de 7 dias</span>
+          <span>
+            <span class="wa-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.28-.14-1.64-.81-1.9-.9-.25-.1-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.37-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.47h-.53c-.18 0-.48.07-.73.34-.25.28-.96.94-.96 2.3s.98 2.66 1.12 2.85c.14.18 1.93 2.95 4.68 4.13.65.28 1.16.45 1.56.58.65.21 1.25.18 1.72.11.52-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.11-.25-.18-.53-.32z"/><path d="M12 2a10 10 0 0 0-8.66 15.05L2 22l5.1-1.33A10 10 0 1 0 12 2zm0 18.2a8.18 8.18 0 0 1-4.17-1.14l-.3-.18-3.03.8.81-2.95-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+            </span>
+            Entrega no WhatsApp
+          </span>
+        </p>
       </div>
     </section>
 
     <section class="proof-band">
-      <div><strong>Moldes A4</strong><span>escala real, prontos pra imprimir</span></div>
-      <div><strong>Cena completa</strong><span>7 grupos no mesmo estilo</span></div>
-      <div><strong>Só PDF</strong><span>passo a passo, sem vídeo</span></div>
+      <div><strong>15 projetos</strong><span>um PDF separado para cada peça</span></div>
+      <div><strong>150 páginas</strong><span>10 páginas organizadas por projeto</span></div>
+      <div><strong>29 moldes</strong><span>em tamanho real, prontos para imprimir</span></div>
     </section>
 
     <section class="section desire" id="desejo">
       <div class="desire-block">
         <p class="eyebrow dark">O momento</p>
         <h2>Quando a última peça sobe na mesa</h2>
-        <p>Imagine ajeitar Maria e José ao lado da manjedoura, posicionar o anjo, os Reis e os animais, e olhar para a cena completa que antes existia só na foto. Feita à mão. No seu ritmo. No seu Natal.</p>
+        <p>Imagine ajeitar Maria e José ao lado da manjedoura, posicionar o anjo, os Reis e os animais, e olhar para a cena completa que antes existia só na foto. Feita à mão. No seu ritmo. No seu Natal. E poder dizer: eu que fiz.</p>
       </div>
     </section>
 
@@ -63,41 +125,50 @@
     <section class="dark-section proof-files" id="prova">
       <div class="section">
         <div class="section-title light">
-          <p class="eyebrow">Prova do arquivo</p>
-          <h2>Veja o que chega nas suas mãos</h2>
-          <p>Não é só um mockup fechado. É o caminho organizado: da folha impressa à peça, e da peça à mesa.</p>
+          <p class="eyebrow">O caminho</p>
+          <h2>O que chega nas suas mãos</h2>
+          <p>Arquivos claros pra imprimir, costurar e montar a cena. Sem caçar molde solto no meio do caminho.</p>
         </div>
-        <div class="journey">
-          <figure>
-            <img src="assets/entregavel-moldes.png" alt="Folhas A4 com moldes do presépio prontos para imprimir">
-            <figcaption>1. Folha A4 impressa</figcaption>
-          </figure>
-          <span class="journey-arrow" aria-hidden="true">→</span>
-          <figure>
-            <img src="assets/entregavel-manual.png" alt="Manual com passos de costura à mão">
-            <figcaption>2. Costura guiada</figcaption>
-          </figure>
-          <span class="journey-arrow" aria-hidden="true">→</span>
-          <figure>
-            <img src="assets/presepio-feltro.png" alt="Presépio completo montado na mesa">
-            <figcaption>3. Cena na mesa</figcaption>
-          </figure>
-        </div>
-        <div class="file-zoom">
+        <div class="icon-journey">
           <article>
-            <img src="assets/entregavel-moldes.png" alt="Detalhe dos moldes A4 com partes do presépio">
+            <span class="ico" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none"><rect x="10" y="6" width="28" height="36" rx="2" stroke="currentColor" stroke-width="2"/><path d="M16 14h16M16 20h16M16 26h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </span>
+            <h3>Imprima</h3>
+            <p>Moldes A4 em escala real</p>
+          </article>
+          <article>
+            <span class="ico" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none"><path d="M14 34l6-6 4 4 10-12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="34" cy="14" r="4" stroke="currentColor" stroke-width="2"/><path d="M12 38h24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </span>
+            <h3>Costure</h3>
+            <p>Manual com pontos à mão</p>
+          </article>
+          <article>
+            <span class="ico" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none"><path d="M24 8l3 9h9l-7 5 3 9-8-6-8 6 3-9-7-5h9l3-9z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            </span>
+            <h3>Monte</h3>
+            <p>Cena completa na mesa</p>
+          </article>
+        </div>
+        <div class="icon-points">
+          <article>
+            <span class="ico" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none"><path d="M8 12h32v28H8V12z" stroke="currentColor" stroke-width="2"/><path d="M16 8v8M32 8v8M8 20h32" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M18 28h12M18 34h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </span>
             <div>
-              <b>Nos moldes</b>
-              <h3>Partes identificadas, sem adivinhar o corte</h3>
-              <p>Cada contorno faz parte da cena. Você imprime em escala real e recorta sabendo o que está nas mãos, não um amontoado de silhuetas sem nome.</p>
+              <h3>Moldes com partes nomeadas</h3>
+              <p>Quantidade de corte e cor sugerida em cada peça. Você recorta sabendo o que está fazendo.</p>
             </div>
           </article>
           <article>
-            <img src="assets/entregavel-manual.png" alt="Páginas abertas do manual de montagem">
+            <span class="ico" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none"><path d="M14 10h20v28H14V10z" stroke="currentColor" stroke-width="2"/><path d="M20 18h8M20 24h8M20 30h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </span>
             <div>
-              <b>No manual</b>
-              <h3>Passo a passo visual para costura à mão</h3>
-              <p>Onde começar, como unir, onde deixar abertura, quanto preencher e como fechar. Feito para quem prefere PDF claro a vídeo longo.</p>
+              <h3>Manual passo a passo</h3>
+              <p>Onde começar, como unir, onde deixar abertura, quanto preencher e como fechar. Sem vídeo obrigatório.</p>
             </div>
           </article>
         </div>
@@ -107,21 +178,21 @@
     <section class="section mechanism" id="mecanismo">
       <div class="section-title">
         <p class="eyebrow dark">O mecanismo</p>
-        <h2>Você não precisa descobrir nada no meio do caminho</h2>
-        <p>A concorrência real não é outro PDF de R$37. É Pinterest, YouTube e moldes grátis espalhados. Você não paga por um desenho: paga para não montar o quebra-cabeça sozinha.</p>
+        <h2>Você até encontra moldes grátis. O problema começa quando tenta juntar tudo.</h2>
+        <p>Um José de um site. Uma Maria de outro. Um tutorial no YouTube. Uma medida que ninguém explica. Quando coloca tudo junto, as peças nem parecem do mesmo presépio. Aqui a cena já foi pensada como uma cena.</p>
       </div>
       <div class="contrast-grid">
         <div class="contrast bad">
-          <h3>Sem o pacote</h3>
+          <h3>Tentando sozinha</h3>
           <ul>
-            <li>Salvar moldes de lugares diferentes</li>
-            <li>Descobrir no meio que José ficou maior que Maria</li>
-            <li>Chegar na loja sem saber quais cores comprar</li>
-            <li>Tutorial em um lugar, molde em outro, escala em nenhum</li>
+            <li>Moldes de lugares diferentes</li>
+            <li>José maior que Maria no meio da costura</li>
+            <li>Loja sem saber quais cores comprar</li>
+            <li>Tutorial num lugar, molde em outro, escala em nenhum</li>
           </ul>
         </div>
         <div class="contrast good">
-          <h3>Com o pacote</h3>
+          <h3>Com este pacote</h3>
           <ul class="check-list">
             <li>Mesma escala e mesmo estilo em toda a cena</li>
             <li>Partes nomeadas, com quantidade e cor sugerida</li>
@@ -135,94 +206,145 @@
     <section class="collection-marquee" id="pecas">
       <div class="section-title">
         <p class="eyebrow dark">A cena completa</p>
-        <h2>Não é coleção de moldes avulsos</h2>
-        <p>São 7 grupos pensados para ficar juntos: Maria, José, Menino Jesus, anjo, Reis Magos, pastor e animais, no mesmo estilo e proporção, para a mesa ficar harmônica, não um amontoado de peças soltas.</p>
+        <h2>Um presépio completo. Não moldes que você precisa tentar combinar.</h2>
+        <p>São 15 projetos: Maria, José, Menino Jesus, anjo, pastor, três Reis Magos, quatro animais, manjedoura, estrela e estrebaria. Tudo no mesmo estilo para a mesa ficar completa e harmônica.</p>
       </div>
       <div class="marquee" aria-label="Galeria dos personagens">
-        <div class="marquee-track">
-          <figure class="piece-card"><img src="assets/personagem-maria.png" alt="Maria em feltro"><figcaption>Maria</figcaption></figure>
-          <figure class="piece-card"><img src="assets/personagem-jose.png" alt="José em feltro"><figcaption>José</figcaption></figure>
-          <figure class="piece-card"><img src="assets/personagem-jesus.png" alt="Menino Jesus na manjedoura"><figcaption>Menino Jesus</figcaption></figure>
-          <figure class="piece-card"><img src="assets/personagem-anjo.png" alt="Anjo em feltro"><figcaption>Anjo</figcaption></figure>
-          <figure class="piece-card"><img src="assets/personagem-reis.png" alt="Reis Magos em feltro"><figcaption>Reis Magos</figcaption></figure>
-          <figure class="piece-card"><img src="assets/personagem-pastor.png" alt="Pastor em feltro"><figcaption>Pastor</figcaption></figure>
-          <figure class="piece-card"><img src="assets/personagem-animais.png" alt="Animais do presépio"><figcaption>Animais</figcaption></figure>
-          <figure class="piece-card" aria-hidden="true"><img src="assets/personagem-maria.png" alt=""><figcaption>Maria</figcaption></figure>
-          <figure class="piece-card" aria-hidden="true"><img src="assets/personagem-jose.png" alt=""><figcaption>José</figcaption></figure>
-          <figure class="piece-card" aria-hidden="true"><img src="assets/personagem-jesus.png" alt=""><figcaption>Menino Jesus</figcaption></figure>
-          <figure class="piece-card" aria-hidden="true"><img src="assets/personagem-anjo.png" alt=""><figcaption>Anjo</figcaption></figure>
-          <figure class="piece-card" aria-hidden="true"><img src="assets/personagem-reis.png" alt=""><figcaption>Reis Magos</figcaption></figure>
-          <figure class="piece-card" aria-hidden="true"><img src="assets/personagem-pastor.png" alt=""><figcaption>Pastor</figcaption></figure>
-          <figure class="piece-card" aria-hidden="true"><img src="assets/personagem-animais.png" alt=""><figcaption>Animais</figcaption></figure>
+        <div class="marquee-track" id="marquee-track">
+          <div class="marquee-group">
+            <figure class="piece-card"><img src="assets/personagem-maria.jpg" alt="Maria em feltro" width="480" height="480" decoding="async"><figcaption>Maria</figcaption></figure>
+            <figure class="piece-card"><img src="assets/personagem-jose.jpg" alt="José em feltro" width="480" height="480" decoding="async"><figcaption>José</figcaption></figure>
+            <figure class="piece-card"><img src="assets/personagem-jesus.jpg" alt="Menino Jesus na manjedoura" width="480" height="480" decoding="async"><figcaption>Menino Jesus</figcaption></figure>
+            <figure class="piece-card"><img src="assets/personagem-anjo.jpg" alt="Anjo em feltro" width="480" height="480" decoding="async"><figcaption>Anjo</figcaption></figure>
+            <figure class="piece-card"><img src="assets/personagem-reis.jpg" alt="Reis Magos em feltro" width="480" height="480" decoding="async"><figcaption>Reis Magos</figcaption></figure>
+            <figure class="piece-card"><img src="assets/personagem-pastor.jpg" alt="Pastor em feltro" width="480" height="480" decoding="async"><figcaption>Pastor</figcaption></figure>
+            <figure class="piece-card"><img src="assets/personagem-animais.jpg" alt="Animais do presépio" width="480" height="480" decoding="async"><figcaption>Animais</figcaption></figure>
+          </div>
+          <div class="marquee-group" aria-hidden="true">
+            <figure class="piece-card"><img src="assets/personagem-maria.jpg" alt="" width="480" height="480" decoding="async"><figcaption>Maria</figcaption></figure>
+            <figure class="piece-card"><img src="assets/personagem-jose.jpg" alt="" width="480" height="480" decoding="async"><figcaption>José</figcaption></figure>
+            <figure class="piece-card"><img src="assets/personagem-jesus.jpg" alt="" width="480" height="480" decoding="async"><figcaption>Menino Jesus</figcaption></figure>
+            <figure class="piece-card"><img src="assets/personagem-anjo.jpg" alt="" width="480" height="480" decoding="async"><figcaption>Anjo</figcaption></figure>
+            <figure class="piece-card"><img src="assets/personagem-reis.jpg" alt="" width="480" height="480" decoding="async"><figcaption>Reis Magos</figcaption></figure>
+            <figure class="piece-card"><img src="assets/personagem-pastor.jpg" alt="" width="480" height="480" decoding="async"><figcaption>Pastor</figcaption></figure>
+            <figure class="piece-card"><img src="assets/personagem-animais.jpg" alt="" width="480" height="480" decoding="async"><figcaption>Animais</figcaption></figure>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="section beginner" id="iniciante">
-      <div class="beginner-grid">
-        <div>
-          <p class="eyebrow dark">Mesmo sem experiência</p>
-          <h2>Nunca costurou feltro? O PDF basta quando ele mostra o caminho</h2>
-          <p>Você não precisa saber usar máquina. O manual cobre o essencial da montagem à mão:</p>
-          <ul class="check-list">
-            <li>Onde começar a costura</li>
-            <li>Quais pontos usar</li>
-            <li>Onde deixar a abertura</li>
-            <li>Quanto preencher de enchimento</li>
-            <li>Como fechar e unir as partes</li>
-          </ul>
+      <div class="section-title">
+        <p class="eyebrow dark">Mesmo sem experiência</p>
+        <h2>Mesmo começando do zero, você sabe qual é o próximo passo</h2>
+        <p>Você não precisa saber usar máquina. O guia mostra onde começar, onde deixar a abertura, como colocar o enchimento, fechar e unir cada parte.</p>
+      </div>
+      <ul class="check-list beginner-list">
+        <li>Onde começar a costura</li>
+        <li>Quais pontos usar</li>
+        <li>Onde deixar a abertura</li>
+        <li>Quanto preencher de enchimento</li>
+        <li>Como fechar e unir as partes</li>
+      </ul>
+    </section>
+
+    <section class="product-proof" id="entregaveis">
+      <div class="section product-proof-inner">
+        <div class="section-title light">
+          <p class="eyebrow">Veja antes de comprar</p>
+          <h2>Você recebe uma coleção de verdade, não um arquivo solto</h2>
+          <p>São 15 PDFs separados e numerados. Cada projeto tem 10 páginas e acompanha você do molde ao acabamento final.</p>
         </div>
-        <figure>
-          <img src="assets/entregavel-manual.png" alt="Manual aberto com sequência visual de costura">
-          <figcaption>Passo a passo visual, sem vídeo obrigatório</figcaption>
+
+        <div class="deliverable-numbers" aria-label="Resumo do material recebido">
+          <div><strong>15</strong><span>projetos completos</span></div>
+          <div><strong>150</strong><span>páginas ao todo</span></div>
+          <div><strong>29</strong><span>moldes da coleção</span></div>
+          <div><strong>10</strong><span>páginas por projeto</span></div>
+        </div>
+
+        <figure class="collection-proof-card">
+          <img src="assets/colecao-15-projetos.webp" alt="Capas reais dos 15 PDFs da Coleção Presépio de Feltro" loading="lazy" width="1440" height="1188">
+          <figcaption>
+            <span>Arquivos reais do material</span>
+            <strong>Um PDF organizado para cada personagem e cada peça da cena</strong>
+          </figcaption>
         </figure>
+
+        <div class="project-names" aria-label="Lista dos 15 projetos incluídos">
+          <span>01 Maria</span>
+          <span>02 José</span>
+          <span>03 Menino Jesus</span>
+          <span>04 Anjo</span>
+          <span>05 Pastor</span>
+          <span>06 Gaspar</span>
+          <span>07 Melquior</span>
+          <span>08 Baltazar</span>
+          <span>09 Boi</span>
+          <span>10 Ovelha</span>
+          <span>11 Burrinho</span>
+          <span>12 Camelo</span>
+          <span>13 Manjedoura</span>
+          <span>14 Estrela</span>
+          <span>15 Estrebaria</span>
+        </div>
+
+        <div class="inside-heading">
+          <p class="eyebrow">Por dentro de cada PDF</p>
+          <h3>Veja o que existe nas 10 páginas de um projeto</h3>
+          <p>As imagens abaixo foram retiradas do projeto da Maria. Os outros projetos seguem a mesma organização visual.</p>
+        </div>
+
+        <div class="inside-pages">
+          <article class="inside-page inside-page-featured">
+            <figure><img src="assets/projeto-ficha.webp" alt="Página real com apresentação, nível, tempo, tamanho, técnicas e materiais do projeto Maria" loading="lazy" width="900" height="1272"></figure>
+            <div><b>Páginas 1 e 2</b><h4>Resultado, nível e materiais</h4><p>Você começa sabendo como a peça deve ficar, o nível do projeto, o tempo médio, o tamanho final e tudo o que será usado.</p></div>
+          </article>
+          <article class="inside-page">
+            <figure><img src="assets/projeto-moldes.webp" alt="Páginas reais com moldes em tamanho real do projeto Maria" loading="lazy" width="1260" height="882"></figure>
+            <div><b>Páginas 3 e 4</b><h4>Moldes em tamanho real</h4><p>Partes identificadas, quantidade de corte, cor sugerida e quadrado de conferência para imprimir corretamente.</p></div>
+          </article>
+          <article class="inside-page">
+            <figure><img src="assets/projeto-materiais.webp" alt="Página real com materiais, ferramentas e lista de corte do projeto Maria" loading="lazy" width="900" height="1272"></figure>
+            <div><b>Página 5</b><h4>Materiais e lista de corte</h4><p>Uma lista direta para separar feltros, linhas, enchimento e acessórios antes de começar.</p></div>
+          </article>
+          <article class="inside-page">
+            <figure><img src="assets/projeto-passo-a-passo.webp" alt="Páginas reais com o passo a passo visual de costura do projeto Maria" loading="lazy" width="1338" height="624"></figure>
+            <div><b>Páginas 6, 7 e 8</b><h4>Passo a passo visual</h4><p>Fotos e instruções mostram a ordem para costurar, preencher, unir as partes e finalizar a peça.</p></div>
+          </article>
+          <article class="inside-page">
+            <figure><img src="assets/projeto-finalizacao.webp" alt="Páginas reais com medidas, variações, dicas e checklist final do projeto Maria" loading="lazy" width="1260" height="882"></figure>
+            <div><b>Páginas 9 e 10</b><h4>Medidas, dicas e checklist</h4><p>Referências do resultado pronto, possibilidades de variação e uma checagem final para não esquecer nenhum detalhe.</p></div>
+          </article>
+        </div>
+
+        <div class="delivery-box">
+          <div>
+            <span class="delivery-icon" aria-hidden="true">PDF</span>
+            <div><strong>Entrega digital e imediata no WhatsApp</strong><p>Você recebe os 15 arquivos organizados, abre no celular ou computador e imprime o projeto que quiser começar.</p></div>
+          </div>
+          <a class="button gold" href="#oferta">Quero receber a coleção completa</a>
+        </div>
       </div>
     </section>
 
-    <section class="dark-section" id="entregaveis">
-      <div class="section modules">
-        <div class="section-title left light">
-          <p class="eyebrow">O que você recebe</p>
-          <h2>O mapa completo para montar sem adivinhar</h2>
-          <p>Arquivos organizados para imprimir e costurar: clareza do começo ao fim, não aula interminável.</p>
-        </div>
-        <div class="deliverable-grid">
-          <article class="deliverable">
-            <img src="assets/entregavel-moldes.png" alt="Moldes A4 do presépio">
-            <div>
-              <b>Produto principal</b>
-              <h3>Moldes da cena completa</h3>
-              <p>7 grupos em A4, escala real: Maria, José, Menino Jesus, anjo, Reis Magos, pastor e animais. Partes nomeadas, quantidade de corte e cor sugerida.</p>
-              <span class="value-tag">Essencial</span>
-            </div>
-          </article>
-          <article class="deliverable">
-            <img src="assets/entregavel-manual.png" alt="Manual de montagem">
-            <div>
-              <b>Guia 1</b>
-              <h3>Manual de montagem</h3>
-              <p>Pontos manuais, enchimento, união, rostos e acabamento, do primeiro corte à peça em pé.</p>
-              <span class="value-tag">Incluso</span>
-            </div>
-          </article>
-          <article class="deliverable">
-            <img src="assets/entregavel-materiais.png" alt="Guia de materiais e cores">
-            <div>
-              <b>Guia 2</b>
-              <h3>Materiais e cores</h3>
-              <p>Lista pronta de feltros, linhas, enchimento e acessórios. Compre uma vez, sem erro na loja.</p>
-              <span class="value-tag">Incluso</span>
-            </div>
-          </article>
-          <article class="deliverable">
-            <img src="assets/entregavel-bonus.png" alt="Moldes extras de enfeites natalinos">
-            <div>
-              <b>Extra</b>
-              <h3>Enfeites cristãos menores</h3>
-              <p>Moldes extras no mesmo espírito do Natal, para acompanhar o presépio ou presentear.</p>
-              <span class="value-tag">Incluso</span>
-            </div>
-          </article>
+    <section class="section creator-section" id="atendimento">
+      <div class="creator-card">
+        <figure>
+          <img src="assets/lyzandra-magalhaes.webp" alt="Lyzandra Magalhães, criadora do Natal Feito à Mão" loading="lazy" width="560" height="560">
+        </figure>
+        <div class="creator-copy">
+          <p class="eyebrow dark">Atendimento humano</p>
+          <h2>Tem uma pessoa de verdade por trás deste projeto</h2>
+          <p class="creator-name"><strong>Lyzandra Magalhães</strong><span>Criadora do Natal Feito à Mão</span></p>
+          <p>Se quiser confirmar como funciona o acesso, tirar uma dúvida sobre os arquivos ou entender melhor o que recebe, pode falar direto pelo WhatsApp antes de comprar.</p>
+          <a class="whatsapp-button" href="https://wa.me/554884716938?text=Ol%C3%A1%2C%20Lyzandra%21%20Tenho%20uma%20d%C3%BAvida%20sobre%20a%20Cole%C3%A7%C3%A3o%20Pres%C3%A9pio%20de%20Feltro." target="_blank" rel="noopener noreferrer">
+            <span class="whatsapp-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.28-.14-1.64-.81-1.9-.9-.25-.1-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.37-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.47h-.53c-.18 0-.48.07-.73.34-.25.28-.96.94-.96 2.3s.98 2.66 1.12 2.85c.14.18 1.93 2.95 4.68 4.13.65.28 1.16.45 1.56.58.65.21 1.25.18 1.72.11.52-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.11-.25-.18-.53-.32z"/><path d="M12 2a10 10 0 0 0-8.66 15.05L2 22l5.1-1.33A10 10 0 1 0 12 2zm0 18.2a8.18 8.18 0 0 1-4.17-1.14l-.3-.18-3.03.8.81-2.95-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+            </span>
+            Tirar uma dúvida no WhatsApp
+          </a>
+          <small>Atendimento pelo número +55 48 8471-6938</small>
         </div>
       </div>
     </section>
@@ -235,11 +357,11 @@
       <div class="audience-box">
         <ul class="check-list">
           <li>Vê presépios de feltro e pensa “um dia ainda faço o meu”</li>
+          <li>Quer poder dizer que foi você quem fez</li>
           <li>Quer um projeto de Natal já organizado do começo ao fim</li>
           <li>Não quer abrir Pinterest, YouTube e Google caçando uma parte em cada lugar</li>
           <li>Prefere PDF claro a vídeo longo</li>
           <li>Vai costurar à mão (máquina não é obrigatória)</li>
-          <li>Consegue imprimir em A4 e tem materiais básicos</li>
         </ul>
         <p>Se a sua prioridade é a peça na mesa (harmônica, completa, no estilo da foto), este pacote foi feito para você.</p>
       </div>
@@ -248,24 +370,22 @@
     <section class="offer-wrap" id="oferta">
       <div class="offer">
         <p class="eyebrow">Oferta Natal Feito à Mão</p>
-        <h2>Presépio completo · moldes + guias</h2>
-        <p class="offer-lead">Tudo organizado para você imprimir e montar a cena deste Natal, sem montar o quebra-cabeça sozinha.</p>
-        <p class="offer-deadline" id="offer-deadline">Acesso imediato aos PDFs.</p>
+        <h2>Presépio completo por R$37</h2>
+        <p class="offer-lead">Tudo organizado pra você imprimir e montar a cena deste Natal.</p>
+        <p class="offer-deadline" id="offer-deadline">Comece com calma. Faça uma peça por vez.</p>
         <div class="offer-columns">
           <div class="value-stack">
-            <div class="stack-row"><span>Moldes A4 da cena completa (7 grupos)</span><strong>incluso</strong></div>
-            <div class="stack-row"><span>Manual de montagem completo</span><strong>incluso</strong></div>
-            <div class="stack-row"><span>Guia de materiais e cores</span><strong>incluso</strong></div>
-            <div class="stack-row"><span>Extra: enfeites cristãos menores</span><strong>incluso</strong></div>
-            <div class="stack-total"><span>Acesso imediato · PDF</span><strong>pacote completo</strong></div>
-            <p class="stack-note">Em vez de caçar moldes soltos, ajustar escalas e descobrir materiais na tentativa: você recebe o caminho pronto.</p>
+            <div class="stack-row"><span>15 projetos separados e numerados</span><strong>incluso</strong></div>
+            <div class="stack-row"><span>29 moldes em tamanho real</span><strong>incluso</strong></div>
+            <div class="stack-row"><span>Materiais e lista de corte em cada projeto</span><strong>incluso</strong></div>
+            <div class="stack-row"><span>Passo a passo, medidas, dicas e checklist</span><strong>incluso</strong></div>
+            <div class="stack-total"><span>150 páginas no WhatsApp</span><strong>incluso</strong></div>
           </div>
           <div class="price-box">
             <small>Pagamento único</small>
             <div class="price"><sup>R$</sup><strong>37</strong><span>,00</span></div>
-            <p class="anchor-note">pelo pacote completo organizado</p>
             <button class="button gold checkout-button">Quero montar meu presépio</button>
-            <small>Acesso imediato · Garantia de 7 dias</small>
+            <small>Acesso imediato no WhatsApp. Garantia de 7 dias.</small>
           </div>
         </div>
       </div>
@@ -308,7 +428,7 @@
         </details>
         <details>
           <summary>Tem vídeo-aula?</summary>
-          <p>Não. O pacote é 100% PDF: moldes + guias. Ideal se você prefere seguir no papel, no seu ritmo, sem tela aberta o tempo todo.</p>
+          <p>Não. O pacote é 100% em PDF: moldes + guias. Ideal se você prefere imprimir e acompanhar no seu ritmo, sem depender de vídeo.</p>
         </details>
         <details>
           <summary>Materiais físicos estão incluídos?</summary>
@@ -316,15 +436,15 @@
         </details>
         <details>
           <summary>Por que pagar se existem moldes grátis?</summary>
-          <p>Moldes grátis quase nunca vêm como uma cena fechada: mesma escala, mesmo estilo, ordem de montagem e lista de materiais. Aqui você compra o caminho organizado, não uma folha solta para montar o quebra-cabeça sozinha.</p>
+          <p>Moldes grátis quase nunca vêm como uma cena fechada: mesma escala, mesmo estilo, ordem de montagem e lista de materiais. Aqui você compra o caminho organizado, não uma folha solta pra tentar combinar sozinha.</p>
         </details>
         <details>
           <summary>Dá tempo de montar até o Natal?</summary>
-          <p>Sim, se você começar agora e avançar peça a peça. Separe um tempo para imprimir e recortar; depois monte no seu ritmo. Uma personagem por vez também funciona. Quanto antes começar, mais folga até a data.</p>
+          <p>Quanto antes começar, mais tranquila fica a montagem. Você pode fazer uma peça de cada vez, no seu ritmo, até completar a cena. Em setembro e outubro, dá pra ir sem pressa.</p>
         </details>
         <details>
           <summary>Recebo na hora? Funciona no celular?</summary>
-          <p>Sim: acesso imediato após a compra. Os PDFs abrem no celular, tablet ou computador. Para costurar com conforto, muitos preferem imprimir em A4.</p>
+          <p>Sim. Depois da compra, você recebe os arquivos direto no WhatsApp, com acesso imediato. Os PDFs abrem no celular, tablet ou computador. Para costurar com conforto, muitos preferem imprimir em A4.</p>
         </details>
         <details>
           <summary>Como funciona a garantia?</summary>
@@ -335,7 +455,7 @@
   </main>
 
   <footer>
-    <p>Natal Feito à Mão · Produto digital. Materiais físicos não incluídos.</p>
+    <p>Natal Feito à Mão. Produto digital. Materiais físicos não incluídos.</p>
     <p>© 2026. Todos os direitos reservados.</p>
   </footer>
 
@@ -353,6 +473,6 @@
       <button class="button navy modal-ok">Entendi</button>
     </div>
   </div>
-  <script src="assets/app.js"></script>
+  <script src="assets/app.js?v=46" defer></script>
 </body>
 </html>
