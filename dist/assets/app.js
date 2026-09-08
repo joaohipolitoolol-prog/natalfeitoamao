@@ -118,6 +118,10 @@ const daysLeft = Math.max(0, Math.ceil((christmas - now) / 86400000));
 
 const urgencyLine = document.querySelector("#urgency-line");
 const urgencyCount = document.querySelector("#urgency-count");
+const offerDays = document.querySelector("#offer-days");
+const offerHours = document.querySelector("#offer-hours");
+const offerMinutes = document.querySelector("#offer-minutes");
+const offerSeconds = document.querySelector("#offer-seconds");
 const offerDeadline = document.querySelector("#offer-deadline");
 
 if (urgencyCount) {
@@ -133,15 +137,27 @@ if (urgencyCount) {
   }
 }
 
+const updateOfferCountdown = () => {
+  if (!offerDays) return;
+  const remaining = Math.max(0, christmas.getTime() - Date.now());
+  offerDays.textContent = Math.floor(remaining / 86400000);
+  offerHours.textContent = String(Math.floor((remaining % 86400000) / 3600000)).padStart(2, "0");
+  offerMinutes.textContent = String(Math.floor((remaining % 3600000) / 60000)).padStart(2, "0");
+  offerSeconds.textContent = String(Math.floor((remaining % 60000) / 1000)).padStart(2, "0");
+};
+
+updateOfferCountdown();
+if (offerDays) setInterval(updateOfferCountdown, 1000);
+
 if (offerDeadline) {
   if (daysLeft === 0) {
-    offerDeadline.textContent = "Arquivos com acesso imediato para você guardar e costurar quando quiser.";
+    offerDeadline.textContent = "Receba os arquivos imediatamente e guarde para costurar quando quiser.";
   } else if (daysLeft <= 21) {
-    offerDeadline.textContent = "Ainda dá tempo. Comece pelas figuras centrais e finalize no seu ritmo.";
+    offerDeadline.textContent = "Ainda dá tempo: receba agora, comece pelas figuras centrais e avance no seu ritmo.";
   } else if (daysLeft <= 60) {
-    offerDeadline.textContent = "Ainda dá tempo de começar. Faça uma peça por vez até completar a cena.";
+    offerDeadline.textContent = "Receba agora e faça uma peça por vez até completar a cena.";
   } else {
-    offerDeadline.textContent = "Comece com calma. Faça uma peça por vez e chegue em dezembro com o presépio pronto.";
+    offerDeadline.textContent = "Comece com calma agora e chegue em dezembro com o presépio pronto.";
   }
 }
 
