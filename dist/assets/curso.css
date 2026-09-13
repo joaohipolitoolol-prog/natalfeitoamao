@@ -1,0 +1,299 @@
+/* Upsell pré-venda: headline → mock pequeno → sub → oferta */
+.curso-page{
+  --c-bg:#081e18;
+  --c-ink:#f4f1ea;
+  --c-muted:#b7c5c3;
+  --c-gold:#f3d993;
+  --c-gold2:#d5a343;
+  --c-serif:Georgia,"Times New Roman",serif;
+  --c-sans:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  margin:0;
+  min-height:100vh;
+  background:linear-gradient(180deg,#0c2c24,#081e18 40%,#061612);
+  color:var(--c-ink);
+  font-family:var(--c-sans);
+  font-size:17px;
+  line-height:1.5
+}
+.curso-page *{box-sizing:border-box}
+.curso-page img{display:block;max-width:100%;height:auto}
+.curso-page a{color:inherit}
+.curso-page h1{
+  font-family:var(--c-serif);
+  letter-spacing:-.03em;
+  line-height:1.1;
+  font-weight:700
+}
+.curso-page .button{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:56px;padding:.95rem 1.35rem;border:0;border-radius:4px;
+  font-weight:800;font-size:1.02rem;text-decoration:none;cursor:pointer;
+  width:min(100%,420px)
+}
+.curso-page .button.gold{
+  background:linear-gradient(#f5df9d,#d5a343);
+  color:#251d0c;
+  box-shadow:0 14px 32px rgba(216,171,80,.25)
+}
+.curso-page .button.gold:focus-visible{outline:2px solid #fff;outline-offset:3px}
+
+.cu-alert{
+  position:sticky;top:0;z-index:20;
+  background:#b71c1c;
+  color:#fff;
+  text-align:center;
+  padding:.7rem 1rem;
+  font-size:.82rem;
+  font-weight:800;
+  line-height:1.35
+}
+
+.cu-upsell{
+  width:min(560px,100%);
+  margin:0 auto;
+  padding:1.5rem 1.15rem 2.75rem;
+  text-align:center
+}
+.cu-confirm{
+  display:inline-block;
+  margin:0 0 .55rem;
+  padding:.32rem .7rem;
+  border-radius:4px;
+  background:rgba(243,217,147,.12);
+  color:var(--c-gold);
+  font-size:.78rem;
+  font-weight:700
+}
+.cu-bridge{
+  margin:0 0 .55rem;
+  color:#9aaba8;
+  font-size:.92rem;
+  font-weight:600
+}
+.cu-upsell h1{
+  margin:0 auto .75rem;
+  font-size:clamp(1.75rem,6vw,2.4rem);
+  max-width:16ch
+}
+.cu-upsell .lead{
+  margin:0 auto 1.1rem;
+  max-width:38ch;
+  color:var(--c-muted);
+  font-size:1.02rem
+}
+.cu-upsell .lead strong{color:#e8efe9;font-weight:700}
+
+.cu-course-mockup{
+  width:min(420px,100%);
+  margin:0 auto 1rem;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:10px;
+  overflow:hidden;
+  background:#102a23;
+  box-shadow:0 14px 36px rgba(0,0,0,.35);
+  text-align:left;
+  pointer-events:none;
+  user-select:none
+}
+.cu-course-top{
+  min-height:36px;
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  gap:.55rem;
+  padding:.45rem .6rem;
+  background:#ede9df;
+  color:#173d32
+}
+.cu-course-top strong{
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  font-size:.7rem
+}
+.cu-window-dots{display:flex;gap:4px}
+.cu-window-dots i{width:6px;height:6px;border-radius:50%;background:#b6b0a5}
+.cu-window-dots i:first-child{background:#d45b52}
+.cu-prebadge{
+  padding:.18rem .35rem;
+  border-radius:3px;
+  background:#b71c1c;
+  color:#fff;
+  font-size:.5rem;
+  font-weight:900;
+  letter-spacing:.07em
+}
+.cu-course-body{display:grid;grid-template-columns:minmax(0,1fr)}
+.cu-video{
+  position:relative;
+  min-width:0;
+  aspect-ratio:16/10;
+  overflow:hidden;
+  background:#020806
+}
+.cu-video:after{
+  content:"";
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.04) 55%,rgba(0,0,0,.72))
+}
+.cu-video img{width:100%;height:100%;object-fit:cover;object-position:center 35%}
+.cu-video-label{
+  position:absolute;z-index:2;top:.55rem;left:.55rem;
+  padding:.22rem .4rem;border-radius:3px;
+  background:#b71c1c;color:#fff;
+  font-size:.52rem;font-weight:900;letter-spacing:.08em
+}
+.cu-video-controls{
+  display:none
+}
+.cu-progress{display:none}
+.cu-lessons{display:none;padding:.55rem;background:#0d241e}
+.cu-lessons>p{
+  margin:0 0 .4rem;color:#9eb0ac;font-size:.55rem;font-weight:800;
+  letter-spacing:.1em;text-transform:uppercase
+}
+.cu-lesson{
+  display:grid;grid-template-columns:34px 1fr;gap:.4rem;align-items:center;
+  margin-bottom:.3rem;padding:.28rem;border-radius:4px;color:#c5d1ce
+}
+.cu-lesson.active{background:#173d32;color:#fff}
+.cu-lesson img{width:34px;height:28px;object-fit:cover;border-radius:3px}
+.cu-lesson span{min-width:0}
+.cu-lesson b,.cu-lesson small{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cu-lesson b{font-size:.6rem}
+.cu-lesson small{margin-top:.04rem;color:#8fa09c;font-size:.5rem}
+@media(min-width:560px){
+  .cu-course-body{grid-template-columns:minmax(0,1fr) 150px}
+  .cu-lessons{display:block}
+}
+
+.cu-offer-box{
+  margin:0 auto;
+  padding:1.15rem 1rem 1.25rem;
+  width:min(100%,460px);
+  border:1px solid rgba(243,217,147,.28);
+  border-radius:10px;
+  background:rgba(18,53,44,.85)
+}
+.cu-offer-title{
+  margin:0 0 .45rem;
+  color:var(--c-gold);
+  font-size:.78rem;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase
+}
+.cu-offer-text{
+  margin:0 auto 1rem;
+  max-width:34ch;
+  color:#d5e0de;
+  font-size:.95rem
+}
+
+.cu-checks{
+  margin:0 auto 1.1rem;
+  padding:0;
+  list-style:none;
+  text-align:left;
+  width:min(100%,340px)
+}
+.cu-checks li{
+  position:relative;
+  padding:.38rem 0 .38rem 1.25rem;
+  color:#d7e2e0;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  font-size:.95rem
+}
+.cu-checks li:last-child{border-bottom:0}
+.cu-checks li:before{
+  content:"✓";
+  position:absolute;left:0;
+  color:var(--c-gold2);
+  font-weight:900
+}
+
+#hotmart-sales-funnel{
+  width:100%;
+  min-height:56px;
+  margin:.15rem auto .15rem
+}
+#hotmart-sales-funnel iframe,
+#hotmart-sales-funnel > *{
+  width:100%!important;
+  max-width:100%
+}
+.cu-price{
+  margin:0 0 1rem;
+  font-family:var(--c-serif);
+  line-height:1
+}
+.cu-price small{
+  display:block;
+  margin-bottom:.35rem;
+  color:#ffcdd2;
+  font-family:var(--c-sans);
+  font-size:.68rem;
+  font-weight:800;
+  letter-spacing:.1em;
+  text-transform:uppercase
+}
+.cu-price .was{
+  display:block;
+  margin-bottom:.1rem;
+  color:#8e9e9b;
+  font-family:var(--c-sans);
+  font-size:.92rem;
+  font-weight:600;
+  text-decoration:line-through
+}
+.cu-price strong{font-size:clamp(2.8rem,11vw,3.5rem);letter-spacing:-.06em}
+.cu-price strong sup{font-size:.42em;margin-right:.08em}
+.cu-price .note{
+  display:block;
+  margin-top:.45rem;
+  color:#9aaba8;
+  font-family:var(--c-sans);
+  font-size:.78rem;
+  font-weight:600
+}
+
+.cu-decline{margin:1rem 0 0;font-size:.88rem}
+.cu-decline a{
+  color:#8fa09c;
+  text-decoration:underline;
+  text-underline-offset:3px
+}
+.cu-decline a:hover{color:var(--c-gold)}
+
+.curso-page .modal{
+  position:fixed;inset:0;display:none;align-items:center;justify-content:center;
+  padding:1.25rem;background:rgba(0,0,0,.62);z-index:40
+}
+.curso-page .modal.open{display:flex}
+.curso-page .modal-card{
+  position:relative;width:min(420px,100%);padding:1.5rem 1.35rem 1.35rem;
+  border-radius:10px;background:#f7f3eb;color:#173d32;text-align:center
+}
+.cu-last-badge{
+  display:inline-block;margin:0 0 .75rem;padding:.35rem .65rem;
+  border-radius:4px;background:#b71c1c;color:#fff;
+  font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase
+}
+.cu-last-card h2{
+  margin:0 auto .65rem;font-family:var(--c-serif);font-size:clamp(1.35rem,5vw,1.7rem);
+  line-height:1.15;max-width:16ch;color:#173d32
+}
+.cu-last-text{
+  margin:0 auto 1rem;max-width:30ch;color:#3d4f49;font-size:.95rem
+}
+.cu-last-price{margin:0 0 1rem;font-family:var(--c-serif);line-height:1}
+.cu-last-price .was{
+  display:block;margin-bottom:.15rem;color:#8a9691;
+  font-family:var(--c-sans);font-size:.95rem;font-weight:600;text-decoration:line-through
+}
+.cu-last-price strong{font-size:clamp(2.6rem,10vw,3.2rem);letter-spacing:-.05em;color:#173d32}
+.cu-last-price strong sup{font-size:.42em;margin-right:.08em}
+.cu-last-card .button.gold{width:100%}
+.cu-last-card .cu-decline{margin:.95rem 0 0}
+.cu-last-card .cu-decline a{color:#6f7f79}

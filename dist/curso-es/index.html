@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#b71c1c">
+  <title>Preventa del curso | Navidad Hecha a Mano</title>
+  <link rel="icon" href="/assets/favicon-v2.svg" type="image/svg+xml">
+  <link rel="preload" as="image" href="/assets/personagem-maria.jpg" fetchpriority="high">
+  <link rel="stylesheet" href="/assets/curso.css?v=12">
+</head>
+<body class="curso-page">
+  <div class="cu-alert" role="status" data-price-alert>
+    Preventa: US$27 ahora · US$47 después del 10 de octubre
+  </div>
+
+  <main>
+    <section class="cu-upsell" id="oferta">
+      <p class="cu-confirm">Tus moldes ya están garantizados</p>
+      <p class="cu-bridge">Antes de continuar a tu acceso…</p>
+      <h1>¿También quieres el paso a paso en video?</h1>
+      <p class="lead">Es la preventa del curso del mismo pesebre que acabas de comprar. <strong>15 clases</strong>, pieza por pieza. El acceso se libera el <strong>10 de octubre</strong>.</p>
+
+      <div class="cu-course-mockup" aria-hidden="true">
+        <div class="cu-course-top">
+          <span class="cu-window-dots"><i></i><i></i><i></i></span>
+          <strong>Vista previa del área de clases</strong>
+          <span class="cu-prebadge">PREVENTA</span>
+        </div>
+        <div class="cu-course-body">
+          <div class="cu-video">
+            <img src="/assets/personagem-maria.jpg" width="480" height="480" alt="" fetchpriority="high" decoding="async">
+            <span class="cu-video-label">15 CLASES</span>
+          </div>
+          <div class="cu-lessons">
+            <p>Incluye</p>
+            <div class="cu-lesson active">
+              <img src="/assets/personagem-maria.jpg" alt="" width="480" height="480">
+              <span><b>01 · María</b><small>Corte y costura</small></span>
+            </div>
+            <div class="cu-lesson">
+              <img src="/assets/personagem-jose.jpg" alt="" width="480" height="480">
+              <span><b>02 · José</b><small>Montaje</small></span>
+            </div>
+            <div class="cu-lesson">
+              <img src="/assets/personagem-jesus.jpg" alt="" width="480" height="480">
+              <span><b>03 · Niño Jesús</b><small>+ 12 clases</small></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cu-offer-box">
+        <p class="cu-offer-title">Entra en la preventa ahora</p>
+        <p class="cu-offer-text" data-price-offer-text>Hoy aseguras el precio de fundadora. Después del 10 de octubre, el curso sube a US$47.</p>
+
+        <ul class="cu-checks">
+          <li>15 clases en video del pesebre completo</li>
+          <li>Una clase por cada pieza de tu pack</li>
+          <li>Acceso liberado el 10 de octubre</li>
+          <li>Acceso de por vida</li>
+          <li>7 días de garantía después de la liberación</li>
+        </ul>
+
+        <div class="cu-price">
+          <small>Precio de fundadora</small>
+          <span class="was" data-price-was>US$47 después del lanzamiento</span>
+          <strong data-price-now>US$27</strong>
+          <span class="note" data-currency-note>Pago único · acceso el 10/10</span>
+        </div>
+
+        <!-- HOTMART - Sales Funnel Widget -->
+        <div id="hotmart-sales-funnel"></div>
+        <!-- HOTMART - Sales Funnel Widget -->
+        <p class="cu-decline">
+          <a href="/gracias" data-curso-decline>No, solo quiero continuar con mis moldes</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal cu-last-chance" id="curso-last-chance" aria-hidden="true">
+    <div class="modal-card cu-last-card" role="dialog" aria-modal="true" aria-labelledby="curso-last-title">
+      <p class="cu-last-badge">Última oportunidad</p>
+      <h2 id="curso-last-title">¿Llevas la preventa con descuento?</h2>
+      <p class="cu-last-text">El mismo curso, 15 clases, acceso el 10 de octubre. Solo ahora con descuento.</p>
+      <div class="cu-last-price">
+        <span class="was" data-price-discount-was>US$27</span>
+        <strong data-price-discount>US$21</strong>
+      </div>
+      <button type="button" class="button gold" data-curso-descuento>Sí, quiero por US$21</button>
+      <p class="cu-decline">
+        <a href="/gracias" data-curso-final-decline>No, solo quiero mis moldes</a>
+      </p>
+    </div>
+  </div>
+
+  <script src="/assets/curso-es.js?v=5" defer></script>
+  <script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
+  <script>
+    if (window.checkoutElements) {
+      checkoutElements.init("salesFunnel").mount("#hotmart-sales-funnel");
+    }
+  </script>
+</body>
+</html>

@@ -1,13 +1,13 @@
 /* ========= Configuração ========= */
 const checkoutUrls = {
-  feltro: "https://pay.cakto.com.br/3cacksx_1089575",
+  feltro: "https://pay.cakto.com.br/ev7k223",
   feltroBump: "",
 };
 
 const metaPixelId = "1051422547811449";
-const BACK_REDIRECT_PATH = "voltar";
+const BACK_REDIRECT_PATH = "/voltar";
 
-const BASE_PRICE = 37;
+const BASE_PRICE = 47;
 const BUMP_PRICE = 27;
 
 /* ========= Meta Pixel + UTMify (depois do load, não compete com LCP) ========= */
@@ -207,8 +207,9 @@ document.querySelectorAll(".checkout-button").forEach((button) =>
     });
 
     if (url) {
-      // Marca que foi pro checkout: se voltar, aí sim abre /voltar
+      // Marca que foi pro checkout: se voltar, aí sim abre /voltar com downsell R$37
       sessionStorage.setItem("nf_to_checkout", "1");
+      sessionStorage.setItem("nf_offer", "47");
       window.location.href = url;
       return;
     }
@@ -331,28 +332,6 @@ if (sticky && stickyTrigger && offer && "IntersectionObserver" in window) {
   const isBackPage = /\/voltar\/?$/i.test(path) || /voltar\.html?$/i.test(path);
   if (isBackPage) {
     sessionStorage.removeItem("nf_to_checkout");
-    // Quem saiu do checkout de R$47: R$37 como recuperação
-    if (sessionStorage.getItem("nf_offer") === "47") {
-      const eyebrow = document.querySelector("#back-eyebrow");
-      const title = document.querySelector("#back-title");
-      const lead = document.querySelector("#back-lead");
-      const price = document.querySelector("#back-price");
-      const cta = document.querySelector("#back-cta");
-      const home = document.querySelector("#back-home");
-      if (eyebrow) eyebrow.textContent = "Oferta de retorno";
-      if (title) title.innerHTML = "Leva o mesmo presépio <em>com desconto</em>";
-      if (lead)
-        lead.textContent =
-          "Você estava a um passo. Agora garante a coleção completa por menos — só enquanto esta página estiver aberta.";
-      if (price)
-        price.innerHTML = '<small>Só nesta página</small><span class="was">R$47</span>R$37';
-      if (cta) cta.textContent = "Quero garantir por R$37";
-      if (home) {
-        home.setAttribute("href", "/colecao");
-        home.textContent = "Voltar pra oferta anterior";
-      }
-      sessionStorage.removeItem("nf_offer");
-    }
     return;
   }
 

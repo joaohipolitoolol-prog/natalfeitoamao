@@ -1,11 +1,11 @@
 /* ========= Configuração ========= */
 const checkoutUrls = {
-  feltro: "https://pay.cakto.com.br/3cacksx_1089575",
+  feltro: "https://pay.wiapy.com/6aa4d92d53d313e338788768",
   feltroBump: "",
 };
 
 const metaPixelId = "1051422547811449";
-const BACK_REDIRECT_PATH = "voltar";
+const BACK_REDIRECT_PATH = "/voltar";
 
 const BASE_PRICE = 37;
 const BUMP_PRICE = 27;
