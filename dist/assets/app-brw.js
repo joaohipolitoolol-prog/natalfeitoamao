@@ -1,6 +1,6 @@
 /* ========= Configuração ========= */
 const checkoutUrls = {
-  feltro: "https://pay.wiapy.com/6aa4d92d53d313e338788768",
+  feltro: "https://pay.cakto.com.br/3cacksx_1089575",
   feltroBump: "",
 };
 
