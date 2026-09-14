@@ -1,6 +1,6 @@
 /* Pré-venda do curso em vídeo · BR */
-const cursoCheckoutUrl = "https://pay.cakto.com.br/guym6vi_1102879";
-const cursoDescontoUrl = "https://pay.cakto.com.br/j7w4a3v";
+const cursoCheckoutUrl = "https://pay.wiapy.com/6aa7a62d2e178cb3a2cba9cd";
+const cursoDescontoUrl = "https://pay.wiapy.com/2LGHYicjMSt";
 const declineUrl = "/obrigado";
 const CHECKOUT_FLAG = "nf_curso_checkout";
 
