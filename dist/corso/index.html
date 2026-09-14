@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#b71c1c">
+  <title>Preventa del corso | Natale Fatto a Mano</title>
+  <link rel="icon" href="/assets/favicon-v2.svg" type="image/svg+xml">
+  <link rel="preload" as="image" href="/assets/personagem-maria.jpg" fetchpriority="high">
+  <link rel="stylesheet" href="/assets/curso.css?v=12">
+</head>
+<body class="curso-page">
+  <div class="cu-alert" role="status">
+    Preventa: €27 ora · €47 dopo il 10 ottobre
+  </div>
+
+  <main>
+    <section class="cu-upsell" id="oferta">
+      <p class="cu-confirm">I tuoi cartamodelli sono già garantiti</p>
+      <p class="cu-bridge">Prima di continuare al tuo accesso…</p>
+      <h1>Vuoi anche il passo dopo passo in video?</h1>
+      <p class="lead">È la preventa del corso dello stesso presepe che hai appena acquistato. <strong>15 lezioni</strong>, pezzo per pezzo. L’accesso si libera il <strong>10 ottobre</strong>.</p>
+
+      <div class="cu-course-mockup" aria-hidden="true">
+        <div class="cu-course-top">
+          <span class="cu-window-dots"><i></i><i></i><i></i></span>
+          <strong>Anteprima dell’area lezioni</strong>
+          <span class="cu-prebadge">PREVENTA</span>
+        </div>
+        <div class="cu-course-body">
+          <div class="cu-video">
+            <img src="/assets/personagem-maria.jpg" width="480" height="480" alt="" fetchpriority="high" decoding="async">
+            <span class="cu-video-label">15 LEZIONI</span>
+          </div>
+          <div class="cu-lessons">
+            <p>Include</p>
+            <div class="cu-lesson active">
+              <img src="/assets/personagem-maria.jpg" alt="" width="480" height="480">
+              <span><b>01 · Maria</b><small>Taglio e cucito</small></span>
+            </div>
+            <div class="cu-lesson">
+              <img src="/assets/personagem-jose.jpg" alt="" width="480" height="480">
+              <span><b>02 · Giuseppe</b><small>Montaggio</small></span>
+            </div>
+            <div class="cu-lesson">
+              <img src="/assets/personagem-jesus.jpg" alt="" width="480" height="480">
+              <span><b>03 · Bambino Gesù</b><small>+ 12 lezioni</small></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cu-offer-box">
+        <p class="cu-offer-title">Entra in preventa ora</p>
+        <p class="cu-offer-text">Oggi blocchi il prezzo da fondatrice. Dopo il 10 ottobre, il corso sale a €47.</p>
+
+        <ul class="cu-checks">
+          <li>15 lezioni in video del presepe completo</li>
+          <li>Una lezione per ogni pezzo del tuo pack</li>
+          <li>Accesso liberato il 10 ottobre</li>
+          <li>Accesso a vita</li>
+          <li>7 giorni di garanzia dopo la liberazione</li>
+        </ul>
+
+        <div class="cu-price">
+          <small>Prezzo da fondatrice</small>
+          <span class="was">€47 dopo il lancio</span>
+          <strong>€27</strong>
+          <span class="note">Pagamento unico · accesso il 10/10</span>
+        </div>
+
+        <!-- HOTMART - Sales Funnel Widget (cola o código Hotmart quando o produto estiver pronto) -->
+        <div id="hotmart-sales-funnel"></div>
+
+        <button type="button" class="button gold" data-curso-accept>Sì, voglio la preventa per €27</button>
+        <p class="cu-decline">
+          <a href="/grazie" data-curso-decline>No, voglio solo continuare con i miei cartamodelli</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal cu-last-chance" id="curso-last-chance" aria-hidden="true">
+    <div class="modal-card cu-last-card" role="dialog" aria-modal="true" aria-labelledby="curso-last-title">
+      <p class="cu-last-badge">Ultima occasione</p>
+      <h2 id="curso-last-title">Prendi la preventa con sconto?</h2>
+      <p class="cu-last-text">Stesso corso, 15 lezioni, accesso il 10 ottobre. Solo ora per €21.</p>
+      <div class="cu-last-price">
+        <span class="was">€27</span>
+        <strong>€21</strong>
+      </div>
+      <button type="button" class="button gold" data-curso-desconto>Sì, voglio per €21</button>
+      <p class="cu-decline">
+        <a href="/grazie" data-curso-final-decline>No, voglio solo i miei cartamodelli</a>
+      </p>
+    </div>
+  </div>
+
+  <script src="/assets/corso.js?v=1" defer></script>
+  <script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
+  <script>
+    if (window.checkoutElements) {
+      checkoutElements.init("salesFunnel").mount("#hotmart-sales-funnel");
+    }
+  </script>
+</body>
+</html>
