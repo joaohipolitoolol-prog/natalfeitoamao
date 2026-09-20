@@ -1,6 +1,6 @@
 /* Prix en euros. Ajoutez l'URL Hotmart dès que le produit FR est créé. */
 const EUR_PRICE = 15;
-const HOTMART_CHECKOUT_URL = "";
+const HOTMART_CHECKOUT_URL = "https://pay.hotmart.com/C107694204N?checkoutMode=10";
 const META_PIXEL_ID = "1051422547811449";
 
 const FALLBACK_RATES = {
