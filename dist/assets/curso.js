@@ -1,4 +1,5 @@
 /* Pré-venda do curso em vídeo · BR */
+const META_PIXEL_ID = "1051422547811449";
 const cursoCheckoutUrl = "https://pay.wiapy.com/6aa7a62d2e178cb3a2cba9cd";
 const cursoDescontoUrl = "https://pay.wiapy.com/2LGHYicjMSt";
 const declineUrl = "/obrigado";
@@ -117,3 +118,38 @@ document.addEventListener("keydown", (event) => {
     if (nav?.type === "back_forward") sendToLastChance();
   }
 })();
+
+if (META_PIXEL_ID && !window.fbq) {
+  window.addEventListener(
+    "load",
+    () => {
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = true;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = true;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+      const am = typeof window.nfGetAdvancedMatching === "function" ? window.nfGetAdvancedMatching() : {};
+      window.fbq("init", META_PIXEL_ID, {
+        em: am.em,
+        ph: am.ph,
+        fn: am.fn,
+        ln: am.ln,
+        country: am.country,
+        external_id: am.external_id,
+      });
+      window.fbq("track", "PageView");
+    },
+    { once: true }
+  );
+}

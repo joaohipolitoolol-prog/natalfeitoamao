@@ -29,7 +29,15 @@ const initPixel = () => {
     s = b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t, s);
   })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
-  window.fbq("init", metaPixelId);
+  const am = typeof window.nfGetAdvancedMatching === "function" ? window.nfGetAdvancedMatching() : {};
+  window.fbq("init", metaPixelId, {
+    em: am.em,
+    ph: am.ph,
+    fn: am.fn,
+    ln: am.ln,
+    country: am.country,
+    external_id: am.external_id,
+  });
   window.fbq("track", "PageView");
 };
 
