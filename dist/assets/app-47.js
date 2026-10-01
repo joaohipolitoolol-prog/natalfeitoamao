@@ -122,7 +122,7 @@ const withUtmParams = (url) => {
 const christmas = new Date(new Date().getFullYear(), 11, 25);
 const now = new Date();
 if (now > christmas) christmas.setFullYear(christmas.getFullYear() + 1);
-const daysLeft = Math.max(0, Math.ceil((christmas - now) / 86400000));
+const daysLeft = Math.max(0, Math.floor((christmas - now) / 86400000));
 
 const urgencyLine = document.querySelector("#urgency-line");
 const urgencyCount = document.querySelector("#urgency-count");
