@@ -215,6 +215,10 @@ h1 em{color:var(--gold2);font-style:italic;font-weight:600}
   box-shadow:0 28px 70px rgba(0,0,0,.28)
 }
 .collection-proof-card>img{width:100%;background:#f2ebdc}
+.collection-proof-card.v4-single>img{
+  display:block;width:auto;max-width:100%;max-height:760px;margin:0 auto;
+  padding:1rem;object-fit:contain
+}
 .collection-proof-card figcaption{
   display:flex;align-items:center;justify-content:space-between;gap:1.25rem;
   padding:1rem 1.2rem;background:#fff;color:var(--ink)
