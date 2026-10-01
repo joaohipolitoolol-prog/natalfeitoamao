@@ -1,6 +1,6 @@
 /* ========= UK configuration ========= */
 const checkoutUrls = {
-  feltro: "",
+  feltro: "https://pay.hotmart.com/A107853524S?checkoutMode=10",
   feltroBump: "",
 };
 
