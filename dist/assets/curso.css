@@ -297,3 +297,58 @@
 .cu-last-card .button.gold{width:100%}
 .cu-last-card .cu-decline{margin:.95rem 0 0}
 .cu-last-card .cu-decline a{color:#6f7f79}
+
+
+/* Bonus exclusivo da oferta principal */
+.cu-bonus-card{
+  width:min(100%,460px);
+  margin:0 auto 1rem;
+  padding:1rem;
+  border:1px solid rgba(243,217,147,.38);
+  border-radius:10px;
+  background:linear-gradient(145deg,rgba(183,28,28,.18),rgba(18,53,44,.95));
+  text-align:left;
+  box-shadow:0 14px 34px rgba(0,0,0,.22)
+}
+.cu-bonus-badge{
+  display:inline-block;
+  margin:0 0 .7rem;
+  padding:.28rem .55rem;
+  border-radius:4px;
+  background:#b71c1c;
+  color:#fff;
+  font-size:.65rem;
+  font-weight:900;
+  letter-spacing:.09em;
+  text-transform:uppercase
+}
+.cu-bonus-grid{display:grid;grid-template-columns:74px 1fr;gap:.85rem;align-items:center}
+.cu-bonus-symbol{
+  width:74px;height:74px;border:1px solid rgba(243,217,147,.45);
+  border-radius:8px;display:grid;place-items:center;
+  background:rgba(243,217,147,.1);
+  color:var(--c-gold);font-family:var(--c-serif);font-size:2rem;font-weight:800
+}
+.cu-bonus-image{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:8px}
+.cu-bonus-card h2{
+  margin:0 0 .3rem;color:#fff;font-family:var(--c-serif);
+  font-size:1.32rem;line-height:1.1;letter-spacing:-.02em
+}
+.cu-bonus-card p{margin:.2rem 0;color:#cdd9d6;font-size:.9rem}
+.cu-bonus-card strong{color:var(--c-gold)}
+.cu-bonus-points{margin:.65rem 0 0;padding:0;list-style:none}
+.cu-bonus-points li{position:relative;padding:.18rem 0 .18rem 1rem;color:#dce5e2;font-size:.84rem}
+.cu-bonus-points li:before{content:"✓";position:absolute;left:0;color:var(--c-gold2);font-weight:900}
+.cu-without-bonus{
+  margin:.7rem auto 0;
+  padding:.55rem .7rem;
+  border-radius:6px;
+  background:rgba(183,28,28,.08);
+  color:#6b3b38;
+  font-size:.82rem;
+  font-weight:700
+}
+@media(max-width:380px){
+  .cu-bonus-grid{grid-template-columns:58px 1fr}
+  .cu-bonus-symbol{width:58px;height:58px;font-size:1.55rem}
+}
