@@ -1,7 +1,7 @@
 /* Preventa del curso en video · ES */
-const USD_PRICE = 27;
+const USD_PRICE = 17;
 const USD_LAUNCH = 47;
-const USD_DISCOUNT = 21;
+const USD_DISCOUNT = 12;
 const cursoCheckoutUrl = "https://pay.hotmart.com/W107576786J?checkoutMode=10";
 const cursoDescuentoUrl = "https://pay.hotmart.com/W107576786J?off=nm7xcamk&checkoutMode=10";
 const declineUrl = "/gracias";
@@ -157,7 +157,7 @@ function handleAccept() {
 }
 
 function handleDescuento() {
-  goCheckout(cursoDescuentoUrl, USD_DISCOUNT, "Preventa Curso Pesebre · última chance $21");
+  goCheckout(cursoDescuentoUrl, USD_DISCOUNT, "Preventa Curso Pesebre · última chance $12");
 }
 
 function handleDecline(event) {

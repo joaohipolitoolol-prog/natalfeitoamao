@@ -1,7 +1,7 @@
 /* Preventa del corso in video · IT */
 /* TODO: colar URLs Hotmart depois de criar o produto + oferta com desconto */
-const EUR_PRICE = 27;
-const EUR_DISCOUNT = 21;
+const EUR_PRICE = 17;
+const EUR_DISCOUNT = 12;
 const corsoCheckoutUrl = ""; // ex: https://pay.hotmart.com/XXXX?checkoutMode=10
 const corsoScontoUrl = ""; // ex: https://pay.hotmart.com/XXXX?off=YYYY&checkoutMode=10
 const declineUrl = "/grazie";
@@ -59,7 +59,7 @@ function handleAccept() {
 }
 
 function handleSconto() {
-  goCheckout(corsoScontoUrl, EUR_DISCOUNT, "Preventa Corso Presepe · ultima chance €21");
+  goCheckout(corsoScontoUrl, EUR_DISCOUNT, "Preventa Corso Presepe · ultima chance €12");
 }
 
 function handleDecline(event) {

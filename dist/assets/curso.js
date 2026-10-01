@@ -51,11 +51,11 @@ function goCheckout(url, value, name) {
 }
 
 function handleAccept() {
-  goCheckout(cursoCheckoutUrl, 97, "Pré-venda Curso Presépio em Vídeo");
+  goCheckout(cursoCheckoutUrl, 77, "Pré-venda Curso Presépio em Vídeo");
 }
 
 function handleDesconto() {
-  goCheckout(cursoDescontoUrl, 77, "Pré-venda Curso Presépio · última chance R$77");
+  goCheckout(cursoDescontoUrl, 57, "Pré-venda Curso Presépio · última chance R$57");
 }
 
 function handleDecline(event) {
