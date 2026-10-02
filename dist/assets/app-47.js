@@ -5,7 +5,7 @@ const checkoutUrls = {
 };
 
 const metaPixelId = "1051422547811449";
-const BACK_REDIRECT_PATH = "/voltar";
+const BACK_REDIRECT_PATH = "/colecao";
 
 const BASE_PRICE = 47;
 const BUMP_PRICE = 27;
@@ -215,7 +215,7 @@ document.querySelectorAll(".checkout-button").forEach((button) =>
     });
 
     if (url) {
-      // Marca que foi pro checkout: se voltar, aí sim abre /voltar com downsell R$37
+      // Marca que foi pro checkout: se voltar, retorna para a oferta de R$47
       sessionStorage.setItem("nf_to_checkout", "1");
       sessionStorage.setItem("nf_offer", "47");
       window.location.href = url;
