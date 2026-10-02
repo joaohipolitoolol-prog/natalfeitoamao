@@ -1,6 +1,6 @@
 /* Cambia estos dos valores cuando el producto esté listo en Hotmart. */
 const USD_PRICE = 12;
-const HOTMART_CHECKOUT_URL = "https://pay.hotmart.com/T107528025E?checkoutMode=10";
+const HOTMART_CHECKOUT_URL = "https://pay.hotmart.com/T107528025E?off=4huaes9l&checkoutMode=10";
 const META_PIXEL_ID = "1051422547811449";
 
 const FALLBACK_RATES = {
