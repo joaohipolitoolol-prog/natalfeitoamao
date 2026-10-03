@@ -9,6 +9,8 @@
 .fo-preview{position:relative;width:min(380px,92%);margin:0 auto 1rem;padding:.5rem;border:1px solid rgba(241,214,140,.32);border-radius:12px;background:#f6eddb;box-shadow:0 18px 48px rgba(0,0,0,.34);overflow:hidden}
 .fo-preview:before{content:"ACCESO INMEDIATO";position:absolute;z-index:2;top:1rem;right:-2.8rem;width:12rem;padding:.35rem 0;transform:rotate(38deg);background:var(--red);color:#fff;font-size:.58rem;font-weight:900;letter-spacing:.08em}
 .fo-preview img{width:100%;border-radius:7px}
+.fo-product-mockup{width:min(430px,96%);padding:.35rem;background:#0d2b23}
+.fo-product-mockup:before{display:none}
 .fo-card{width:min(470px,100%);margin:0 auto;padding:1.15rem 1rem 1.25rem;border:1px solid rgba(241,214,140,.28);border-radius:12px;background:rgba(14,49,40,.9);box-shadow:0 16px 42px rgba(0,0,0,.2)}
 .fo-card-label{margin:0 0 .4rem;color:var(--gold);font-size:.72rem;font-weight:900;letter-spacing:.11em;text-transform:uppercase}
 .fo-card-copy{max-width:36ch;margin:0 auto .85rem;color:#d5dfdc;font-size:.94rem}
