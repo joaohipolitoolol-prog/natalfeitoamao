@@ -1,7 +1,7 @@
 /* Preventa del curso en video · ES */
-const USD_PRICE = 27;
-const USD_LAUNCH = 47;
-const USD_DISCOUNT = 17;
+const USD_PRICE = 17.9;
+const USD_LAUNCH = 39.9;
+const USD_DISCOUNT = 12.9;
 const cursoCheckoutUrl = "https://pay.hotmart.com/W107576786J?checkoutMode=10";
 const cursoDescuentoUrl = "https://pay.hotmart.com/W107576786J?off=nm7xcamk&checkoutMode=10";
 const declineUrl = "/gracias";
@@ -44,10 +44,7 @@ const priceFormatter = (selectedCurrency) => new Intl.NumberFormat(locale, {
   maximumFractionDigits: ["COP", "CLP", "PYG", "ARS", "HUF"].includes(selectedCurrency) ? 0 : 2,
 });
 
-const formatUsd = (usd) => {
-  const rate = rates[currency] || 1;
-  return priceFormatter(currency).format(usd * rate);
-};
+const formatUsd = (usd) => `US$${usd.toFixed(2).replace(".", ",")}`;
 
 const paintPrices = () => {
   const now = formatUsd(USD_PRICE);
@@ -66,12 +63,12 @@ const paintPrices = () => {
 
   const alert = document.querySelector("[data-price-alert]");
   if (alert) {
-    alert.textContent = `Preventa: ${now} ahora · ${launch} después del 10 de octubre`;
+    alert.textContent = `Preventa: ${now} ahora · ${launch} después del lanzamiento`;
   }
 
   const offerText = document.querySelector("[data-price-offer-text]");
   if (offerText) {
-    offerText.textContent = `Hoy aseguras el precio de fundadora. Después del 10 de octubre, el curso sube a ${launch}.`;
+    offerText.textContent = `Hoy aseguras el precio de fundadora. Después del lanzamiento, el curso sube a ${launch}.`;
   }
 
   const was = document.querySelector("[data-price-was]");
@@ -84,30 +81,18 @@ const paintPrices = () => {
   if (discountCta) discountCta.textContent = `Sí, quiero por ${discount}`;
 
   const note = document.querySelector("[data-currency-note]");
-  if (note) {
-    note.textContent =
-      currency === "USD"
-        ? "Pago único · acceso el 10/10"
-        : `Aprox. ${now}. Hotmart confirma el valor final. Acceso el 10/10`;
-  }
+  if (note) note.textContent = "Pago único · acceso el 10/11";
 
   const lastWas = document.querySelector("[data-price-discount-was]");
   if (lastWas) lastWas.textContent = now;
 };
 
-const applyRegion = (nextRegion) => {
-  if (nextRegion) region = nextRegion;
-  currency = COUNTRY_CURRENCY[region] || "USD";
+const applyRegion = () => {
+  currency = "USD";
   paintPrices();
 };
 
-applyRegion(region);
-fetch("/api/geo", { credentials: "same-origin" })
-  .then((response) => (response.ok ? response.json() : Promise.reject()))
-  .then((data) => {
-    if (data?.country) applyRegion(data.country);
-  })
-  .catch(() => {});
+applyRegion();
 
 const withTracking = (url) => {
   try {
@@ -157,7 +142,7 @@ function handleAccept() {
 }
 
 function handleDescuento() {
-  goCheckout(cursoDescuentoUrl, USD_DISCOUNT, "Preventa Curso Pesebre · última chance $17");
+  goCheckout(cursoDescuentoUrl, USD_DISCOUNT, "Preventa Curso Pesebre · última oportunidad");
 }
 
 function handleDecline(event) {

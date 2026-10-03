@@ -37,20 +37,16 @@ const priceFormatter = (selectedCurrency) => new Intl.NumberFormat(locale, {
   style: "currency", currency: selectedCurrency, maximumFractionDigits: ["COP","CLP","PYG","ARS","HUF"].includes(selectedCurrency) ? 0 : 2
 });
 
-const paintPrice = (rates = FALLBACK_RATES) => {
-  const rate = rates[currency] || 1;
-  const value = USD_PRICE * rate;
-  const formatted = priceFormatter(currency).format(value);
+const paintPrice = () => {
+  const formatted = "US$ 12";
   document.querySelectorAll("[data-price-text]").forEach((node) => node.textContent = formatted);
   const note = document.querySelector("#currency-note");
-  if (note) note.textContent = currency === "USD"
-    ? "Precio mostrado en dólares estadounidenses."
-    : `Aproximadamente ${formatted}. Hotmart confirma el valor final antes del pago.`;
+  if (note) note.textContent = "Precio mostrado en dólares estadounidenses.";
 };
 
 const applyRegion = (nextRegion) => {
   if (nextRegion) region = nextRegion;
-  currency = COUNTRY_CURRENCY[region] || "USD";
+  currency = "USD";
   const word = region === "ES" ? "belén" : "pesebre";
   document.querySelectorAll("[data-product-word]").forEach((node) => {
     if (!node.dataset.wordCase) node.dataset.wordCase = node.textContent[0] === node.textContent[0].toUpperCase() ? "upper" : "lower";
@@ -138,4 +134,3 @@ const marquee = document.querySelector("#marquee-track");
 if (marquee && pieces && "IntersectionObserver" in window) {
   new IntersectionObserver(([entry]) => marquee.classList.toggle("is-paused", !entry.isIntersecting), {rootMargin:"80px",threshold:.05}).observe(pieces);
 }
-
