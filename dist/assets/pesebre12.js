@@ -75,7 +75,8 @@ const initTracking = () => {
   });
   window.fbq("track", "PageView");
 };
-window.addEventListener("load", initTracking, { once:true });
+// The deferred script runs after parsing. Register PageView before waiting for every image.
+initTracking();
 
 const christmas = new Date(new Date().getFullYear(), 11, 25);
 if (new Date() > christmas) christmas.setFullYear(christmas.getFullYear() + 1);
@@ -103,9 +104,14 @@ const withTracking = (url) => {
   return next.toString();
 };
 
+document.querySelectorAll("a.checkout-button").forEach((link) => {
+  link.href = withTracking(HOTMART_CHECKOUT_URL);
+});
+
 const modal = document.querySelector("#checkout-modal");
 const closeModal = () => { modal?.classList.remove("open"); modal?.setAttribute("aria-hidden","true"); };
-document.querySelectorAll(".checkout-button").forEach((button) => button.addEventListener("click", () => {
+document.querySelectorAll(".checkout-button").forEach((button) => button.addEventListener("click", (event) => {
+  event.preventDefault();
   const url = withTracking(HOTMART_CHECKOUT_URL);
   if (typeof window.fbq === "function") window.fbq("track", "InitiateCheckout", { value:USD_PRICE, currency:"USD", content_name:"Pesebre de Fieltro" });
   if (url) { window.location.href = url; return; }
