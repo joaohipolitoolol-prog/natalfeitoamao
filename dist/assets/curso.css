@@ -259,6 +259,12 @@
 }
 
 .cu-decline{margin:1rem 0 0;font-size:.88rem}
+.cu-direct-note{
+  margin:.7rem 0 0;
+  color:#9aaba8;
+  font-size:.75rem;
+  font-weight:600
+}
 .cu-decline a{
   color:#8fa09c;
   text-decoration:underline;
