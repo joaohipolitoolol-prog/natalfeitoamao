@@ -1,0 +1,688 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Il Mistero della Zucca Scomparsa: una caccia al tesoro di Halloween pronta da stampare per bambini dai 6 ai 10 anni." />
+  <meta name="theme-color" content="#171021" />
+  <title>Il Mistero della Zucca Scomparsa | Halloween Adventure Kit</title>
+  <style>
+    :root{
+      --bg:#171021;
+      --bg2:#22152f;
+      --paper:#fff9ef;
+      --ink:#23182e;
+      --muted:#6e6474;
+      --orange:#ff7a1a;
+      --orange2:#ff9d3d;
+      --red:#d92f2f;
+      --green:#245f48;
+      --gold:#f4c45c;
+      --line:rgba(35,24,46,.13);
+      --shadow:0 18px 45px rgba(15,8,23,.18);
+      --radius:24px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--ink);
+      background:var(--paper);
+      line-height:1.45;
+    }
+    a{color:inherit}
+    .urgency{
+      background:var(--red);
+      color:#fff;
+      text-align:center;
+      font-weight:800;
+      padding:8px 14px;
+      font-size:13px;
+      letter-spacing:.01em;
+      position:relative;
+      z-index:5;
+    }
+    .urgency span{opacity:.88;font-weight:650}
+    .hero{
+      position:relative;
+      overflow:hidden;
+      min-height:calc(100svh - 34px);
+      background:
+        radial-gradient(circle at 15% 10%,rgba(255,122,26,.18),transparent 26%),
+        radial-gradient(circle at 90% 28%,rgba(139,77,190,.2),transparent 30%),
+        linear-gradient(180deg,#1a1024 0%,#21132f 65%,#2a1737 100%);
+      color:#fff;
+      display:flex;
+      align-items:center;
+    }
+    .hero:before,.hero:after{
+      content:"";
+      position:absolute;
+      width:260px;height:260px;border-radius:50%;
+      border:1px solid rgba(255,255,255,.07);
+      pointer-events:none;
+    }
+    .hero:before{left:-130px;top:80px}
+    .hero:after{right:-140px;bottom:30px}
+    .hero-inner{
+      width:min(1050px,100%);
+      margin:auto;
+      padding:28px 20px 34px;
+      text-align:center;
+      position:relative;
+      z-index:2;
+    }
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      border:1px solid rgba(255,255,255,.15);
+      background:rgba(255,255,255,.07);
+      border-radius:999px;
+      padding:7px 12px;
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:#ffd79b;
+    }
+    h1,h2,h3,p{margin-top:0}
+    h1{
+      max-width:820px;
+      margin:12px auto 15px;
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:clamp(34px,5.7vw,66px);
+      line-height:.98;
+      letter-spacing:-.045em;
+      text-wrap:balance;
+    }
+    h1 em{font-style:normal;color:#ffad52}
+    .hero-sub{
+      max-width:760px;
+      margin:0 auto 15px;
+      color:#eadff1;
+      font-size:clamp(15px,2.1vw,20px);
+      text-wrap:balance;
+    }
+    .mockup-wrap{
+      width:min(600px,94vw);
+      height:235px;
+      margin:14px auto 15px;
+      position:relative;
+      perspective:1000px;
+    }
+    .mock-sheet{
+      position:absolute;
+      width:155px;
+      height:205px;
+      left:50%;top:50%;
+      border-radius:13px;
+      background:#fffaf1;
+      border:1px solid rgba(0,0,0,.08);
+      box-shadow:0 22px 45px rgba(0,0,0,.3);
+      overflow:hidden;
+      color:#2a1737;
+      padding:12px;
+      transform-origin:center;
+    }
+    .mock-sheet .topline{
+      font-size:7px;
+      text-transform:uppercase;
+      letter-spacing:.1em;
+      font-weight:900;
+      color:#a65416;
+      margin-bottom:6px;
+    }
+    .mock-sheet strong{
+      display:block;
+      font-family:Georgia,serif;
+      font-size:18px;
+      line-height:1.02;
+      margin-bottom:8px;
+    }
+    .mock-sheet .pumpkin{
+      font-size:58px;
+      line-height:1;
+      filter:drop-shadow(0 10px 10px rgba(255,122,26,.22));
+    }
+    .mock-sheet .mini{
+      font-size:8px;
+      color:#74687d;
+      margin-top:8px;
+    }
+    .s1{transform:translate(-50%,-50%) rotate(-10deg) translateX(-105px) scale(.88)}
+    .s2{transform:translate(-50%,-50%) rotate(8deg) translateX(108px) scale(.88)}
+    .s3{
+      transform:translate(-50%,-50%);
+      z-index:3;
+      width:180px;height:225px;
+      border:2px solid rgba(255,122,26,.26)
+    }
+    .s3 strong{font-size:22px}
+    .mock-badge{
+      position:absolute;
+      left:50%;bottom:0;
+      transform:translateX(-50%);
+      z-index:8;
+      background:#ff7a1a;
+      color:#1a1024;
+      padding:7px 12px;
+      border-radius:999px;
+      font-size:11px;
+      font-weight:950;
+      box-shadow:0 9px 22px rgba(255,122,26,.28);
+      white-space:nowrap;
+    }
+    .cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:52px;
+      padding:0 22px;
+      border-radius:14px;
+      border:0;
+      text-decoration:none;
+      font-weight:950;
+      background:linear-gradient(180deg,#ffb04f,#ff7a1a);
+      color:#201228;
+      box-shadow:0 12px 25px rgba(255,122,26,.28);
+      transition:.18s ease;
+      text-align:center;
+    }
+    .cta:hover{transform:translateY(-2px);filter:saturate(1.08)}
+    .hero .cta{width:min(450px,94vw)}
+    .clarifier{
+      max-width:720px;
+      margin:9px auto 0;
+      font-size:11px;
+      color:#bfb1c8;
+    }
+    .micro{
+      margin:11px auto 0;
+      display:flex;
+      justify-content:center;
+      gap:7px;
+      flex-wrap:wrap;
+    }
+    .micro span{
+      font-size:10px;
+      font-weight:850;
+      color:#efe6f4;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.05);
+      border-radius:999px;
+      padding:6px 9px;
+    }
+    .wa-link{
+      display:inline-flex;
+      gap:7px;
+      align-items:center;
+      margin-top:10px;
+      color:#d9cfdf;
+      font-size:12px;
+      font-weight:750;
+      text-decoration:none;
+    }
+    .wa-dot{width:8px;height:8px;border-radius:50%;background:#4bd07b;box-shadow:0 0 0 4px rgba(75,208,123,.12)}
+    .proof{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      width:min(980px,calc(100% - 30px));
+      margin:-18px auto 0;
+      position:relative;
+      z-index:3;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:20px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .proof div{
+      padding:17px 12px;
+      text-align:center;
+    }
+    .proof div+div{border-left:1px solid var(--line)}
+    .proof strong{display:block;font-size:17px}
+    .proof span{display:block;color:var(--muted);font-size:11px;margin-top:2px}
+    section.block{padding:74px 20px}
+    .container{width:min(980px,100%);margin:auto}
+    .section-title{text-align:center;max-width:720px;margin:0 auto 32px}
+    .section-title .kicker{
+      color:#9d4b16;
+      text-transform:uppercase;
+      font-size:11px;
+      font-weight:950;
+      letter-spacing:.11em;
+    }
+    h2{
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:clamp(30px,4.6vw,48px);
+      line-height:1.03;
+      letter-spacing:-.035em;
+      margin-bottom:13px;
+      text-wrap:balance;
+    }
+    .section-title p:last-child{color:var(--muted);font-size:16px}
+    .desire{
+      background:#fff7ea;
+      text-align:center;
+    }
+    .desire-card{
+      max-width:760px;
+      margin:auto;
+      background:#fff;
+      border:1px solid #f0dcc2;
+      border-radius:var(--radius);
+      padding:30px;
+      box-shadow:0 12px 34px rgba(85,47,12,.08);
+    }
+    .desire-card p{font-size:18px;color:#5d505f;margin-bottom:0}
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+    }
+    .step{
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:22px;
+      background:#fff;
+    }
+    .step b{
+      display:inline-grid;
+      place-items:center;
+      width:36px;height:36px;
+      border-radius:11px;
+      background:#24152f;
+      color:#ffb04f;
+      margin-bottom:14px;
+    }
+    .step h3{font-size:19px;margin-bottom:6px}
+    .step p{margin:0;color:var(--muted);font-size:14px}
+    .dark-section{
+      background:linear-gradient(180deg,#21132f,#171021);
+      color:white;
+    }
+    .dark-section .section-title p:last-child{color:#c8bccf}
+    .contrast{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:15px;
+    }
+    .contrast-card{
+      padding:25px;
+      border-radius:22px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.1);
+    }
+    .contrast-card.good{background:rgba(255,122,26,.09);border-color:rgba(255,166,71,.3)}
+    .contrast-card h3{font-size:20px}
+    .contrast-card ul{margin:12px 0 0;padding-left:18px;color:#d9cfdf}
+    .contrast-card li{margin:8px 0}
+    .kit-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+    }
+    .kit-card{
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:20px;
+      background:#fff;
+      min-height:155px;
+    }
+    .kit-icon{font-size:32px;margin-bottom:12px}
+    .kit-card h3{font-size:16px;margin-bottom:6px}
+    .kit-card p{font-size:13px;color:var(--muted);margin:0}
+    .audience{
+      background:#f8f2e9;
+    }
+    .audience-box{
+      width:min(760px,100%);
+      margin:auto;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+    .audience-card{
+      background:#fff;
+      border:1px solid var(--line);
+      padding:22px;
+      border-radius:20px;
+    }
+    .audience-card h3{font-size:17px}
+    .audience-card ul{padding-left:19px;margin-bottom:0;color:var(--muted)}
+    .audience-card li{margin:8px 0}
+    .offer-wrap{padding:74px 20px;background:#171021;color:#fff}
+    .offer{
+      width:min(900px,100%);
+      margin:auto;
+      border:1px solid rgba(255,255,255,.12);
+      background:
+        radial-gradient(circle at 85% 15%,rgba(255,122,26,.2),transparent 28%),
+        #21132f;
+      border-radius:28px;
+      padding:34px;
+      box-shadow:0 28px 70px rgba(0,0,0,.28);
+    }
+    .offer-top{text-align:center;max-width:650px;margin:auto}
+    .offer-top small{text-transform:uppercase;letter-spacing:.1em;color:#ffbd6e;font-weight:900}
+    .offer h2{margin:8px 0 10px}
+    .offer-top p{color:#d8ccde}
+    .offer-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:18px;
+      margin-top:24px;
+    }
+    .stack,.pricebox{
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:20px;
+      padding:22px;
+    }
+    .stack-row{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      padding:10px 0;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      font-size:13px;
+    }
+    .stack-row strong{color:#ffc37d}
+    .pricebox{text-align:center}
+    .pricebox .old{font-size:12px;color:#b9adbf;text-decoration:line-through}
+    .pricebox .price{
+      font-family:Georgia,serif;
+      font-size:48px;
+      line-height:1;
+      margin:8px 0;
+      color:#ffb04f;
+      font-weight:900;
+    }
+    .pricebox p{font-size:12px;color:#cfc3d5}
+    .pricebox .cta{width:100%;margin-top:8px}
+    .faq{display:grid;gap:10px;max-width:800px;margin:auto}
+    details{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:17px 19px;
+    }
+    summary{font-weight:850;cursor:pointer}
+    details p{color:var(--muted);font-size:14px;margin:10px 0 0}
+    footer{
+      padding:34px 20px 90px;
+      text-align:center;
+      color:#84788a;
+      font-size:12px;
+      border-top:1px solid var(--line);
+    }
+    .floating-wa{
+      position:fixed;
+      right:16px;bottom:16px;
+      width:52px;height:52px;
+      display:grid;place-items:center;
+      border-radius:50%;
+      background:#24c763;
+      color:white;
+      text-decoration:none;
+      box-shadow:0 12px 28px rgba(0,0,0,.22);
+      z-index:20;
+      font-size:22px;
+      font-weight:900;
+    }
+    @media(max-width:700px){
+      .hero-inner{padding:18px 14px 26px}
+      h1{font-size:39px;margin-top:10px}
+      .hero-sub{font-size:14px;margin-bottom:8px}
+      .mockup-wrap{height:205px;margin:7px auto 9px}
+      .mock-sheet{width:130px;height:175px;padding:9px}
+      .s3{width:150px;height:190px}
+      .mock-sheet .pumpkin{font-size:45px}
+      .mock-sheet strong{font-size:15px}
+      .s3 strong{font-size:18px}
+      .s1{transform:translate(-50%,-50%) rotate(-9deg) translateX(-84px) scale(.84)}
+      .s2{transform:translate(-50%,-50%) rotate(9deg) translateX(84px) scale(.84)}
+      .cta{min-height:48px;font-size:13px}
+      .clarifier{font-size:10px}
+      .micro{gap:5px;margin-top:8px}
+      .micro span{font-size:9px;padding:5px 7px}
+      .wa-link{margin-top:8px;font-size:11px}
+      .proof{width:calc(100% - 20px)}
+      .proof div{padding:13px 7px}
+      .proof strong{font-size:14px}
+      .proof span{font-size:9px}
+      section.block{padding:56px 16px}
+      .steps,.kit-grid,.audience-box,.contrast,.offer-grid{grid-template-columns:1fr}
+      .kit-grid{grid-template-columns:1fr 1fr}
+      .offer{padding:24px 16px}
+    }
+    @media(max-width:420px){
+      .hero{min-height:auto}
+      h1{font-size:34px}
+      .mockup-wrap{height:190px}
+      .kit-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="urgency" id="urgency">
+    Halloween è tra <strong id="days">24</strong> giorni <span>• prepara il gioco prima del 31/10</span>
+  </div>
+
+  <main>
+    <section class="hero" id="inizio">
+      <div class="hero-inner">
+        <span class="eyebrow">🎃 Halloween Adventure Kit • 6–10 anni</span>
+        <h1>Trasforma casa tua in un’avventura di Halloween <em>pronta in 10 minuti</em></h1>
+        <p class="hero-sub">Stampa, nascondi gli indizi e dai ai bambini una vera missione da risolvere: una caccia al tesoro completa pensata per intrattenerli per 30–60 minuti.</p>
+
+        <div class="mockup-wrap" aria-label="Anteprima del kit Il Mistero della Zucca Scomparsa">
+          <div class="mock-sheet s1">
+            <div class="topline">Indizio #04</div>
+            <strong>Il Codice delle Zucche</strong>
+            <div class="pumpkin">🎃</div>
+            <div class="mini">Risolvi il codice e scopri dove si trova il prossimo indizio.</div>
+          </div>
+          <div class="mock-sheet s2">
+            <div class="topline">Missione Segreta</div>
+            <strong>Trova la Zucca Magica</strong>
+            <div class="pumpkin">🔐</div>
+            <div class="mini">10 indizi, enigmi e prove da completare insieme.</div>
+          </div>
+          <div class="mock-sheet s3">
+            <div class="topline">Halloween Adventure Kit</div>
+            <strong>Il Mistero della Zucca Scomparsa</strong>
+            <div class="pumpkin">🎃</div>
+            <div class="mini">Una caccia al tesoro pronta da stampare per bambini dai 6 ai 10 anni.</div>
+          </div>
+          <div class="mock-badge">Stampa → Nascondi → Gioca</div>
+        </div>
+
+        <a class="cta" href="https://wa.me/554892156250?text=Ciao%21%20Vorrei%20sapere%20come%20funziona%20Il%20Mistero%20della%20Zucca%20Scomparsa." target="_blank" rel="noopener noreferrer">VOGLIO IL KIT DI HALLOWEEN • €9,90</a>
+        <p class="clarifier"><strong>PRODOTTO DIGITALE:</strong> ricevi un kit da stampare e preparare a casa. Nessun prodotto fisico viene spedito.</p>
+        <div class="micro">
+          <span>Prodotto digitale</span>
+          <span>3–8 bambini</span>
+          <span>6–10 anni</span>
+          <span>30–60 min di gioco</span>
+        </div>
+        <a class="wa-link" href="https://wa.me/554892156250?text=Ciao%21%20Ho%20una%20domanda%20sul%20kit%20di%20Halloween." target="_blank" rel="noopener noreferrer">
+          <span class="wa-dot"></span> Dubbi? Scrivici su WhatsApp
+        </a>
+      </div>
+    </section>
+
+    <section class="proof" aria-label="Riepilogo del prodotto">
+      <div><strong>10 minuti</strong><span>per preparare</span></div>
+      <div><strong>30–60 min</strong><span>di gioco guidato</span></div>
+      <div><strong>3–8 bambini</strong><span>da 6 a 10 anni</span></div>
+    </section>
+
+    <section class="block desire">
+      <div class="container">
+        <div class="desire-card">
+          <span class="section-title kicker" style="display:block;margin-bottom:8px">La festa è pronta. Manca solo il gioco.</span>
+          <h2>Costumi, dolci e decorazioni non tengono occupati i bambini per tutta la serata.</h2>
+          <p>Con una sola attività guidata, la casa diventa parte del gioco: gli indizi li fanno muovere, collaborare, ridere e arrivare insieme alla sorpresa finale.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="container">
+        <div class="section-title">
+          <p class="kicker">Come funziona</p>
+          <h2>Tre passaggi e la missione può iniziare</h2>
+          <p>Niente ore di preparazione e niente bisogno di inventare giochi all’ultimo minuto.</p>
+        </div>
+        <div class="steps">
+          <article class="step"><b>1</b><h3>Stampa</h3><p>Apri il kit e stampa le pagine che servono su normali fogli A4.</p></article>
+          <article class="step"><b>2</b><h3>Nascondi</h3><p>Segui la guida dell’adulto e posiziona gli indizi nei punti indicati della casa.</p></article>
+          <article class="step"><b>3</b><h3>Gioca</h3><p>Consegna la missione iniziale e lascia che i bambini risolvano il mistero insieme.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="block dark-section">
+      <div class="container">
+        <div class="section-title">
+          <p class="kicker" style="color:#ffb768">La differenza</p>
+          <h2>Non servono venti giochi diversi. Serve un’attività che regga davvero la festa.</h2>
+          <p>Il kit crea una storia unica dall’inizio alla fine, invece di lasciare a te il compito di cercare e combinare attività sparse.</p>
+        </div>
+        <div class="contrast">
+          <article class="contrast-card">
+            <h3>Organizzando tutto da sola</h3>
+            <ul>
+              <li>Cercare idee e giochi uno per uno</li>
+              <li>Spiegare ogni attività ai bambini</li>
+              <li>Rischiare che dopo 5 minuti perdano interesse</li>
+              <li>Preparare tutto mentre gestisci la festa</li>
+            </ul>
+          </article>
+          <article class="contrast-card good">
+            <h3>Con Il Mistero della Zucca</h3>
+            <ul>
+              <li>Una storia completa con obiettivo finale</li>
+              <li>Indizi, enigmi e prove già organizzati</li>
+              <li>I bambini avanzano da una missione all’altra</li>
+              <li>Tu prepari tutto seguendo una sola guida</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="contenuto">
+      <div class="container">
+        <div class="section-title">
+          <p class="kicker">Dentro il kit</p>
+          <h2>Una vera avventura pronta da stampare</h2>
+          <p>Ogni elemento ha una funzione precisa nel gioco. Niente pagine riempitive solo per far sembrare il prodotto più grande.</p>
+        </div>
+        <div class="kit-grid">
+          <article class="kit-card"><div class="kit-icon">✉️</div><h3>Missione Segreta</h3><p>La lettera che introduce la storia e trasforma i bambini in detective di Halloween.</p></article>
+          <article class="kit-card"><div class="kit-icon">🔎</div><h3>10 indizi</h3><p>Una sequenza pronta che guida le crianças da un punto all’altro della casa.</p></article>
+          <article class="kit-card"><div class="kit-icon">🧩</div><h3>Enigmi diversi</h3><p>Codici, messaggi allo specchio, puzzle e piccoli giochi di osservazione.</p></article>
+          <article class="kit-card"><div class="kit-icon">👻</div><h3>Prove divertenti</h3><p>Piccole missioni fisiche per alternare ragionamento, movimento e risate.</p></article>
+          <article class="kit-card"><div class="kit-icon">🗺️</div><h3>Guida dell’adulto</h3><p>Sai esattamente cosa stampare, dove mettere ogni indizio e come preparare il finale.</p></article>
+          <article class="kit-card"><div class="kit-icon">🏅</div><h3>Finale + certificato</h3><p>Una conclusione tangibile con la Zucca Magica e il certificato da Detective di Halloween.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="block audience">
+      <div class="container">
+        <div class="section-title">
+          <p class="kicker">Per chi è</p>
+          <h2>Pensato per Halloween a casa con bambini</h2>
+          <p>Un modo semplice per trasformare il momento in un’esperienza senza assumere animatori o inventare tutto da zero.</p>
+        </div>
+        <div class="audience-box">
+          <article class="audience-card">
+            <h3>È ideale se…</h3>
+            <ul>
+              <li>Avrai 3–8 bambini a casa</li>
+              <li>Hanno circa 6–10 anni</li>
+              <li>Vuoi una vera attività principale per la festa</li>
+              <li>Hai poco tempo per preparare</li>
+            </ul>
+          </article>
+          <article class="audience-card">
+            <h3>Non è necessario…</h3>
+            <ul>
+              <li>Avere una casa grande</li>
+              <li>Comprare materiali speciali</li>
+              <li>Saper creare giochi o enigmi</li>
+              <li>Passare ore a organizzare la serata</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="offer-wrap" id="offerta">
+      <div class="offer">
+        <div class="offer-top">
+          <small>Halloween Adventure Kit</small>
+          <h2>Il Mistero della Zucca Scomparsa</h2>
+          <p>Una caccia al tesoro completa per trasformare casa tua in un’avventura di Halloween.</p>
+        </div>
+        <div class="offer-grid">
+          <div class="stack">
+            <div class="stack-row"><span>Missione introduttiva</span><strong>Inclusa</strong></div>
+            <div class="stack-row"><span>10 indizi + enigmi</span><strong>Inclusi</strong></div>
+            <div class="stack-row"><span>Prove e mini-sfide</span><strong>Incluse</strong></div>
+            <div class="stack-row"><span>Guida completa dell’adulto</span><strong>Inclusa</strong></div>
+            <div class="stack-row"><span>Finale + certificato</span><strong>Inclusi</strong></div>
+          </div>
+          <div class="pricebox">
+            <div class="old">Prezzo previsto €14,90</div>
+            <div class="price">€9,90</div>
+            <p>Pagamento unico. Prodotto digitale da stampare.</p>
+            <a class="cta" href="https://wa.me/554892156250?text=Ciao%21%20Vorrei%20ricevere%20Il%20Mistero%20della%20Zucca%20Scomparsa%20a%20%E2%82%AC9%2C90." target="_blank" rel="noopener noreferrer">VOGLIO PREPARARE HALLOWEEN</a>
+            <p style="margin-top:10px">Prima di acquistare puoi scriverci su WhatsApp per chiarire qualsiasi dubbio.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="container">
+        <div class="section-title">
+          <p class="kicker">Domande frequenti</p>
+          <h2>Prima di preparare la missione</h2>
+        </div>
+        <div class="faq">
+          <details><summary>È un prodotto fisico?</summary><p>No. È un prodotto digitale pensato per essere stampato a casa su fogli A4.</p></details>
+          <details><summary>Per quale età è pensato?</summary><p>La versione principale è pensata per bambini dai 6 ai 10 anni, con enigmi semplici e prove brevi.</p></details>
+          <details><summary>Quanti bambini possono giocare?</summary><p>È pensato soprattutto per piccoli gruppi di circa 3–8 bambini che collaborano come una squadra.</p></details>
+          <details><summary>Quanto tempo serve per prepararlo?</summary><p>Con le pagine già stampate, la preparazione è progettata per richiedere circa 10 minuti seguendo la guida dell’adulto.</p></details>
+          <details><summary>Quanto dura il gioco?</summary><p>Dipende dall’età e dal gruppo. La struttura è pensata per occupare indicativamente 30–60 minuti, senza promettere una durata identica per tutti.</p></details>
+          <details><summary>Devo comprare qualcosa oltre al kit?</summary><p>Non servono materiali speciali. Puoi aggiungere caramelle o una piccola sorpresa finale se vuoi rendere la scoperta della Zucca Magica ancora più memorabile.</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Il Mistero della Zucca Scomparsa • Halloween Adventure Kit<br>
+    Prodotto digitale indipendente. Halloween è utilizzato come tema stagionale.
+  </footer>
+
+  <a class="floating-wa" aria-label="WhatsApp" href="https://wa.me/554892156250?text=Ciao%21%20Ho%20una%20domanda%20sul%20kit%20di%20Halloween." target="_blank" rel="noopener noreferrer">✆</a>
+
+  <script>
+    (function(){
+      const target = new Date('2026-10-31T23:59:59+01:00');
+      const now = new Date();
+      const days = Math.max(0, Math.ceil((target - now) / 86400000));
+      const el = document.getElementById('days');
+      if(el) el.textContent = days;
+    })();
+  </script>
+</body>
+</html>
