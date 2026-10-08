@@ -4,3 +4,14 @@
 
 .hero-sales .currency-picker select{background:#ffffff12;color:#f3d993;border-color:#cfad6880}.currency-picker select option{background:#fffdf7;color:#173d32}.hero-sales .currency-disclaimer{color:#cbd7ce}
 
+
+/* Integración discreta bajo el precio y ayuda con texto. */
+.currency-disclaimer{font-size:10px!important;margin:5px auto 0;opacity:.75}
+.currency-disclaimer[hidden],.currency-disclaimer:empty{display:none}
+.support-toggle{width:auto;height:44px;border-radius:999px;display:flex;gap:8px;padding:0 15px;font:600 13px system-ui}
+.support-toggle span:first-child{width:21px;height:21px;border:1px solid #cfad68;border-radius:50%;display:grid;place-items:center;font-size:14px}
+.support-question-label{display:block;font-weight:600;margin:14px 0 7px}
+.support-question{box-sizing:border-box;width:100%;resize:vertical;min-height:66px;max-height:150px;border:1px solid #c9cdbf;border-radius:9px;background:#fff;padding:10px;font:14px/1.4 system-ui;color:#173d32}
+.support-question:focus-visible{outline:2px solid #b47f25;outline-offset:2px}
+.support-send-note{display:block;margin:5px 0 12px;color:#62675d;font-size:11px;line-height:1.4}
+@media(max-width:480px){.support-toggle{right:12px;padding:0 12px}.support-panel{right:12px;max-width:calc(100vw - 24px);box-sizing:border-box}}
