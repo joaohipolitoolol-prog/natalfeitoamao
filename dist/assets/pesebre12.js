@@ -142,7 +142,12 @@ document.querySelectorAll(".checkout-button").forEach((button) => button.addEven
   event.preventDefault();
   const url = withTracking(HOTMART_CHECKOUT_URL);
   if (typeof window.fbq === "function") window.fbq("track", "InitiateCheckout", { value:USD_PRICE, currency:"USD", content_name:"Pesebre de Fieltro" });
-  if (url) { window.location.href = url; return; }
+  if (url) {
+    if (!event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey) {
+      try { sessionStorage.setItem("nf_es_checkout_return", String(Date.now())); } catch {}
+    }
+    window.location.href = url; return;
+  }
   modal?.classList.add("open"); modal?.setAttribute("aria-hidden","false");
 }));
 modal?.querySelector(".modal-close")?.addEventListener("click", closeModal);
@@ -168,3 +173,24 @@ const marquee = document.querySelector("#marquee-track");
 if (marquee && pieces && "IntersectionObserver" in window) {
   new IntersectionObserver(([entry]) => marquee.classList.toggle("is-paused", !entry.isIntersecting), {rootMargin:"80px",threshold:.05}).observe(pieces);
 }
+
+
+/* Recuperación: solo al volver del checkout, nunca al abrir o recargar la LP. */
+(() => {
+  if (window.location.pathname.replace(/\/$/, "") !== "/pesebre12") return;
+  window.addEventListener("pageshow", (event) => {
+    const navigation = performance.getEntriesByType?.("navigation")?.[0];
+    if (!event.persisted && navigation?.type !== "back_forward") return;
+    let started;
+    try {
+      started = Number(sessionStorage.getItem("nf_es_checkout_return"));
+      sessionStorage.removeItem("nf_es_checkout_return");
+    } catch { return; }
+    const elapsed = Date.now() - started;
+    if (!started || elapsed < 0 || elapsed > 86400000) return;
+    const next = new URL("/volver-es", window.location.origin);
+    next.search = window.location.search;
+    if (typeof window.fbq === "function") window.fbq("trackCustom", "CheckoutReturnES");
+    window.location.replace(next.toString());
+  });
+})();
