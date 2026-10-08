@@ -31,6 +31,19 @@
     if (open) panel.querySelector("button")?.focus();
     else toggle.focus();
   };
+  const hero = document.querySelector("#inicio");
+  const syncVisibility = () => {
+    const visible = !hero || hero.getBoundingClientRect().bottom <= 0;
+    toggle.hidden = !visible;
+    if (!visible) {
+      panel.hidden = true;
+      toggle.setAttribute("aria-expanded", "false");
+    }
+  };
+  window.addEventListener("scroll", syncVisibility, { passive: true });
+  window.addEventListener("resize", syncVisibility);
+  window.addEventListener("pageshow", syncVisibility);
+  syncVisibility();
   toggle.addEventListener("click", () => setOpen(panel.hidden));
   document.querySelector("#support-close")?.addEventListener("click", () => setOpen(false));
   document.addEventListener("keydown", (event) => { if (event.key === "Escape" && !panel.hidden) setOpen(false); });

@@ -19,3 +19,5 @@
 /* Espacio entre moneda, aviso y compra. */
 .price-box .currency-disclaimer{font-size:12px!important;line-height:1.5!important;margin:12px auto 18px!important;max-width:320px;opacity:.85}
 .price-box .checkout-button{margin-top:4px}
+
+.support-toggle[hidden]{display:none!important}
