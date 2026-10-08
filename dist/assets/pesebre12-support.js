@@ -13,6 +13,18 @@
     materiales: "Necesitarás fieltro, hilo, aguja, tijeras y relleno. Cada proyecto incluye su lista de materiales y colores. Los materiales físicos no están incluidos en la compra.",
     garantia: "La colección principal tiene una garantía de 7 días. Puedes solicitar el reembolso a través de Hotmart según las condiciones de tu compra. Para problemas de acceso, habla con Lyzandra."
   };
+  const question = panel.querySelector("#support-question");
+  const human = panel.querySelector("#support-human");
+  const updateWhatsApp = () => {
+    const message = question?.value.trim();
+    if (human) human.href = "https://wa.me/554892156250?text=" + encodeURIComponent(
+      message ? "Hola, Lyzandra. Tengo una duda sobre la Colección Pesebre de Fieltro:\\n\\n" + message
+        : "Hola, Lyzandra. Tengo una pregunta sobre la Colección Pesebre de Fieltro."
+    );
+  };
+  question?.addEventListener("input", updateWhatsApp);
+  human?.addEventListener("click", updateWhatsApp);
+  updateWhatsApp();
   const setOpen = (open) => {
     panel.hidden = !open;
     toggle.setAttribute("aria-expanded", String(open));
