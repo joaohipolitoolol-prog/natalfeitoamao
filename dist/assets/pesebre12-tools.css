@@ -15,3 +15,7 @@
 .support-question:focus-visible{outline:2px solid #b47f25;outline-offset:2px}
 .support-send-note{display:block;margin:5px 0 12px;color:#62675d;font-size:11px;line-height:1.4}
 @media(max-width:480px){.support-toggle{right:12px;padding:0 12px}.support-panel{right:12px;max-width:calc(100vw - 24px);box-sizing:border-box}}
+
+/* Espacio entre moneda, aviso y compra. */
+.price-box .currency-disclaimer{font-size:12px!important;line-height:1.5!important;margin:12px auto 18px!important;max-width:320px;opacity:.85}
+.price-box .checkout-button{margin-top:4px}
