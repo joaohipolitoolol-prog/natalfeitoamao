@@ -91,7 +91,8 @@ const scheduleTracking = () => {
   }
 };
 
-if (document.readyState === "complete") scheduleTracking();
+if (window.location.pathname === "/" || window.location.pathname === "/index.html") bootTracking();
+else if (document.readyState === "complete") scheduleTracking();
 else window.addEventListener("load", scheduleTracking, { once: true });
 
 /* ========= UTMs no checkout ========= */

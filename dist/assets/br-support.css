@@ -1,0 +1,13 @@
+.support-toggle{position:fixed;right:16px;bottom:84px;z-index:50;background:#173d32;color:#fff;border:1px solid #cfad68;border-radius:50%;width:48px;height:48px;display:grid;place-items:center;padding:0;font:700 25px system-ui;box-shadow:0 4px 20px #0002;cursor:pointer}.support-panel{position:fixed;right:16px;bottom:144px;width:340px;max-width:calc(100vw - 32px);max-height:min(580px,65vh);overflow-y:auto;z-index:51;padding:18px;border:1px solid #cfc7b1;border-radius:16px;background:#fffdf7;color:#173d32;box-shadow:0 8px 36px #0003;font:14px/1.5 system-ui}.support-panel[hidden]{display:none}.support-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}.support-head small{display:block;color:#62675d;margin-top:3px}.support-close{background:transparent;color:#173d32;border:0;font-size:24px;cursor:pointer;padding:0 4px}.support-topics{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0}.support-topics button{border:1px solid #c9cdbf;background:#fff;color:#173d32;border-radius:16px;padding:8px 10px;font:inherit;cursor:pointer}.support-topics button[aria-pressed=true]{background:#173d32;color:#fff}.support-answer{padding:12px;border-radius:10px;background:#edf0e7;min-height:64px;margin-bottom:14px}.support-human{display:block;text-align:center;padding:11px;border-radius:8px;background:#173d32;color:#fff;text-decoration:none}.support-toggle:hover{background:#245444}.support-toggle{bottom:calc(84px + env(safe-area-inset-bottom,0px))}.support-panel{bottom:calc(144px + env(safe-area-inset-bottom,0px))}
+.support-toggle{width:auto;height:44px;border-radius:999px;display:flex;gap:8px;padding:0 15px;font:600 13px system-ui}
+.support-toggle span:first-child{width:21px;height:21px;border:1px solid #cfad68;border-radius:50%;display:grid;place-items:center;font-size:14px}
+.support-question-label{display:block;font-weight:600;margin:14px 0 7px}
+.support-question{box-sizing:border-box;width:100%;resize:vertical;min-height:66px;max-height:150px;border:1px solid #c9cdbf;border-radius:9px;background:#fff;padding:10px;font:14px/1.4 system-ui;color:#173d32}
+.support-question:focus-visible{outline:2px solid #b47f25;outline-offset:2px}
+.support-send-note{display:block;margin:5px 0 12px;color:#62675d;font-size:11px;line-height:1.4}
+@media(max-width:480px){.support-toggle{right:12px;padding:0 12px}.support-panel{right:12px;max-width:calc(100vw - 24px);box-sizing:border-box}}
+.price-box .checkout-button{margin-top:4px}
+
+.support-toggle[hidden]{display:none!important}
+
+.price-box .checkout-button{margin-top:12px}.micro-row{gap:8px 14px}
