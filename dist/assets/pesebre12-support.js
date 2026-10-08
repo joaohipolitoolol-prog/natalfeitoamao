@@ -9,6 +9,8 @@
     principiante: "Las guías muestran el corte, la unión, el relleno y el acabado con costura a mano. Puedes avanzar personaje por personaje; no necesitas máquina de coser. Si tienes una duda específica, consulta a Lyzandra por WhatsApp.",
     precio: "El precio base es US$12, en un pago único. La conversión de esta página es aproximada y no incluye impuestos. Hotmart muestra el importe final antes de pagar. Los complementos opcionales se cobran por separado.",
     video: "La colección principal es en PDF y no incluye clases en video. Una oferta de curso, si aparece después de comprar, es un producto separado; revisa allí el precio y la fecha de acceso.",
+    imprimir: "Imprime en papel A4 al 100%, sin ajustar a la página. Comprueba el cuadrado de 5 × 5 cm del proyecto antes de cortar. Puedes guardar los archivos e imprimirlos en casa o en una copistería.",
+    materiales: "Necesitarás fieltro, hilo, aguja, tijeras y relleno. Cada proyecto incluye su lista de materiales y colores. Los materiales físicos no están incluidos en la compra.",
     garantia: "La colección principal tiene una garantía de 7 días. Puedes solicitar el reembolso a través de Hotmart según las condiciones de tu compra. Para problemas de acceso, habla con Lyzandra."
   };
   const setOpen = (open) => {
