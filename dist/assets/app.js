@@ -8,6 +8,7 @@ const metaPixelId = "1051422547811449";
 const BACK_REDIRECT_PATH = "voltar";
 
 const BASE_PRICE = 37;
+const IS_MAIN_BR = ["/", "/index.html"].includes(window.location.pathname);
 const BUMP_PRICE = 27;
 
 /* ========= Meta Pixel + UTMify (depois do load, não compete com LCP) ========= */
@@ -42,14 +43,17 @@ const initPixel = () => {
 };
 
 const loadUtmify = () => {
-  if (document.getElementById("utmify-pixel")) return;
-  window.pixelId = metaPixelId;
+  if (document.getElementById("utmify-utms")) return;
+  const utmifyPixelId = IS_MAIN_BR ? window.nfUtmifyPixelId : metaPixelId;
+  if (utmifyPixelId && utmifyPixelId !== (IS_MAIN_BR ? metaPixelId : "")) {
+  window.pixelId = utmifyPixelId;
   const pixel = document.createElement("script");
   pixel.id = "utmify-pixel";
   pixel.async = true;
   pixel.defer = true;
   pixel.src = "https://cdn.utmify.com.br/scripts/pixel/pixel.js";
   document.head.appendChild(pixel);
+  }
 
   const utms = document.createElement("script");
   utms.id = "utmify-utms";
@@ -139,9 +143,9 @@ if (urgencyCount) {
   } else {
     const line = urgencyLine.querySelector("p");
     if (line) {
-      line.innerHTML = `Faltam <strong id="urgency-count">${daysLeft}</strong> ${
+      line.innerHTML = `${IS_MAIN_BR ? "🎄 " : ""}Faltam <strong id="urgency-count">${daysLeft}</strong> ${
         daysLeft === 1 ? "dia" : "dias"
-      } para o Natal <span>25/12</span>`;
+      } para o Natal <span>${IS_MAIN_BR ? "Comece seu presépio hoje" : "25/12"}</span>`;
     }
   }
 }
