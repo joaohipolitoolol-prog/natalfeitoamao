@@ -18,7 +18,7 @@
   const updateWhatsApp = () => {
     const message = question?.value.trim();
     if (human) human.href = "https://wa.me/554892156250?text=" + encodeURIComponent(
-      message ? "Hola, Lyzandra. Tengo una duda sobre la Colección Pesebre de Fieltro:\\n\\n" + message
+      message ? "Hola, Lyzandra. Tengo una duda sobre la Colección Pesebre de Fieltro:\n\n" + message
         : "Hola, Lyzandra. Tengo una pregunta sobre la Colección Pesebre de Fieltro."
     );
   };
