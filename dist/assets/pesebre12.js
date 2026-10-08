@@ -178,7 +178,7 @@ if (marquee && pieces && "IntersectionObserver" in window) {
 
 /* Recuperación: solo al volver del checkout, nunca al abrir o recargar la LP. */
 (() => {
-  if (window.location.pathname.replace(/\/$/, "") !== "/pesebre12") return;
+  if (!["/pesebre", "/pesebre12"].includes(window.location.pathname.replace(/\/$/, ""))) return;
   window.addEventListener("pageshow", (event) => {
     const navigation = performance.getEntriesByType?.("navigation")?.[0];
     if (!event.persisted && navigation?.type !== "back_forward") return;
