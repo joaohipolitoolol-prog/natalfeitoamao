@@ -24,11 +24,31 @@ const initPixel = () => {
     n.loaded = true;
     n.version = "2.0";
     n.queue = [];
-    t = b.createElement(e);
-    t.async = true;
-    t.src = v;
-    s = b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t, s);
+    let started = false;
+    const loadLibrary = () => {
+      if (started) return;
+      started = true;
+      t = b.createElement(e);
+      t.async = true;
+      t.src = v;
+      s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s);
+    };
+    if (!IS_MAIN_BR) { loadLibrary(); return; }
+    // Queue events immediately; let the hero paint before loading the vendor library.
+    const afterHeroPaint = () => requestAnimationFrame(() => requestAnimationFrame(() => {
+      if ("requestIdleCallback" in window) requestIdleCallback(loadLibrary, { timeout: 1000 });
+      else loadLibrary();
+    }));
+    const heroImage = b.querySelector("#inicio .hero-mockup img");
+    if (!heroImage || heroImage.complete) afterHeroPaint();
+    else {
+      heroImage.addEventListener("load", afterHeroPaint, { once: true });
+      heroImage.addEventListener("error", afterHeroPaint, { once: true });
+      setTimeout(loadLibrary, 1500);
+    }
+    b.addEventListener("pointerdown", loadLibrary, { once: true, passive: true });
+    b.addEventListener("keydown", loadLibrary, { once: true });
   })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
   const am = typeof window.nfGetAdvancedMatching === "function" ? window.nfGetAdvancedMatching() : {};
   window.fbq("init", metaPixelId, {
