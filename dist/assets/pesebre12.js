@@ -44,10 +44,11 @@ const paintPrice = () => {
   pickers.forEach((picker) => { picker.value = currency; });
   document.querySelectorAll("[data-currency-note]").forEach((note) => {
     note.textContent = converted
-      ? `Precio base: US$12. Conversión aproximada (${ratesDate}); no incluye impuestos. El importe final se confirma en Hotmart.`
+      ? "Conversión aproximada · impuestos en checkout."
       : currency !== "USD"
-        ? ratesFailed ? "La conversión no está disponible. Precio base: US$12. Consulta el importe final y los impuestos en Hotmart." : "Consultando conversión… Precio base: US$12. Hotmart confirma el importe final."
-        : "Precio base: US$12. Hotmart confirma la moneda, los impuestos y el importe final antes de pagar.";
+        ? ratesFailed ? "Conversión no disponible · precio en US$12." : "Consultando conversión…"
+        : "";
+    note.hidden = !note.textContent;
   });
 };
 
