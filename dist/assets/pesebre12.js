@@ -3,16 +3,6 @@ const USD_PRICE = 12;
 const HOTMART_CHECKOUT_URL = "https://pay.hotmart.com/T107528025E?off=4huaes9l&checkoutMode=10";
 const META_PIXEL_ID = "1051422547811449";
 
-const FALLBACK_RATES = {
-  USD: 1, EUR: 0.86, GBP: 0.74, CAD: 1.38, AUD: 1.51, NZD: 1.66,
-  MXN: 18.1, COP: 3900, ARS: 1370, CLP: 965, PEN: 3.5, UYU: 40,
-  PYG: 7150, BOB: 6.91, CRC: 505, GTQ: 7.67, HNL: 26.2, NIO: 36.8,
-  DOP: 63.1, CHF: 0.8, SEK: 9.3, NOK: 10.1, DKK: 6.43, PLN: 3.67,
-  CZK: 20.9, HUF: 337, RON: 4.36, ISK: 121.15, RSD: 100.96, ALL: 79.32,
-  BAM: 1.68, MKD: 53.15, MDL: 17.22, UAH: 44.49, BZD: 2, JMD: 158.31,
-  TTD: 6.77, GYD: 209.17, SRD: 37.99, BSD: 1
-};
-
 const COUNTRY_CURRENCY = {
   US:"USD",EC:"USD",SV:"USD",PA:"USD",PR:"USD",ES:"EUR",PT:"EUR",FR:"EUR",DE:"EUR",IT:"EUR",IE:"EUR",NL:"EUR",BE:"EUR",AT:"EUR",FI:"EUR",GR:"EUR",AD:"EUR",LU:"EUR",CY:"EUR",MT:"EUR",EE:"EUR",LV:"EUR",LT:"EUR",SK:"EUR",SI:"EUR",HR:"EUR",BG:"EUR",
   MX:"MXN",CO:"COP",AR:"ARS",CL:"CLP",PE:"PEN",UY:"UYU",PY:"PYG",BO:"BOB",CR:"CRC",GT:"GTQ",HN:"HNL",NI:"NIO",DO:"DOP",
@@ -31,22 +21,42 @@ let region = "";
 try { region = new Intl.Locale(locale).region || ""; } catch {}
 if (!region) region = TIMEZONE_COUNTRY[timezone] || "US";
 
-let currency = COUNTRY_CURRENCY[region] || "USD";
-
-const priceFormatter = (selectedCurrency) => new Intl.NumberFormat(locale, {
-  style: "currency", currency: selectedCurrency, maximumFractionDigits: ["COP","CLP","PYG","ARS","HUF"].includes(selectedCurrency) ? 0 : 2
-});
+const supportedCurrencies = new Set(["USD","MXN","COP","ARS","CLP","PEN","EUR","BRL","UYU","CRC","GTQ"]);
+const pickers = document.querySelectorAll("[data-currency-select]");
+let manualCurrency = "";
+try {
+  const saved = sessionStorage.getItem("nf_es_currency");
+  if (supportedCurrencies.has(saved)) manualCurrency = saved;
+} catch {}
+let currency = manualCurrency || COUNTRY_CURRENCY[region] || "USD";
+if (!supportedCurrencies.has(currency)) currency = "USD";
+let referenceRates = { USD: 1 };
+let ratesDate = "";
+let ratesFailed = false;
 
 const paintPrice = () => {
-  const formatted = "US$ 12";
+  const rate = referenceRates[currency];
+  const converted = currency !== "USD" && Number.isFinite(rate) && rate > 0;
+  const formatted = converted
+    ? "≈ " + new Intl.NumberFormat("es", { style: "currency", currency, currencyDisplay: "code", maximumFractionDigits: ["COP","CLP","ARS"].includes(currency) ? 0 : 2 }).format(USD_PRICE * rate)
+    : "US$ 12";
   document.querySelectorAll("[data-price-text]").forEach((node) => node.textContent = formatted);
-  const note = document.querySelector("#currency-note");
-  if (note) note.textContent = "Precio mostrado en dólares estadounidenses.";
+  pickers.forEach((picker) => { picker.value = currency; });
+  document.querySelectorAll("[data-currency-note]").forEach((note) => {
+    note.textContent = converted
+      ? `Precio base: US$12. Conversión aproximada (${ratesDate}); no incluye impuestos. El importe final se confirma en Hotmart.`
+      : currency !== "USD"
+        ? ratesFailed ? "La conversión no está disponible. Precio base: US$12. Consulta el importe final y los impuestos en Hotmart." : "Consultando conversión… Precio base: US$12. Hotmart confirma el importe final."
+        : "Precio base: US$12. Hotmart confirma la moneda, los impuestos y el importe final antes de pagar.";
+  });
 };
 
 const applyRegion = (nextRegion) => {
   if (nextRegion) region = nextRegion;
-  currency = "USD";
+  if (!manualCurrency) {
+    currency = COUNTRY_CURRENCY[region] || "USD";
+    if (!supportedCurrencies.has(currency)) currency = "USD";
+  }
   const word = region === "ES" ? "belén" : "pesebre";
   document.querySelectorAll("[data-product-word]").forEach((node) => {
     if (!node.dataset.wordCase) node.dataset.wordCase = node.textContent[0] === node.textContent[0].toUpperCase() ? "upper" : "lower";
@@ -54,12 +64,30 @@ const applyRegion = (nextRegion) => {
   });
   paintPrice();
 };
-
+pickers.forEach((picker) => picker.addEventListener("change", () => {
+  if (!supportedCurrencies.has(picker.value)) return;
+  manualCurrency = picker.value;
+  currency = manualCurrency;
+  try { sessionStorage.setItem("nf_es_currency", manualCurrency); } catch {}
+  paintPrice();
+}));
 applyRegion(region);
-fetch("/api/geo", { credentials: "same-origin" })
+fetch("/api/geo", { credentials: "same-origin", signal: AbortSignal.timeout(5000) })
   .then((response) => response.ok ? response.json() : Promise.reject())
   .then((data) => { if (data?.country) applyRegion(data.country); })
   .catch(() => {});
+fetch("/api/rates", { signal: AbortSignal.timeout(6500) })
+  .then((response) => response.ok ? response.json() : Promise.reject())
+  .then((data) => {
+    if (data.base !== "USD" || !/^\d{4}-\d{2}-\d{2}$/.test(data.date) || Date.now() - Date.parse(data.date) > 7 * 86400000) throw new Error("Invalid rates");
+    for (const [code, value] of Object.entries(data.rates || {})) {
+      if (supportedCurrencies.has(code) && Number.isFinite(value) && value > 0) referenceRates[code] = value;
+    }
+    ratesDate = data.date;
+    ratesFailed = true; // A missing selected currency still gets an honest fallback.
+    paintPrice();
+  })
+  .catch(() => { ratesFailed = true; paintPrice(); });
 
 const initTracking = () => {
   if (!META_PIXEL_ID || window.fbq) return;
