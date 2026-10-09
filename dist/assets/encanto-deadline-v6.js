@@ -1,6 +1,6 @@
 (() => {
 'use strict';
-const end = Date.parse('2026-10-10T03:00:00Z');
+const end = Date.parse('2026-10-10T05:00:00Z');
 const clock=document.getElementById('offer-clock');
 const checkoutLinks=document.querySelectorAll('[data-encanto-checkout]');
 function close(){document.getElementById('promo-message').textContent='ESTA OFERTA HA TERMINADO';clock.textContent='00:00:00';document.getElementById('closed-note').hidden=false;checkoutLinks.forEach(a=>{a.removeAttribute('href');a.setAttribute('aria-disabled','true');a.textContent='Oferta finalizada';});}
