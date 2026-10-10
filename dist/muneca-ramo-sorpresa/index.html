@@ -86,7 +86,37 @@
   .bouquet-hero .hero-grid{gap:7px}
   .wa-floating{right:9px;bottom:calc(8px + env(safe-area-inset-bottom,0px));font-size:.72rem;padding:8px 12px;min-height:40px}
 }
-</style></head><body><div class="top-offer-banner" role="note"><span>OFERTA ESPECIAL DE LANZAMIENTO</span><strong>US$7,49</strong><span class="top-offer-pip" aria-hidden="true">●</span><span>PATRÓN PDF + VIDEOS</span></div>
+</style>
+<!-- Meta Pixel: 1671969474547490 | Muñeca Ramo Sorpresa -->
+<script>
+(function () {
+  if (window.__nfFrontPixelReady) return;
+  window.__nfFrontPixelReady = true;
+  !function(f,b,e,v,n,t,s){
+    if(f.fbq)return;
+    n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];
+    t=b.createElement(e);t.async=!0;t.src=v;
+    s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s);
+  }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1671969474547490');
+  fbq('track', 'PageView');
+  var product = {content_name: "Muñeca Ramo Sorpresa", content_ids: ['F107975183X'], content_type: 'product', value: 7.49, currency: 'USD'};
+  fbq('track', 'ViewContent', product);
+  // Only the Hotmart checkout link is an InitiateCheckout.
+  // Buttons that scroll to #oferta do not represent a checkout.
+  document.addEventListener('click', function(event) {
+    var target = event.target;
+    if (target && target.nodeType !== 1) target = target.parentElement;
+    var link = target && target.closest ? target.closest('a[href^="https://pay.hotmart.com/"]') : null;
+    if (link && link.href.indexOf('/F107975183X') !== -1) {
+      fbq('track', 'InitiateCheckout', product);
+    }
+  }, true);
+})();
+</script>
+</head><body><noscript><img src="https://www.facebook.com/tr?id=1671969474547490&amp;ev=PageView&amp;noscript=1" height="1" width="1" alt="" style="display:none"></noscript><div class="top-offer-banner" role="note"><span>OFERTA ESPECIAL DE LANZAMIENTO</span><strong>US$7,49</strong><span class="top-offer-pip" aria-hidden="true">●</span><span>PATRÓN PDF + VIDEOS</span></div>
 <main><section class="hero bouquet-hero"><div class="wrap hero-grid">
 <h1>Un ramo de flores<br><em>que se convierte en muñeca.</em></h1>
 <div class="collection-visual"><div class="transformation" aria-label="El ramo de flores se convierte en una muñeca"><figure><img src="https://i.etsystatic.com/65273883/r/il/d39bcb/7972244056/il_570xN.7972244056_6r77.jpg" alt="Ramo cerrado de flores de crochet rosas y hojas" class="" loading="eager" fetchpriority="high" decoding="async" referrerpolicy="no-referrer" ><figcaption>Primero, un ramo de flores</figcaption></figure><figure><img src="https://i.etsystatic.com/65273883/r/il/3e4716/7972251560/il_570xN.7972251560_e5d2.jpg" alt="Muñeca con vestido rosa y corona de flores" class="" loading="eager" fetchpriority="high" decoding="async" referrerpolicy="no-referrer" ><figcaption>Después, una muñeca</figcaption></figure></div></div>

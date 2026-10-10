@@ -130,7 +130,37 @@ body{background:#fffaf7}
 #brujita-product-cover img{width:100%;height:100%;object-fit:contain;object-position:center}
 #oferta{scroll-margin-top:14px}
 @media(max-width:700px){#brujita-product-cover{width:min(100%,36svh,305px);aspect-ratio:1/1;height:auto;margin-inline:auto}}
-</style></head><body><div class="top-witch-banner"><span>OFERTA DE LANZAMIENTO</span><b>US$7,49</b><span>· PATRÓN PDF + 6 VIDEOS</span></div><main>
+</style>
+<!-- Meta Pixel: 1671969474547490 | Brujita de Otoño -->
+<script>
+(function () {
+  if (window.__nfFrontPixelReady) return;
+  window.__nfFrontPixelReady = true;
+  !function(f,b,e,v,n,t,s){
+    if(f.fbq)return;
+    n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];
+    t=b.createElement(e);t.async=!0;t.src=v;
+    s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s);
+  }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1671969474547490');
+  fbq('track', 'PageView');
+  var product = {content_name: "Brujita de Otoño", content_ids: ['W107975497C'], content_type: 'product', value: 7.49, currency: 'USD'};
+  fbq('track', 'ViewContent', product);
+  // Only the Hotmart checkout link is an InitiateCheckout.
+  // Buttons that scroll to #oferta do not represent a checkout.
+  document.addEventListener('click', function(event) {
+    var target = event.target;
+    if (target && target.nodeType !== 1) target = target.parentElement;
+    var link = target && target.closest ? target.closest('a[href^="https://pay.hotmart.com/"]') : null;
+    if (link && link.href.indexOf('/W107975497C') !== -1) {
+      fbq('track', 'InitiateCheckout', product);
+    }
+  }, true);
+})();
+</script>
+</head><body><noscript><img src="https://www.facebook.com/tr?id=1671969474547490&amp;ev=PageView&amp;noscript=1" height="1" width="1" alt="" style="display:none"></noscript><div class="top-witch-banner"><span>OFERTA DE LANZAMIENTO</span><b>US$7,49</b><span>· PATRÓN PDF + 6 VIDEOS</span></div><main>
 <section class="hero witch-hero"><div class="wrap hero-grid">
 <h1>Teje una brujita<br><em>llena de encanto.</em></h1>
 <div class="collection-visual"><figure class="witch-photo-hero" id="brujita-product-cover"><img src="/assets/brujita-otono-mockup.webp" width="860" height="860" alt="Brujita de Otoño: patrón PDF y seis videos de apoyo, con fotografía de la muñeca de crochet" decoding="async" loading="eager" fetchpriority="high"></figure></div>
