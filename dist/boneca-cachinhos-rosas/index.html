@@ -135,19 +135,61 @@ fbq('track','ViewContent',{content_name:'Boneca de Cachinhos Rosas',content_ids:
 <a href="https://wa.me/554892156250?text=Ol%C3%A1%21%20Tenho%20uma%20d%C3%BAvida%20sobre%20a%20Boneca%20de%20Cachinhos%20Rosas." class="wa-float" target="_blank" rel="noopener noreferrer">Dúvidas? WhatsApp</a>
 <script src="/assets/cachinhos-br-checkout-v1.js" defer></script>
 <script>
+/* Checkout-return recovery v2: never trap browser Back or hash (#oferta) navigation. */
 (function(){
-var key='cachinhos_br_back_shown_v1',flag='cachinhos_br_history_guard_v1';
-try{
- if(sessionStorage.getItem(key)==='1'||!history.pushState)return;
- var state=Object.assign({},history.state||{});if(state[flag])return;
- state[flag]=true;history.pushState(state,'',location.href);
- window.addEventListener('popstate',function(event){
-  if(event.state&&event.state[flag])return;
-  if(sessionStorage.getItem(key)==='1')return;
-  sessionStorage.setItem(key,'1');
-  location.replace('/boneca-cachinhos-rosas/voltar'+location.search);
- });
-}catch(e){}
+'use strict';
+var prefix='rosa_br_checkout_back_v2';
+var armedKey=prefix+'_armed';
+var leftKey=prefix+'_left_for_checkout';
+var shownKey=prefix+'_shown';
+var checkoutHost='pay.cakto.com.br';
+var checkoutPath='/c6ifvro_1191762';
+var recovery='/boneca-cachinhos-rosas/voltar';
+var maxAge=4*60*60*1000;
+function get(k){try{return sessionStorage.getItem(k);}catch(e){return null;}}
+function set(k,v){try{sessionStorage.setItem(k,v);}catch(e){}}
+function del(k){try{sessionStorage.removeItem(k);}catch(e){}}
+function checkoutLink(a){
+  if(!a||!a.href)return false;
+  try{
+    var u=new URL(a.href,location.href);
+    return u.protocol==='https:'&&u.hostname===checkoutHost&&u.pathname===checkoutPath;
+  }catch(e){return false;}
+}
+// Arm only when a real checkout link is activated; '#oferta' is ignored.
+document.addEventListener('click',function(e){
+  if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
+  var target=e.target;
+  if(target&&target.nodeType!==1)target=target.parentElement;
+  var a=target&&target.closest?target.closest('a[href]'):null;
+  if(!checkoutLink(a)||get(shownKey)==='1')return;
+  set(armedKey,String(Date.now()));
+},false);
+// Mark actual departure. Clicking a section button cannot fire pagehide.
+window.addEventListener('pagehide',function(){
+  var armed=Number(get(armedKey));
+  if(armed&&Date.now()-armed<120000){
+    set(leftKey,String(Date.now()));
+    del(armedKey);
+  }
+});
+// Recovery only on a real browser-history return after checkout departure.
+window.addEventListener('pageshow',function(e){
+  if(get(shownKey)==='1')return;
+  var left=Number(get(leftKey));
+  if(!left)return;
+  if(Date.now()-left>maxAge){del(leftKey);return;}
+  var navType='';
+  try{
+    var entries=performance.getEntriesByType('navigation');
+    navType=entries&&entries[0]?entries[0].type:'';
+  }catch(err){}
+  if(!e.persisted&&navType!=='back_forward')return;
+  set(shownKey,'1');
+  del(leftKey);
+  del(armedKey);
+  location.replace(recovery+location.search);
+},false);
 })();
 </script>
 </body></html>

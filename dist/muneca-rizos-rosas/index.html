@@ -90,26 +90,61 @@
 <section class="offer-section" id="oferta"><div class="wrap"><div class="offer"><div><span class="eyebrow">UN PROYECTO. TODOS SUS DETALLES.</span><h2>Todo para crear tu muñeca, en un solo proyecto.</h2><p class="offer-lead">Sigue el patrón PDF y los videos de apoyo para tejer su cabello, vestido, zapatitos y bolso sin buscar instrucciones por separado.</p><div class="value-stack"><div><span>Patrón completo en PDF en español</span><b>Incluido</b></div><div><span>Cabeza, cuerpo, brazos y piernas</span><b>Incluido</b></div><div><span>Cabello rizado y accesorios</span><b>Incluido</b></div><div><span>Vestido, zapatos y bolso azul</span><b>Incluido</b></div><div><span>Videos de apoyo</span><b>Incluidos</b></div></div></div><div class="price-card"><span class="price-label">PRECIO ESPECIAL</span><div class="price">US$7,49</div><p class="per-project">Pago único. Material digital en PDF con apoyo en video.</p><a class="cta" href="https://pay.hotmart.com/U107973976E?checkoutMode=10" rel="noopener noreferrer" data-checkout data-rosa-checkout>Quiero mi patrón por US$7,49 →</a><p class="preview-note">Producto digital · Pago único · El importe final se confirma en Hotmart antes de comprar.</p></div></div></div></section>
 <section class="section"><div class="wrap"><div class="section-head"><h2>Antes de empezar a tejer</h2></div><div class="faq"><details><summary>¿Qué recibo exactamente?</summary><p>Un patrón digital PDF en español con instrucciones de todas las piezas y referencias a videos de apoyo. No se envían muñecas, lana ni herramientas.</p></details><details><summary>¿Es para principiantes?</summary><p>El diseño se presenta como apto para personas con conocimientos básicos de crochet y amigurumi. Debes reconocer anillo mágico, puntos bajos, aumentos y disminuciones.</p></details><details><summary>¿Los videos están doblados al español?</summary><p>El patrón escrito está en español. Los videos de apoyo pueden mantener su audio original.</p></details><details><summary>¿Cómo recibiré los archivos?</summary><p>Tras confirmar tu pago, Hotmart te enviará las instrucciones de acceso al correo utilizado en tu compra.</p></details><details><summary>¿Puedo comprar la muñeca terminada?</summary><p>No. Se trata únicamente del patrón digital y los videos de apoyo para tejerla tú misma.</p></details></div></div></section></main><footer><p>Muñeca de Rizos Rosas. Producto digital de amigurumi. No incluye artículos físicos.</p><nav class="legal-links" aria-label="Políticas"><a href="/muneca-rizos-rosas/privacidad">Política de privacidad</a><a href="/muneca-rizos-rosas/terminos">Términos de uso</a><a href="/muneca-rizos-rosas/reembolso">Política de reembolso</a></nav></footer><a class="wa-float" href="https://wa.me/554892156250?text=Hola%2C%20tengo%20una%20duda%20sobre%20la%20Mu%C3%B1eca%20de%20Rizos%20Rosas" target="_blank" rel="noopener noreferrer" aria-label="Resuelve tus dudas por WhatsApp"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-12 7L3 20l1.5-5A8 8 0 1 1 20 11.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.4 8.6c-.3 2.8 4 6.7 6.9 6.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>¿Dudas? WhatsApp</a><script src="/assets/rosa-utm-checkout-v1.js" defer></script>
 <script>
-/* One-time, explicit browser-back recovery. Do not intercept in-page hash navigation. */
+/* Checkout-return recovery v2: never trap browser Back or hash (#oferta) navigation. */
 (function(){
-  var key='rosa_back_offer_shown_v1';
-  var guard='rosa_back_guard_v1';
-  try {
-    if(sessionStorage.getItem(key)==='1'||!history.pushState)return;
-    if(!history.state||history.state[guard]!==true){
-      var state=Object.assign({},history.state||{});
-      state[guard]=true;
-      history.pushState(state,'',location.href);
-    }
-    window.addEventListener('popstate',function(event){
-      if(event.state&&event.state[guard]===true)return;
-      if(sessionStorage.getItem(key)==='1')return;
-      sessionStorage.setItem(key,'1');
-      location.replace('/muneca-rizos-rosas/volver'+location.search);
-    });
-  } catch(e) {
-    /* Navigation is not blocked if browser or storage rejects the history operation. */
+'use strict';
+var prefix='rosa_es_checkout_back_v2';
+var armedKey=prefix+'_armed';
+var leftKey=prefix+'_left_for_checkout';
+var shownKey=prefix+'_shown';
+var checkoutHost='pay.hotmart.com';
+var checkoutPath='/U107973976E';
+var recovery='/muneca-rizos-rosas/volver';
+var maxAge=4*60*60*1000;
+function get(k){try{return sessionStorage.getItem(k);}catch(e){return null;}}
+function set(k,v){try{sessionStorage.setItem(k,v);}catch(e){}}
+function del(k){try{sessionStorage.removeItem(k);}catch(e){}}
+function checkoutLink(a){
+  if(!a||!a.href)return false;
+  try{
+    var u=new URL(a.href,location.href);
+    return u.protocol==='https:'&&u.hostname===checkoutHost&&u.pathname===checkoutPath;
+  }catch(e){return false;}
+}
+// Arm only when a real checkout link is activated; '#oferta' is ignored.
+document.addEventListener('click',function(e){
+  if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
+  var target=e.target;
+  if(target&&target.nodeType!==1)target=target.parentElement;
+  var a=target&&target.closest?target.closest('a[href]'):null;
+  if(!checkoutLink(a)||get(shownKey)==='1')return;
+  set(armedKey,String(Date.now()));
+},false);
+// Mark actual departure. Clicking a section button cannot fire pagehide.
+window.addEventListener('pagehide',function(){
+  var armed=Number(get(armedKey));
+  if(armed&&Date.now()-armed<120000){
+    set(leftKey,String(Date.now()));
+    del(armedKey);
   }
+});
+// Recovery only on a real browser-history return after checkout departure.
+window.addEventListener('pageshow',function(e){
+  if(get(shownKey)==='1')return;
+  var left=Number(get(leftKey));
+  if(!left)return;
+  if(Date.now()-left>maxAge){del(leftKey);return;}
+  var navType='';
+  try{
+    var entries=performance.getEntriesByType('navigation');
+    navType=entries&&entries[0]?entries[0].type:'';
+  }catch(err){}
+  if(!e.persisted&&navType!=='back_forward')return;
+  set(shownKey,'1');
+  del(leftKey);
+  del(armedKey);
+  location.replace(recovery+location.search);
+},false);
 })();
 </script>
 </body></html>
