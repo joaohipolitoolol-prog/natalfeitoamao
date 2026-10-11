@@ -45,7 +45,7 @@ p{margin:0} .wrap{width:min(1080px,calc(100% - 36px));margin:auto}
 .pricecard{background:#fff7f4;border-radius:13px;padding:26px 22px;text-align:center}
 .pricecard .price{font:700 3.6rem/1.1 Georgia,serif;letter-spacing:-.05em;color:var(--ink);margin:11px 0}
 .pricecard small{color:var(--muted);font-size:.76rem;display:block}.pricecard .cta{width:100%;margin:20px 0 13px}
-.cta[aria-disabled="true"]{cursor:not-allowed;background:#8f8580;box-shadow:none;opacity:.83}
+a.cta[data-cakto-rosa-br]{cursor:pointer!important;pointer-events:auto!important;position:relative;z-index:1}
 .checkout-pending{font-size:.72rem!important;color:#97586c!important;margin:11px 0 0!important}
 .benefits{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.benefit{padding:21px;background:#fff;border:1px solid var(--line);border-radius:13px}.benefit h3{font-size:1.23rem;margin-bottom:7px}.benefit p{font-size:.84rem;color:var(--muted)}
 .guarantee{display:flex;align-items:center;gap:22px;max-width:780px;margin:auto}.seal{flex:none;display:flex;align-items:center;justify-content:center;flex-direction:column;border:2px solid var(--green);width:95px;height:95px;border-radius:50%;color:var(--green)}.seal b{font:700 47px/1 Georgia,serif}.seal small{font-size:.6rem;font-weight:700;letter-spacing:.13em}.guarantee h2{font-size:1.75rem;margin-bottom:10px}.guarantee p{color:var(--muted);font-size:.86rem}
@@ -86,7 +86,7 @@ fbq('track','ViewContent',{content_name:'Boneca de Cachinhos Rosas',content_ids:
 <h1>Faça esta boneca de cachinhos rosas <em>com as próprias mãos.</em></h1>
 <div class="hero-art"><img src="/assets/muneca-rizos-rosas-product-cover.webp" alt="Projeto de amigurumi Boneca de Cachinhos Rosas, com vestido amarelo e bolsa azul" width="840" height="840" fetchpriority="high" decoding="async"></div>
 <p class="lead">Uma boneca cheia de detalhes para você criar: cachinhos rosas, vestido amarelo, sapatinhos e uma bolsinha azul. Tenha a receita em PDF e vídeos de apoio para acompanhar o projeto.</p>
-<div class="hero-cta"><a class="cta" href="https://pay.cakto.com.br/c6ifvro_1191762" data-br-checkout rel="noopener noreferrer">Quero fazer minha boneca por R$37 →</a>
+<div class="hero-cta"><a class="cta" href="https://pay.cakto.com.br/c6ifvro_1191762" data-cakto-rosa-br rel="noopener noreferrer">Quero fazer minha boneca por R$37 →</a>
 <div class="micro"><span>Receita digital em PDF</span><span>Vídeos de apoio</span><span>Pagamento único</span></div>
 <p class="helper">Produto digital. Não inclui boneca pronta ou materiais. É indicado ter noções básicas de crochê.</p>
 </div>
@@ -114,7 +114,7 @@ fbq('track','ViewContent',{content_name:'Boneca de Cachinhos Rosas',content_ids:
 <ul class="included"><li>Receita digital em PDF e materiais necessários</li><li>Cabeça, corpo, braços e pernas</li><li>Cachinhos, vestido, sapatinhos e bolsinha</li><li>Referências e vídeos de apoio</li><li>Compra única, sem assinatura</li></ul></div>
 <div class="pricecard"><span class="eyebrow">VALOR DO PROJETO</span><div class="price">R$ 37,00</div>
 <small>Produto digital · Pagamento único</small>
-<a class="cta" data-br-checkout href="https://pay.cakto.com.br/c6ifvro_1191762" rel="noopener noreferrer">Quero minha receita por R$37 →</a>
+<a class="cta" href="https://pay.cakto.com.br/c6ifvro_1191762" data-cakto-rosa-br rel="noopener noreferrer">Quero minha receita por R$37 →</a>
 
 <small>O valor final e as opções de pagamento serão mostrados no checkout.</small></div>
 </div></div></section>
@@ -133,7 +133,7 @@ fbq('track','ViewContent',{content_name:'Boneca de Cachinhos Rosas',content_ids:
 <footer><p>Boneca de Cachinhos Rosas · Produto digital de amigurumi · Materiais físicos não incluídos.</p>
 <nav aria-label="Políticas"><a href="/boneca-cachinhos-rosas/privacidade">Privacidade</a><a href="/boneca-cachinhos-rosas/termos">Termos de compra</a><a href="/boneca-cachinhos-rosas/reembolso">Reembolso</a></nav></footer>
 <a href="https://wa.me/554892156250?text=Ol%C3%A1%21%20Tenho%20uma%20d%C3%BAvida%20sobre%20a%20Boneca%20de%20Cachinhos%20Rosas." class="wa-float" target="_blank" rel="noopener noreferrer">Dúvidas? WhatsApp</a>
-<script src="/assets/cachinhos-br-checkout-v1.js" defer></script>
+<script src="/assets/cachinhos-br-checkout-v4.js?v=4" defer></script>
 <script>
 /* Checkout-return recovery v2: never trap browser Back or hash (#oferta) navigation. */
 (function(){

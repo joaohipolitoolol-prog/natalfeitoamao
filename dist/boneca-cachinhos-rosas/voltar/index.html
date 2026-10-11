@@ -16,7 +16,7 @@ p{font-size:.88rem;color:#74605a;margin:0 0 15px}
 ul{list-style:none;margin:15px 0;padding:0;display:grid;gap:9px;font-size:.85rem}li:before{content:"✓";color:#317b4c;font-weight:900;margin-right:8px}
 .price{font:700 2.7rem Georgia,serif;letter-spacing:-.035em;margin:17px 0}
 .cta{display:block;text-align:center;text-decoration:none;color:#fff;background:#388a57;border-radius:12px;padding:16px 13px;box-shadow:0 4px 0 #206039;font-weight:800}
-.cta[aria-disabled="true"]{background:#9d918f;box-shadow:none;cursor:not-allowed}
+a.cta[data-cakto-rosa-br]{cursor:pointer!important;pointer-events:auto!important;position:relative;z-index:1}
 .pending{color:#996270;font-size:.72rem;text-align:center;margin:12px 0}
 .decline{display:block;margin:15px auto 0;text-decoration:underline;background:none;border:0;color:#796669;cursor:pointer}
 @media(max-width:680px){body{display:block;padding:12px}.card{grid-template-columns:1fr}.cover{padding:14px}.cover img{max-width:185px}.copy{padding:18px 22px 25px}h1{font-size:1.9rem}.price{font-size:2.3rem;margin:10px 0}}
@@ -31,10 +31,10 @@ fbq('track','ViewContent',{content_name:'Boneca de Cachinhos Rosas — retorno',
 <p>Os cachinhos, o vestido, os sapatinhos e a bolsinha fazem parte de um único projeto digital. Você pode continuar quando quiser.</p>
 <ul><li>Receita digital em PDF</li><li>Vídeos de apoio</li><li>Pagamento único</li></ul>
 <div class="price">R$ 37,00</div>
-<a class="cta" data-br-checkout href="https://pay.cakto.com.br/c6ifvro_1191762" rel="noopener noreferrer">Voltar ao pagamento seguro →</a>
+<a class="cta" href="https://pay.cakto.com.br/c6ifvro_1191762" data-cakto-rosa-br rel="noopener noreferrer">Voltar ao pagamento seguro →</a>
 
 <button class="decline" id="leave" type="button">Não, obrigada. Quero sair.</button></div></article>
-<script src="/assets/cachinhos-br-checkout-v1.js" defer></script>
+<script src="/assets/cachinhos-br-checkout-v4.js?v=4" defer></script>
 <script>
 document.getElementById('leave').addEventListener('click',function(){
 try{if(history.length>1){history.back();return;}}catch(e){}
