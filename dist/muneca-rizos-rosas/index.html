@@ -42,7 +42,14 @@
 }
 @media(max-width:700px) and (max-height:680px){.hero .hero-mockup{height:clamp(135px,23svh,180px)}.hero h1{font-size:1.56rem}.hero .lead{font-size:.75rem}}
 @media(prefers-reduced-motion:reduce){.reviews .review-belt{animation:none;transform:none;will-change:auto}.reviews .review-window{overflow-x:auto;mask-image:none}.reviews .review-track[aria-hidden]{display:none}}
-.hero .hero-mockup{width:100%;height:auto;max-height:440px;aspect-ratio:1/1;object-fit:contain;object-position:center}@media(max-width:700px){.hero .hero-mockup{height:clamp(160px,29svh,260px);max-height:none;aspect-ratio:auto;object-fit:contain;object-position:center}}</style>
+/* Square product cover: edge follows artwork with no dark border or side bars. */
+.hero .collection-visual{width:min(100%,440px);max-width:440px;overflow:hidden;border:1px solid #f2d4d3;border-radius:16px;background:#fff8f5;box-shadow:0 12px 26px #00000016}
+.hero .hero-mockup{display:block;width:100%;height:auto;max-height:none;aspect-ratio:1/1;object-fit:cover;object-position:center;border-radius:inherit}
+@media(max-width:700px){
+.hero .collection-visual{width:min(100%,29svh,260px);max-width:260px;margin:2px auto;border-radius:12px}
+.hero .hero-mockup{width:100%;height:auto;max-height:none;aspect-ratio:1/1;object-fit:cover;border-radius:inherit}
+}
+@media(max-width:700px) and (max-height:680px){.hero .collection-visual{width:min(100%,23svh,190px)}}</style>
 <!-- Meta Pixel: 1671969474547490 | Muñeca de Rizos Rosas -->
 <script>
 (function () {
