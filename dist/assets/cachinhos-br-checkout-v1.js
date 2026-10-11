@@ -1,7 +1,7 @@
-/* BR front and exit recovery: set CHECKOUT_URL only after the valid BR product checkout is supplied. */
+/* BR front and exit recovery: Cakto BR checkout and attribution parameters. */
 (function(){
 'use strict';
-var CHECKOUT_URL = '';
+var CHECKOUT_URL = 'https://pay.cakto.com.br/c6ifvro_1191762';
 var key='cachinhos_br_attribution_v1';
 var keys=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','utm_id','fbclid','gclid','ttclid','xcod','sck','src'];
 var incoming=new URLSearchParams(location.search);
@@ -11,7 +11,7 @@ if(['utm_source','fbclid','gclid','ttclid'].some(function(k){return !!incoming.g
 keys.forEach(function(k){var val=incoming.get(k);if(val&&val.length<=1000)attrs[k]=val;});
 try{sessionStorage.setItem(key,JSON.stringify(attrs));}catch(e){}
 var valid=false;var url;
-try{url=new URL(CHECKOUT_URL);valid=url.protocol==='https:'&&url.hostname==='pay.hotmart.com';}catch(e){}
+try{url=new URL(CHECKOUT_URL);valid=url.protocol==='https:'&&url.hostname==='pay.cakto.com.br'&&url.pathname==='/c6ifvro_1191762';}catch(e){}
 document.querySelectorAll('[data-br-checkout]').forEach(function(a){
  if(!valid){a.removeAttribute('href');a.setAttribute('aria-disabled','true');return;}
  var target=new URL(url.href);

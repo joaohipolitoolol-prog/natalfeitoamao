@@ -25,8 +25,11 @@ ul{list-style:none;padding:0;margin:13px 0;display:grid;gap:10px}li{font-size:.8
 .price-box{border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:15px;margin-top:14px;padding:16px 0 3px}
 .price-box span{font-size:.78rem;color:var(--muted)}.price-box b{font:700 clamp(2.3rem,4vw,2.85rem)/1 Georgia,serif;color:#a52f52;white-space:nowrap}
 .note{font-size:.74rem;color:var(--muted);margin:7px 0 11px}
-#hotmart-sales-funnel{width:100%;min-height:85px;scroll-margin-top:14px}
-#hotmart-sales-funnel iframe{max-width:100%}
+.cakto-upsell-actions{display:grid;gap:11px;margin:17px 0 0}
+.cakto-upsell-cta{display:flex;align-items:center;justify-content:center;background:linear-gradient(#4d9f6b,#307b50);color:#fff;text-decoration:none;border-radius:11px;min-height:53px;padding:13px;text-align:center;font-weight:800;box-shadow:0 4px 0 #24613c}
+.cakto-upsell-cta:hover{filter:brightness(1.06)}
+.cakto-upsell-no{display:block;padding:9px 5px;text-align:center;text-underline-offset:3px;color:#7e6968;font-size:.8rem}
+.cakto-upsell-cta:focus-visible,.cakto-upsell-no:focus-visible{outline:3px solid #b43a61;outline-offset:4px}
 .small{font-size:.69rem;color:var(--muted);margin-top:12px;text-align:center;line-height:1.5}
 .strip{background:#fff1ec;border-bottom:1px solid #f1ded5;text-align:center;color:#6b534c;padding:13px;font-size:.78rem;font-weight:700}
 .section{padding:40px 0}.section h2{text-align:center;font-size:clamp(1.8rem,3.5vw,2.25rem);margin-bottom:24px}
@@ -57,16 +60,16 @@ fbq('track','ViewContent',{content_name:'Bonecas Encantadas — Upsell Brasil',c
 <h1>Espere! Adicione <em>mais 3 bonecas</em> à sua coleção por R$57</h1>
 <p>Você já escolheu seu primeiro projeto. Agora pode acrescentar <strong>Princesa Girassol, Menina do Campo e Rosalie</strong>, com PDFs e vídeos de apoio.</p></div>
 <div class="hero-grid"><figure class="hero-photo"><img src="/assets/encanto-colecao-hero-v3-800.webp" width="1200" height="800" alt="Projetos da Coleção Bonecas Encantadas" fetchpriority="high"><figcaption>Três projetos de amigurumi para continuar criando</figcaption></figure>
-<div class="decision" id="decidir"><span class="badge">OFERTA EXCLUSIVA APÓS SUA COMPRA</span>
+<div class="decision" id="decidir"><span class="badge">COLEÇÃO COMPLEMENTAR DE AMIGURUMI</span>
 <h2>O que você adiciona ao seu pedido:</h2>
 <ul><li>Princesa Girassol · PDF + vídeos</li><li>Menina do Campo · PDF + vídeos</li><li>Rosalie · PDF + vídeos</li><li>Dois guias extras: custos e fotografia</li></ul>
 <div class="price-box"><span>Pagamento adicional único</span><b>R$ 57,00</b></div>
 <p class="note">Material digital · Sem assinatura · Oferta opcional</p>
-<!-- HOTMART - Sales Funnel Widget -->
-<div id="hotmart-sales-funnel" aria-label="Opções de aceitar ou recusar o upsell"></div>
-<p class="small">Se não quiser os três projetos, selecione a opção de recusar no widget da Hotmart. Sua compra inicial não muda.</p>
+<!-- Checkout convencional da Cakto -->
+<div class="cakto-upsell-actions"><a class="cakto-upsell-cta" data-cakto-upsell href="https://pay.cakto.com.br/32gixq7_1190173" rel="noopener noreferrer">Sim, quero os 3 projetos por R$57 →</a><a class="cakto-upsell-no" href="/boneca-cachinhos-rosas/obrigado">Não, obrigada. Continuar apenas com minha compra.</a></div>
+<p class="small">A coleção é uma compra separada na Cakto, com nova confirmação do pagamento. Sua compra inicial permanece garantida.</p>
 </div></div></div></section>
-<div class="strip">Sua compra inicial não muda · Você só paga mais se aceitar</div>
+<div class="strip">Sua primeira compra não muda · Pagamento adicional separado</div>
 <section class="section"><div class="wrap"><h2>Três bonecas diferentes para criar</h2>
 <div class="cards">
 <article class="card"><img src="/assets/encanto-curso-girasol-v6-480.webp" alt="Princesa Girassol" loading="lazy"><div><h3>Princesa Girassol</h3><p>Um projeto encantador de crochê, com cabelo cacheado e girassóis.</p></div></article>
@@ -75,9 +78,22 @@ fbq('track','ViewContent',{content_name:'Bonecas Encantadas — Upsell Brasil',c
 </div></div></section>
 <section class="section extra"><div class="wrap extra-inner"><img src="/assets/encanto-bonos-v6-480.webp" alt="Guias de custos e fotografia" loading="lazy">
 <div><h2>Mais 2 guias extras incluídos</h2><p>Uma guia para organizar custos e uma guia com ideias para fotografar os detalhes das suas peças, sem valor adicional na oferta.</p></div></div></section>
-<section class="section guarantee"><div class="wrap"><h2>Garantia de 7 dias</h2><p>As condições de garantia e reembolso são as exibidas pela plataforma de pagamento, sem prejuízo dos direitos previstos em lei. As opções de aceitar ou recusar são controladas pela Hotmart.</p><a class="back" href="#decidir">Voltar à oferta de R$57 ↑</a></div></section>
+<section class="section guarantee"><div class="wrap"><h2>Garantia de 7 dias</h2><p>As condições de garantia e reembolso são as informadas pela Cakto, sem prejuízo dos direitos previstos em lei. A oferta adicional exige um pagamento separado.</p><a class="back" href="#decidir">Voltar à oferta de R$57 ↑</a></div></section>
 </main>
-<footer>Bonecas Encantadas · Produto digital de amigurumi · O valor final deve corresponder à oferta configurada na Hotmart.</footer>
-<script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
-<script>checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel')</script>
+<footer>Bonecas Encantadas · Produto digital de amigurumi · O valor final deve corresponder à oferta configurada na Cakto.</footer>
+<script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids async defer></script>
+<script>
+(function(){
+'use strict';
+var keys=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','utm_id','fbclid','gclid','ttclid','xcod','sck','src'],here=new URLSearchParams(location.search),saved={};
+try{saved=JSON.parse(sessionStorage.getItem('cachinhos_br_attribution_v1')||'{}')||{}}catch(e){}
+if(!saved||typeof saved!=='object'||Array.isArray(saved))saved={};
+keys.forEach(function(k){var v=here.get(k);if(v&&v.length<=1000)saved[k]=v;});
+try{sessionStorage.setItem('cachinhos_br_attribution_v1',JSON.stringify(saved));}catch(e){}
+var link=document.querySelector('[data-cakto-upsell]');if(!link)return;
+try{var url=new URL(link.href);if(url.origin!=='https://pay.cakto.com.br'||url.pathname!=='/32gixq7_1190173')return;
+keys.forEach(function(k){if(saved[k]&&!url.searchParams.has(k))url.searchParams.set(k,saved[k]);});link.href=url.href;}catch(e){}
+link.addEventListener('click',function(){if(window.fbq)window.fbq('track','InitiateCheckout',{content_name:'Bonecas Encantadas - compra adicional BR',content_ids:['bonecas-encantadas-upsell-br'],content_type:'product',value:57,currency:'BRL'});});
+})();
+</script>
 </body></html>
