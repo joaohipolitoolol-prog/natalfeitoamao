@@ -17,20 +17,43 @@
   <meta property="og:description" content="9 amigurumis navideños + muñeco de nieve extra. Teje una Navidad hecha por tus propias manos.">
   <meta property="og:image" content="https://natalfeitoamao.vercel.app/assets/navidad-amigurumi-hero-v2.jpg">
 
-  <!-- Meta Pixel de amigurumi -->
+  <link rel="preload" href="/assets/navidad-amigurumi-hero-v2.webp" as="image" type="image/webp" fetchpriority="high">
+  <!-- Meta Pixel y UTMify se ejecutan después de la primera pintura para priorizar la foto -->
   <script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
-    (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init','1671969474547490');
-    fbq('track','PageView');
-    fbq('track','ViewContent',{content_name:'Navidad Mágica en Amigurumi',content_type:'product',value:12,currency:'USD'});
+    (function(w,d){
+      var started=false;
+      function load(){
+        if(started)return;
+        started=true;
+        var pixel=d.createElement('script');
+        pixel.async=true;
+        pixel.src='https://connect.facebook.net/en_US/fbevents.js';
+        d.head.appendChild(pixel);
+        var utms=d.createElement('script');
+        utms.async=true;
+        utms.src='https://cdn.utmify.com.br/scripts/utms/latest.js';
+        d.head.appendChild(utms);
+      }
+      var fbq=w.fbq=function(){fbq.callMethod?fbq.callMethod.apply(fbq,arguments):fbq.queue.push(arguments)};
+      if(!w._fbq)w._fbq=fbq;
+      fbq.push=fbq;fbq.loaded=false;fbq.version='2.0';fbq.queue=[];
+      fbq('init','1671969474547490');
+      fbq('track','PageView');
+      fbq('track','ViewContent',{content_name:'Navidad Mágica en Amigurumi',content_type:'product',value:12,currency:'USD'});
+      function afterPaint(){
+        w.requestAnimationFrame(function(){w.requestAnimationFrame(function(){
+          if('requestIdleCallback' in w)w.requestIdleCallback(load,{timeout:1600});
+          else load();
+        })});
+      }
+      if(d.readyState==='loading')d.addEventListener('DOMContentLoaded',afterPaint,{once:true});
+      else afterPaint();
+      w.setTimeout(load,2500);
+      d.addEventListener('pointerdown',load,{once:true,passive:true});
+      d.addEventListener('keydown',load,{once:true});
+    })(window,document);
   </script>
   <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1671969474547490&ev=PageView&noscript=1" alt=""></noscript>
-
-  <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" async defer></script>
 
   <style>
 
@@ -78,6 +101,21 @@
 .help-near-checkout{color:#6b776e;font-size:12px;line-height:1.5;margin:8px auto 13px;text-align:center}
 .help-near-checkout a{font-weight:800;text-underline-offset:3px;color:#267b55}
 @media(max-width:420px){.main-hero .hero-intro h1{font-size:clamp(29px,7.7vw,37px);line-height:1.08}}
+
+/* Foto fiel del reno, recortada desde la composición original con los elfos. */
+.doll-image.reno-photo{position:relative;background:#f3eee4}
+.reno-photo img{position:absolute;left:50%;bottom:0;width:245%;height:auto;max-width:none;transform:translateX(-50%);object-fit:initial}
+.reno-photo .reindeer-fallback{display:none}
+.reno-photo.photo-failed .reindeer-fallback{display:grid;place-items:center;width:100%;height:100%;font-size:42px;background:#efe5d3}
+.reno-photo.photo-failed img{display:none}
+/* Reducir trabajo de renderizado fuera de pantalla sin afectar los enlaces de compra. */
+@supports (content-visibility:auto) {
+  .collection-section,.big-bonus,.clarity-section,.simplicity,.time-note,.sales-section,.faq-section{content-visibility:auto;contain-intrinsic-size:auto 1100px}
+}
+/* CTA accesible y scroll equilibrado. */
+a:focus-visible,summary:focus-visible{outline:3px solid #e8b449;outline-offset:3px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
 </style>
 </head>
 <body>
@@ -92,7 +130,7 @@
       <p class="lead">Imagina a Papá Noel, sus elfos y otros adorables personajes decorando tu hogar… <strong>¡hechos por tus propias manos!</strong> Una colección de <strong>9 diseños navideños + 1 personaje extra</strong>, con patrones ilustrados en PDF.</p>
     </div>
     <div class="hero-photo">
-      <img src="/assets/navidad-amigurumi-hero-v2.webp" alt="Fotografía de los personajes reales de la colección: Papá Noel, Mamá Noel, elfos, jengibre, árbol de Navidad y Emily con su muñeco de nieve" width="1256" height="1256" fetchpriority="high" decoding="async">
+      <img src="/assets/navidad-amigurumi-hero-v2.webp" alt="Fotografía de los personajes reales de la colección: Papá Noel, Mamá Noel, elfos, jengibre, árbol de Navidad y Emily con su muñeco de nieve" width="1256" height="1256" fetchpriority="high" loading="eager" decoding="async">
     </div>
     <div class="hero-conversion">
       <p class="hero-caption">Imagina el orgullo de decir: «Los hice yo».</p>
@@ -159,8 +197,9 @@
   <div class="doll-info"><h3>Muñeca de jengibre</h3><span>13 cm aprox.</span></div>
 </article>
 <article class="doll-card">
-  <div class="doll-image no-photo" role="img" aria-label="Reno incluido en la colección, foto individual pendiente">
-    <div class="deer-pending" aria-hidden="true"><span class="deer-symbol">🦌</span><strong>Reno navideño</strong><small>Foto individual pendiente</small></div>
+  <div class="doll-image reno-photo" role="group" aria-label="Reno original de la colección de aproximadamente 12 centímetros">
+    <img src="https://www.crazypatterns.net/uploads/cache/items/2022/11/87286/preview/crochet-pattern-doll-amigurumi-doll-crochet-elves-elf-and-deer-2155563041-405x540.png" alt="Reno real de amigurumi, con nariz roja y cuernos tejidos, incluido en el patrón original" width="405" height="540" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none';this.parentNode.classList.add('photo-failed')">
+    <span class="reindeer-fallback" aria-hidden="true">🦌</span>
     <span class="doll-no">07</span>
   </div>
   <div class="doll-info"><h3>Reno</h3><span>12 cm aprox.</span></div>
