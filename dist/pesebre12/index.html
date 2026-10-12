@@ -1,6 +1,28 @@
 <!doctype html>
 <html lang="es">
-<head>
+<head><script>/* Queue events immediately; load Meta after the first hero paint, with a bounded fallback. */
+window.nfScheduleMeta = function (load) {
+  var started = false;
+  function start() { if (started) return; started = true; load(); }
+  function painted() {
+    requestAnimationFrame(function () { requestAnimationFrame(function () {
+      if ('requestIdleCallback' in window) requestIdleCallback(start, { timeout: 500 });
+      else start();
+    }); });
+  }
+  function ready() {
+    var hero = document.querySelector('.hero-mockup img, .hero-media img');
+    if (!hero || hero.complete) painted();
+    else { hero.addEventListener('load', painted, { once: true }); hero.addEventListener('error', painted, { once: true }); }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', ready, { once: true });
+  else ready();
+  setTimeout(start, 1500);
+  document.addEventListener('pointerdown', start, { once: true, passive: true });
+  document.addEventListener('keydown', start, { once: true });
+  window.addEventListener('pagehide', start, { once: true });
+};
+</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Ten el pesebre de fieltro de la foto esta Navidad. 15 proyectos, 29 moldes a tamaño real y guías paso a paso en PDF.">
@@ -144,22 +166,22 @@ body.product-preview-first>main>.collection-covers{width:100%;min-width:0;max-wi
       <div class="marquee" aria-label="Personajes incluidos">
         <div class="marquee-track" id="marquee-track">
           <div class="marquee-group">
-            <figure class="piece-card"><img src="/assets/personagem-maria.jpg" alt="María de fieltro" width="480" height="480" decoding="async" loading="lazy"><figcaption>María</figcaption></figure>
-            <figure class="piece-card"><img src="/assets/personagem-jose.jpg" alt="José de fieltro" width="480" height="480" decoding="async" loading="lazy"><figcaption>José</figcaption></figure>
-            <figure class="piece-card"><img src="/assets/personagem-jesus.jpg" alt="Niño Jesús" width="480" height="480" decoding="async" loading="lazy"><figcaption>Niño Jesús</figcaption></figure>
-            <figure class="piece-card"><img src="/assets/personagem-anjo.jpg" alt="Ángel de fieltro" width="480" height="480" decoding="async" loading="lazy"><figcaption>Ángel</figcaption></figure>
-            <figure class="piece-card"><img src="/assets/personagem-reis.jpg" alt="Reyes Magos de fieltro" width="480" height="480" decoding="async" loading="lazy"><figcaption>Reyes Magos</figcaption></figure>
-            <figure class="piece-card"><img src="/assets/personagem-pastor.jpg" alt="Pastor de fieltro" width="480" height="480" decoding="async" loading="lazy"><figcaption>Pastor</figcaption></figure>
-            <figure class="piece-card"><img src="/assets/personagem-animais.jpg" alt="Animales del pesebre" width="480" height="480" decoding="async" loading="lazy"><figcaption>Animales</figcaption></figure>
+            <figure class="piece-card"><picture><source type="image/avif" srcset="/assets/personagem-maria-perf-20261012-320.avif"><img src="/assets/personagem-maria.jpg" alt="María de fieltro" width="480" height="480" decoding="async" loading="lazy"></picture><figcaption>María</figcaption></figure>
+            <figure class="piece-card"><picture><source type="image/avif" srcset="/assets/personagem-jose-perf-20261012-320.avif"><img src="/assets/personagem-jose.jpg" alt="José de fieltro" width="480" height="480" decoding="async" loading="lazy"></picture><figcaption>José</figcaption></figure>
+            <figure class="piece-card"><picture><source type="image/avif" srcset="/assets/personagem-jesus-perf-20261012-320.avif"><img src="/assets/personagem-jesus.jpg" alt="Niño Jesús" width="480" height="480" decoding="async" loading="lazy"></picture><figcaption>Niño Jesús</figcaption></figure>
+            <figure class="piece-card"><picture><source type="image/avif" srcset="/assets/personagem-anjo-perf-20261012-320.avif"><img src="/assets/personagem-anjo.jpg" alt="Ángel de fieltro" width="480" height="480" decoding="async" loading="lazy"></picture><figcaption>Ángel</figcaption></figure>
+            <figure class="piece-card"><picture><source type="image/avif" srcset="/assets/personagem-reis-perf-20261012-320.avif"><img src="/assets/personagem-reis.jpg" alt="Reyes Magos de fieltro" width="480" height="480" decoding="async" loading="lazy"></picture><figcaption>Reyes Magos</figcaption></figure>
+            <figure class="piece-card"><picture><source type="image/avif" srcset="/assets/personagem-pastor-perf-20261012-320.avif"><img src="/assets/personagem-pastor.jpg" alt="Pastor de fieltro" width="480" height="480" decoding="async" loading="lazy"></picture><figcaption>Pastor</figcaption></figure>
+            <figure class="piece-card"><picture><source type="image/avif" srcset="/assets/personagem-animais-perf-20261012-320.avif"><img src="/assets/personagem-animais.jpg" alt="Animales del pesebre" width="480" height="480" decoding="async" loading="lazy"></picture><figcaption>Animales</figcaption></figure>
           </div>
           <div class="marquee-group" aria-hidden="true">
-            <figure class="piece-card"><img src="/assets/personagem-maria.jpg" alt="" width="480" height="480" loading="lazy"><figcaption>María</figcaption></figure>
-            <figure class="piece-card"><img src="/assets/personagem-jose.jpg" alt="" width="480" height="480" loading="lazy"><figcaption>José</figcaption></figure>
-            <figure class="piece-card"><img src="/assets/personagem-jesus.jpg" alt="" width="480" height="480" loading="lazy"><figcaption>Niño Jesús</figcaption></figure>
-            <figure class="piece-card"><img src="/assets/personagem-anjo.jpg" alt="" width="480" height="480" loading="lazy"><figcaption>Ángel</figcaption></figure>
-            <figure class="piece-card"><img src="/assets/personagem-reis.jpg" alt="" width="480" height="480" loading="lazy"><figcaption>Reyes Magos</figcaption></figure>
-            <figure class="piece-card"><img src="/assets/personagem-pastor.jpg" alt="" width="480" height="480" loading="lazy"><figcaption>Pastor</figcaption></figure>
-            <figure class="piece-card"><img src="/assets/personagem-animais.jpg" alt="" width="480" height="480" loading="lazy"><figcaption>Animales</figcaption></figure>
+            <figure class="piece-card"><picture><source type="image/avif" srcset="/assets/personagem-maria-perf-20261012-320.avif"><img src="/assets/personagem-maria.jpg" alt="" width="480" height="480" loading="lazy" decoding="async"></picture><figcaption>María</figcaption></figure>
+            <figure class="piece-card"><picture><source type="image/avif" srcset="/assets/personagem-jose-perf-20261012-320.avif"><img src="/assets/personagem-jose.jpg" alt="" width="480" height="480" loading="lazy" decoding="async"></picture><figcaption>José</figcaption></figure>
+            <figure class="piece-card"><picture><source type="image/avif" srcset="/assets/personagem-jesus-perf-20261012-320.avif"><img src="/assets/personagem-jesus.jpg" alt="" width="480" height="480" loading="lazy" decoding="async"></picture><figcaption>Niño Jesús</figcaption></figure>
+            <figure class="piece-card"><picture><source type="image/avif" srcset="/assets/personagem-anjo-perf-20261012-320.avif"><img src="/assets/personagem-anjo.jpg" alt="" width="480" height="480" loading="lazy" decoding="async"></picture><figcaption>Ángel</figcaption></figure>
+            <figure class="piece-card"><picture><source type="image/avif" srcset="/assets/personagem-reis-perf-20261012-320.avif"><img src="/assets/personagem-reis.jpg" alt="" width="480" height="480" loading="lazy" decoding="async"></picture><figcaption>Reyes Magos</figcaption></figure>
+            <figure class="piece-card"><picture><source type="image/avif" srcset="/assets/personagem-pastor-perf-20261012-320.avif"><img src="/assets/personagem-pastor.jpg" alt="" width="480" height="480" loading="lazy" decoding="async"></picture><figcaption>Pastor</figcaption></figure>
+            <figure class="piece-card"><picture><source type="image/avif" srcset="/assets/personagem-animais-perf-20261012-320.avif"><img src="/assets/personagem-animais.jpg" alt="" width="480" height="480" loading="lazy" decoding="async"></picture><figcaption>Animales</figcaption></figure>
           </div>
         </div>
       </div>
@@ -310,8 +332,9 @@ body.product-preview-first>main>.collection-covers{width:100%;min-width:0;max-wi
     <small class="support-send-note">Tu pregunta se abre en WhatsApp. Tú decides cuándo enviarla.</small>
     <a id="support-human" class="support-human" href="https://wa.me/554892156250?text=Hola%2C%20Lyzandra.%20Tengo%20una%20pregunta%20sobre%20la%20Colecci%C3%B3n%20Pesebre%20de%20Fieltro." target="_blank" rel="noopener noreferrer">Enviar mi duda por WhatsApp</a>
   </section>
-  <script src="/assets/pesebre12-currency-20261009.js" defer></script>
+  <script src="/assets/pesebre12-perf-20261012.js" defer></script>
   <script src="/assets/pesebre12-support.62d2fef7e1b8.js" defer></script>
 <script src="/assets/collection-strip-20261009.js" defer></script>
 </body>
 </html>
+
