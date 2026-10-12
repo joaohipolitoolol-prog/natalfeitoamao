@@ -12,8 +12,9 @@ window.nfScheduleMeta = function (load) {
   }
   function ready() {
     var hero = document.querySelector('.hero-mockup img, .hero-media img');
-    if (!hero || hero.complete) painted();
-    else { hero.addEventListener('load', painted, { once: true }); hero.addEventListener('error', painted, { once: true }); }
+    function decoded() { if (hero && typeof hero.decode === 'function') hero.decode().then(painted, painted); else painted(); }
+    if (!hero || hero.complete) decoded();
+    else { hero.addEventListener('load', decoded, { once: true }); hero.addEventListener('error', painted, { once: true }); }
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', ready, { once: true });
   else ready();
@@ -57,7 +58,7 @@ window.nfScheduleMeta = function (load) {
         <picture>
           <source type="image/avif" media="(max-width:600px)" srcset="/assets/presepio-hero-fast-480.avif">
           <source type="image/webp" srcset="/assets/presepio-lcp.webp" sizes="100vw">
-          <img src="/assets/presepio-lcp.jpg" alt="Presepe completo in pannolenci fatto a mano" width="750" height="375" fetchpriority="high" decoding="async">
+          <img src="/assets/presepio-lcp.jpg" alt="Presepe completo in pannolenci fatto a mano" width="750" height="375" fetchpriority="high" decoding="auto">
         </picture>
       </figure>
       <div class="hero-cta">

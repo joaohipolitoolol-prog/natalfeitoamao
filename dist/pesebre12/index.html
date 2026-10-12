@@ -12,8 +12,9 @@ window.nfScheduleMeta = function (load) {
   }
   function ready() {
     var hero = document.querySelector('.hero-mockup img, .hero-media img');
-    if (!hero || hero.complete) painted();
-    else { hero.addEventListener('load', painted, { once: true }); hero.addEventListener('error', painted, { once: true }); }
+    function decoded() { if (hero && typeof hero.decode === 'function') hero.decode().then(painted, painted); else painted(); }
+    if (!hero || hero.complete) decoded();
+    else { hero.addEventListener('load', decoded, { once: true }); hero.addEventListener('error', painted, { once: true }); }
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', ready, { once: true });
   else ready();
