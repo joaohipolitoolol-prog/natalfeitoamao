@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Colección de 9 patrones ilustrados de amigurumis navideños, con un pequeño muñeco de nieve extra. Papá Noel, elfos, muñecos de jengibre, Emily y más.">
   <meta name="theme-color" content="#173c2f">
+  <link rel="icon" href="/assets/favicon-v2.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/favicon-v2.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon-v2.png">
+
   <title>Navidad Mágica en Amigurumi | 9 patrones</title>
 
   <meta property="og:type" content="website">
@@ -55,6 +59,21 @@
 .btn-buy:hover{filter:brightness(1.06)}
 @media(max-width:420px){.main-hero .hero-intro h1{font-size:clamp(32px,8.1vw,38px);line-height:1.04}.hero-intro .lead{font-size:13.5px;line-height:1.48}.hero-caption{font-size:17px}.hero-conversion{padding-top:13px}.sales-wrap .btn-buy{min-height:60px;font-size:13px}}
 
+
+/* Galería mobile-first: recortes exactos del conjunto original, sin aumento excesivo */
+.doll-image{display:flex;align-items:center;justify-content:center;aspect-ratio:.85;overflow:hidden;background:#f2e9dc;background-image:none!important}
+.doll-crop{display:block;width:100%;height:100%;overflow:visible}
+.doll-no{z-index:2}
+.doll-image.no-photo{background:radial-gradient(circle at 50% 25%,#f3e8cf,#e8dcc6);color:#665e46}
+.deer-pending{width:100%;height:100%;display:flex;flex-direction:column;gap:7px;align-items:center;justify-content:center;padding:14px;text-align:center}
+.deer-symbol{font-size:clamp(30px,4.2vw,50px);line-height:1}
+.deer-pending strong{font:700 15px/1.1 Georgia,serif}
+.deer-pending small{max-width:120px;color:#756e5e;font-size:10px;line-height:1.25}
+.doll-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.doll-info h3{font-size:18px}
+@media(max-width:760px){.doll-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:420px){.doll-info h3{font-size:16px}.doll-image{aspect-ratio:.84}.deer-pending{padding:7px}.deer-pending strong{font-size:13px}.deer-pending small{font-size:9px}}
+
 </style>
 </head>
 <body>
@@ -75,7 +94,7 @@
       <p class="hero-caption">Imagina el orgullo de decir: «Los hice yo».</p>
       <a href="#oferta" class="btn btn-primary">QUIERO MI COLECCIÓN NAVIDEÑA <span aria-hidden="true">→</span></a>
       <div class="hero-facts"><span><b>9</b> proyectos</span><span><b>+1</b> personaje extra</span><span><b>US$ 12</b> pago único</span></div>
-      <p class="tiny light"><strong>Importante:</strong> patrones originales en inglés, con fotos paso a paso. Producto digital en PDF, no muñecos físicos. Requiere conocimientos básicos de crochet.</p>
+      <p class="tiny light"><strong>Importante:</strong> patrones originales en inglés, con fotos paso a paso. Producto digital en PDF, no muñecos físicos. Recomendado para quienes ya tienen experiencia tejiendo amigurumis.</p>
     </div>
   </section>
 
@@ -94,55 +113,64 @@
       <p>9 diseños combinados en el mismo estilo navideño. Toca tu favorito con la mirada y piensa por cuál empezarías.</p>
     </div>
     <div class="doll-grid"><article class="doll-card">
-  <div class="doll-image " style="background-position:0% 67%" role="img" aria-label="Fotografía del amigurumi Papá Noel de la colección">
+  <div class="doll-image" role="img" aria-label="Foto del amigurumi Papá Noel del conjunto original">
+    <svg class="doll-crop" viewBox="0 260 530 745" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><image href="/assets/navidad-amigurumi-hero-v2.webp" x="0" y="0" width="1256" height="1256"/></svg>
     <span class="doll-no">01</span>
   </div>
   <div class="doll-info"><h3>Papá Noel</h3><span>20 cm aprox.</span></div>
 </article>
 <article class="doll-card">
-  <div class="doll-image " style="background-position:25% 72%" role="img" aria-label="Fotografía del amigurumi Mamá Noel de la colección">
+  <div class="doll-image" role="img" aria-label="Foto del amigurumi Mamá Noel del conjunto original">
+    <svg class="doll-crop" viewBox="255 295 530 720" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><image href="/assets/navidad-amigurumi-hero-v2.webp" x="0" y="0" width="1256" height="1256"/></svg>
     <span class="doll-no">02</span>
   </div>
   <div class="doll-info"><h3>Mamá Noel</h3><span>19 cm aprox.</span></div>
 </article>
 <article class="doll-card">
-  <div class="doll-image " style="background-position:58% 10%" role="img" aria-label="Fotografía del amigurumi Elfo de la colección">
+  <div class="doll-image" role="img" aria-label="Foto del amigurumi Elfo del conjunto original">
+    <svg class="doll-crop" viewBox="475 95 425 585" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><image href="/assets/navidad-amigurumi-hero-v2.webp" x="0" y="0" width="1256" height="1256"/></svg>
     <span class="doll-no">03</span>
   </div>
   <div class="doll-info"><h3>Elfo</h3><span>26 cm aprox.</span></div>
 </article>
 <article class="doll-card">
-  <div class="doll-image " style="background-position:82% 10%" role="img" aria-label="Fotografía del amigurumi Elfa de la colección">
+  <div class="doll-image" role="img" aria-label="Foto del amigurumi Elfa del conjunto original">
+    <svg class="doll-crop" viewBox="730 95 500 585" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><image href="/assets/navidad-amigurumi-hero-v2.webp" x="0" y="0" width="1256" height="1256"/></svg>
     <span class="doll-no">04</span>
   </div>
   <div class="doll-info"><h3>Elfa</h3><span>26 cm aprox.</span></div>
 </article>
 <article class="doll-card">
-  <div class="doll-image " style="background-position:54% 100%" role="img" aria-label="Fotografía del amigurumi Galleta de jengibre de la colección">
+  <div class="doll-image" role="img" aria-label="Foto del amigurumi Galleta de jengibre del conjunto original">
+    <svg class="doll-crop" viewBox="440 622 410 540" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><image href="/assets/navidad-amigurumi-hero-v2.webp" x="0" y="0" width="1256" height="1256"/></svg>
     <span class="doll-no">05</span>
   </div>
   <div class="doll-info"><h3>Galleta de jengibre</h3><span>13 cm aprox.</span></div>
 </article>
 <article class="doll-card">
-  <div class="doll-image " style="background-position:80% 100%" role="img" aria-label="Fotografía del amigurumi Muñeca de jengibre de la colección">
+  <div class="doll-image" role="img" aria-label="Foto del amigurumi Muñeca de jengibre del conjunto original">
+    <svg class="doll-crop" viewBox="650 616 440 540" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><image href="/assets/navidad-amigurumi-hero-v2.webp" x="0" y="0" width="1256" height="1256"/></svg>
     <span class="doll-no">06</span>
   </div>
   <div class="doll-info"><h3>Muñeca de jengibre</h3><span>13 cm aprox.</span></div>
 </article>
 <article class="doll-card">
-  <div class="doll-image external"  role="img" aria-label="Fotografía del amigurumi Reno de la colección"><img src="https://www.crazypatterns.net/uploads/cache/items/2022/11/87286/preview/crochet-pattern-doll-amigurumi-doll-crochet-elves-elf-and-deer-2155563041-405x540.png" alt="El reno tejido junto a los elfos, fotografía del diseño original" loading="lazy" decoding="async" width="405" height="540">
+  <div class="doll-image no-photo" role="img" aria-label="Reno incluido en la colección, foto individual pendiente">
+    <div class="deer-pending" aria-hidden="true"><span class="deer-symbol">🦌</span><strong>Reno navideño</strong><small>Foto individual pendiente</small></div>
     <span class="doll-no">07</span>
   </div>
   <div class="doll-info"><h3>Reno</h3><span>12 cm aprox.</span></div>
 </article>
 <article class="doll-card">
-  <div class="doll-image " style="background-position:24% 100%" role="img" aria-label="Fotografía del amigurumi Árbol navideño de la colección">
+  <div class="doll-image" role="img" aria-label="Foto del amigurumi Árbol navideño del conjunto original">
+    <svg class="doll-crop" viewBox="165 805 370 365" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><image href="/assets/navidad-amigurumi-hero-v2.webp" x="0" y="0" width="1256" height="1256"/></svg>
     <span class="doll-no">08</span>
   </div>
   <div class="doll-info"><h3>Árbol navideño</h3><span>8 cm aprox.</span></div>
 </article>
 <article class="doll-card">
-  <div class="doll-image " style="background-position:100% 64%" role="img" aria-label="Fotografía del amigurumi Muñeca Emily de la colección">
+  <div class="doll-image" role="img" aria-label="Foto del amigurumi Muñeca Emily del conjunto original">
+    <svg class="doll-crop" viewBox="890 368 360 745" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><image href="/assets/navidad-amigurumi-hero-v2.webp" x="0" y="0" width="1256" height="1256"/></svg>
     <span class="doll-no">09</span>
   </div>
   <div class="doll-info"><h3>Muñeca Emily</h3><span>30 cm aprox.</span></div>
@@ -192,7 +220,7 @@
       <div><b>02</b><h3>Reúne lo necesario</h3><p>Consulta la lista del patrón para elegir hilos y materiales.</p></div>
       <div><b>03</b><h3>Disfruta cada puntada</h3><p>Sigue las instrucciones ilustradas a tu ritmo.</p></div>
     </div>
-    <p class="for-whom"><strong>Para quién es:</strong> personas que ya saben los puntos básicos de crochet y conocen las técnicas habituales de amigurumi. No es un curso desde cero.</p>
+    <p class="for-whom"><strong>Para quién es:</strong> personas que ya han tejido amigurumis y conocen técnicas de aumentos, disminuciones, cambios de color y ensamblaje. Algunos diseños requieren práctica. No es un curso desde cero.</p>
   </section>
 
   <section class="time-note" id="navidad">
@@ -235,7 +263,7 @@
     <div class="faq-list">
       <details><summary>¿Recibo muñecos hechos o patrones?</summary><p>Recibes archivos digitales en PDF con instrucciones para tejer los muñecos. No enviamos productos físicos.</p></details>
       <details><summary>¿Los patrones están en español?</summary><p>Por ahora, los patrones originales de esta colección están en inglés. La página está en español, pero eso no significa que los archivos ya estén traducidos.</p></details>
-      <details><summary>¿Es para principiantes?</summary><p>Es necesario conocer los puntos básicos del crochet y las técnicas comunes del amigurumi. No incluye un curso desde cero.</p></details>
+      <details><summary>¿Qué nivel de crochet necesito?</summary><p>Se recomienda experiencia previa tejiendo amigurumis. Algunos personajes requieren trabajar varias piezas, ensamblarlas y cuidar sus acabados. No es un curso de iniciación desde cero.</p></details>
       <details><summary>¿Qué incluye el personaje extra?</summary><p>Además de los 9 diseños principales, la colección trae el muñeco de nieve que acompaña a Emily.</p></details>
       <details><summary>¿Cómo recibo los archivos?</summary><p>Después de la confirmación del pago, el acceso al contenido digital se realiza a través de Hotmart. Conserva el correo utilizado durante la compra para consultar tus instrucciones de acceso.</p></details>
       <details><summary>¿Puedo vender o compartir los PDFs?</summary><p>No. Los archivos digitales no pueden compartirse, reproducirse ni revenderse. Para otros derechos de uso, consulta las condiciones antes de comprar.</p></details>
