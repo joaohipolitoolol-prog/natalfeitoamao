@@ -36,19 +36,29 @@
       }
       var fbq=w.fbq=function(){fbq.callMethod?fbq.callMethod.apply(fbq,arguments):fbq.queue.push(arguments)};
       if(!w._fbq)w._fbq=fbq;
-      fbq.push=fbq;fbq.loaded=false;fbq.version='2.0';fbq.queue=[];
+      fbq.push=fbq;fbq.loaded=true;fbq.version='2.0';fbq.queue=[];
       fbq('init','1671969474547490');
       fbq('track','PageView');
       fbq('track','ViewContent',{content_name:'Navidad Mágica en Amigurumi',content_type:'product',value:12,currency:'USD'});
       function afterPaint(){
         w.requestAnimationFrame(function(){w.requestAnimationFrame(function(){
-          if('requestIdleCallback' in w)w.requestIdleCallback(load,{timeout:1600});
+          if('requestIdleCallback' in w)w.requestIdleCallback(load,{timeout:1100});
           else load();
         })});
       }
-      if(d.readyState==='loading')d.addEventListener('DOMContentLoaded',afterPaint,{once:true});
-      else afterPaint();
-      w.setTimeout(load,2500);
+      function afterHero(){
+        var hero=d.querySelector('.hero-photo img');
+        if(!hero){afterPaint();return}
+        function imageReady(){if(hero.decode)hero.decode().then(afterPaint,afterPaint);else afterPaint()}
+        if(hero.complete)imageReady();
+        else{
+          hero.addEventListener('load',imageReady,{once:true});
+          hero.addEventListener('error',afterPaint,{once:true});
+        }
+      }
+      if(d.readyState==='loading')d.addEventListener('DOMContentLoaded',afterHero,{once:true});
+      else afterHero();
+      w.setTimeout(load,2400);
       d.addEventListener('pointerdown',load,{once:true,passive:true});
       d.addEventListener('keydown',load,{once:true});
     })(window,document);
@@ -110,7 +120,7 @@
 .reno-photo.photo-failed img{display:none}
 /* Reducir trabajo de renderizado fuera de pantalla sin afectar los enlaces de compra. */
 @supports (content-visibility:auto) {
-  .collection-section,.big-bonus,.clarity-section,.simplicity,.time-note,.sales-section,.faq-section{content-visibility:auto;contain-intrinsic-size:auto 1100px}
+  .collection-section,.big-bonus,.clarity-section,.simplicity,.time-note,.faq-section{content-visibility:auto;contain-intrinsic-size:auto 1100px}
 }
 /* CTA accesible y scroll equilibrado. */
 a:focus-visible,summary:focus-visible{outline:3px solid #e8b449;outline-offset:3px}
