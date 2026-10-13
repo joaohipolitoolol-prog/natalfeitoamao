@@ -230,7 +230,7 @@ a:focus-visible,summary:focus-visible{outline:3px solid #e8b449;outline-offset:3
 </style>
 </head>
 <body>
-  <div class="topbar" id="promo-topbar" aria-label="Tiempo restante de la oferta"><span class="topbar-copy">OFERTA DE HOY</span><span class="topbar-separator" aria-hidden="true"></span><time id="topbar-countdown" datetime="2026-10-12T23:59:59-05:00">--:--:--</time></div>
+  <div class="topbar" id="promo-topbar" aria-label="Tiempo restante de la oferta"><span class="topbar-copy">OFERTA DE HOY</span><span class="topbar-separator" aria-hidden="true"></span><time id="topbar-countdown">--:--:--</time></div>
   
 
 <main>
@@ -486,7 +486,7 @@ a:focus-visible,summary:focus-visible{outline:3px solid #e8b449;outline-offset:3
           <strong>PRECIO ESPECIAL VÁLIDO SOLO HOY</strong>
           <small>Termina cuando el contador llegue a cero</small>
         </div>
-        <div class="timer" aria-label="Tiempo restante de la oferta"><time id="offer-countdown" datetime="2026-10-12T23:59:59-05:00">--:--:--</time><small>HORAS · MIN · SEG</small></div>
+        <div class="timer" aria-label="Tiempo restante de la oferta"><time id="offer-countdown">--:--:--</time><small>HORAS · MIN · SEG</small></div>
       </div>
       <div class="offer-content">
         <figure class="offer-product-visual">
@@ -551,46 +551,29 @@ a:focus-visible,summary:focus-visible{outline:3px solid #e8b449;outline-offset:3
 
   <script>
     const CHECKOUT_URL = 'https://pay.hotmart.com/G108001974O?checkoutMode=10';
-    // Vencimiento fijo, sin reiniciar el reloj según el visitante.
-    // Plazo real acordado: 2026-10-12 a las 23:59:59 UTC-05. No se reinicia por visita.
-    const OFFER_END_AT = new Date('2026-10-12T23:59:59-05:00').getTime();
+    // Oferta diaria: conta até a próxima meia-noite no horário local do visitante.
+    function getOfferEndAt() {
+      const end = new Date();
+      end.setHours(24, 0, 0, 0);
+      return end.getTime();
+    }
     const clock = document.getElementById('offer-countdown');
     const topbarClock = document.getElementById('topbar-countdown');
-    const promotionLabel = document.querySelector('.promotion-label strong');
     const salesLinks = document.querySelectorAll('[data-checkout]');
     function showCountdown() {
-      const remaining = Math.max(0, OFFER_END_AT - Date.now());
+      const offerEndAt = getOfferEndAt();
+      const remaining = Math.max(0, offerEndAt - Date.now());
       const seconds = Math.floor(remaining / 1000);
       const hours = Math.floor(seconds / 3600);
       const minutes = Math.floor(seconds % 3600 / 60);
       const secs = seconds % 60;
       const countdownText = [hours, minutes, secs].map(n => String(n).padStart(2,'0')).join(':');
-      if(clock) clock.textContent = countdownText;
-      if(topbarClock) topbarClock.textContent = countdownText;
-      const ended = remaining <= 0;
-      if (ended) {
-        if(promotionLabel) promotionLabel.textContent = 'OFERTA ESPECIAL FINALIZADA';
-        const promoTopbar = document.getElementById('promo-topbar');
-        if (promoTopbar) {
-          promoTopbar.querySelector('.topbar-copy').textContent = 'OFERTA FINALIZADA';
-          promoTopbar.classList.add('topbar-ended');
-        }
-        document.querySelectorAll('.offer-heading .kicker').forEach(el => el.textContent = 'OFERTA FINALIZADA');
-        document.querySelectorAll('.promotion-label small').forEach(el => el.textContent='El plazo anunciado ha terminado');
-        salesLinks.forEach(link => {
-          link.setAttribute('aria-disabled', 'true');
-          link.classList.add('is-ended');
-          link.removeAttribute('href');
-          link.setAttribute('role','button');
-          link.innerHTML = 'OFERTA DE HOY FINALIZADA';
-        });
-      }
-      return ended;
+      const isoEnd = new Date(offerEndAt).toISOString();
+      if(clock) { clock.textContent = countdownText; clock.setAttribute('datetime', isoEnd); }
+      if(topbarClock) { topbarClock.textContent = countdownText; topbarClock.setAttribute('datetime', isoEnd); }
     }
     showCountdown();
-    const countdownId = setInterval(() => {
-      if(showCountdown()) clearInterval(countdownId);
-    }, 1000);
+    setInterval(showCountdown, 1000);
     document.addEventListener('visibilitychange', () => {if(!document.hidden)showCountdown()});
     const checkout = new URL(CHECKOUT_URL);
     const tracking = new URLSearchParams(window.location.search);
@@ -600,16 +583,9 @@ a:focus-visible,summary:focus-visible{outline:3px solid #e8b449;outline-offset:3
       }
     }
     salesLinks.forEach((link) => {
-      if (Date.now() < OFFER_END_AT) {
-        link.href = checkout.toString();
-        link.removeAttribute('aria-disabled');
-      }
+      link.href = checkout.toString();
+      link.removeAttribute('aria-disabled');
       link.addEventListener('click', (event) => {
-        if (Date.now() >= OFFER_END_AT) {
-          event.preventDefault();
-          showCountdown();
-          return;
-        }
         if (typeof fbq === 'function') fbq('track', 'InitiateCheckout', {
           content_name: 'Navidad Mágica en Amigurumi',
           content_type: 'product',
@@ -633,7 +609,7 @@ a:focus-visible,summary:focus-visible{outline:3px solid #e8b449;outline-offset:3
       const reachedContent = stickyTrigger.getBoundingClientRect().top < window.innerHeight * 0.12;
       const offerRect = offer.getBoundingClientRect();
       const nearOffer = offerRect.top < window.innerHeight * 0.82 && offerRect.bottom > 0;
-      const visible = reachedContent && !nearOffer && Date.now() < OFFER_END_AT;
+      const visible = reachedContent && !nearOffer;
       sticky.classList.toggle('show', visible);
       sticky.setAttribute('aria-hidden', String(!visible));
     }
