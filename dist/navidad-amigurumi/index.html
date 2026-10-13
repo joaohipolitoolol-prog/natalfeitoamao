@@ -213,10 +213,24 @@ a:focus-visible,summary:focus-visible{outline:3px solid #e8b449;outline-offset:3
 @media(max-width:600px){.buyer-review{flex-basis:271px;width:271px;padding:18px;min-height:178px}.review-track{animation-duration:56s}.review-group{gap:10px;padding-right:10px}.reference-line{font-size:10.5px}.offer-heading h2{font-size:clamp(29px,7.5vw,36px)}.offer-pricing .pricing-label{font-size:11px}}
 @media(prefers-reduced-motion:reduce){.review-marquee{overflow-x:auto;scroll-snap-type:x proximity}.review-track{animation:none;will-change:auto}.buyer-review{scroll-snap-align:start}}
 
+
+/* Cabeçalho de urgência: somente rótulo e contagem, responsivo. */
+.topbar#promo-topbar{display:flex;align-items:center;justify-content:center;gap:12px;min-height:35px;padding:7px 12px;background:#91313e;color:#fff;letter-spacing:0;line-height:1.1}
+.topbar-copy{font-size:11px;font-weight:850;letter-spacing:.09em;white-space:nowrap}
+.topbar-separator{display:block;flex:none;width:1px;height:15px;background:rgba(255,255,255,.52)}
+#topbar-countdown{font-size:15px;font-weight:850;font-variant-numeric:tabular-nums;letter-spacing:.06em;color:#fff4d5}
+.topbar.topbar-ended{background:#4e4e46}
+.topbar-ended #topbar-countdown{color:#fff}
+@media(max-width:420px){.topbar#promo-topbar{min-height:35px;padding:7px 10px;gap:9px}.topbar-copy{font-size:10px}#topbar-countdown{font-size:14px}}
+/* A faixa fixa nao cobre as fotos na primeira metade da pagina. */
+.sticky{transform:translateY(18px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s ease,transform .2s ease,visibility .2s}
+.sticky.show{transform:translateY(0);opacity:1;visibility:visible;pointer-events:auto}
+@media(prefers-reduced-motion:reduce){.sticky{transition:none}}
+
 </style>
 </head>
 <body>
-  <div class="topbar" id="promo-topbar">HOY · 9 PATRONES + EXTRA POR US$ 12 · HASTA LAS 23:59 (COL / PER)</div>
+  <div class="topbar" id="promo-topbar" aria-label="Tiempo restante de la oferta"><span class="topbar-copy">OFERTA DE HOY</span><span class="topbar-separator" aria-hidden="true"></span><time id="topbar-countdown" datetime="2026-10-12T23:59:59-05:00">--:--:--</time></div>
   
 
 <main>
@@ -463,14 +477,14 @@ a:focus-visible,summary:focus-visible{outline:3px solid #e8b449;outline-offset:3
   <section class="sales-section" id="oferta">
     <div class="new-offer">
       <div class="offer-heading">
-        <p class="kicker gold">SOLO HOY · 12 DE OCTUBRE</p>
+        <p class="kicker gold">PRECIO ESPECIAL DE HOY</p>
         <h2>9 patrones navideños + 1 personaje extra por <em>US$ 12.</em></h2>
         <p>Teje una Navidad que todos van a recordar. Decora tu hogar y crea regalos con tus propias manos, con los patrones en español.</p>
       </div>
-      <div class="promotion-clock" role="group" aria-label="Promoción disponible hasta la medianoche, hora de Colombia y Perú">
+      <div class="promotion-clock" role="group" aria-label="Cuenta regresiva de la oferta especial">
         <div class="promotion-label">
           <strong>PRECIO ESPECIAL VÁLIDO SOLO HOY</strong>
-          <small>Finaliza a las 23:59, hora de Colombia y Perú</small>
+          <small>Termina cuando el contador llegue a cero</small>
         </div>
         <div class="timer" aria-label="Tiempo restante de la oferta"><time id="offer-countdown" datetime="2026-10-12T23:59:59-05:00">--:--:--</time><small>HORAS · MIN · SEG</small></div>
       </div>
@@ -506,7 +520,7 @@ a:focus-visible,summary:focus-visible{outline:3px solid #e8b449;outline-offset:3
           <p class="purchase-support">¿Dudas antes de comprar? <a href="https://wa.me/554892156250?text=Hola%2C%20necesito%20ayuda%20con%20Navidad%20M%C3%A1gica%20en%20Amigurumi." target="_blank" rel="noopener noreferrer">Habla con soporte por WhatsApp</a></p>
         </div>
       </div>
-      <p class="offer-clarity" id="offer-clarity">Recibes patrones digitales en <strong>español</strong>, no muñecos físicos. Se recomienda experiencia previa con crochet y amigurumi. La oferta especial termina el 12 de octubre de 2026 a las 23:59 (Colombia y Perú).</p>
+      <p class="offer-clarity" id="offer-clarity">Recibes patrones digitales en <strong>español</strong>, no muñecos físicos. Se recomienda experiencia previa con crochet y amigurumi. Oferta disponible durante el plazo indicado en el contador.</p>
     </div>
   </section>
 
@@ -538,9 +552,10 @@ a:focus-visible,summary:focus-visible{outline:3px solid #e8b449;outline-offset:3
   <script>
     const CHECKOUT_URL = 'https://pay.hotmart.com/G108001974O?checkoutMode=10';
     // Vencimiento fijo, sin reiniciar el reloj según el visitante.
-    // 12 octubre de 2026, 23:59:59 en Colombia y Perú (UTC-05).
+    // Plazo real acordado: 2026-10-12 a las 23:59:59 UTC-05. No se reinicia por visita.
     const OFFER_END_AT = new Date('2026-10-12T23:59:59-05:00').getTime();
     const clock = document.getElementById('offer-countdown');
+    const topbarClock = document.getElementById('topbar-countdown');
     const promotionLabel = document.querySelector('.promotion-label strong');
     const salesLinks = document.querySelectorAll('[data-checkout]');
     function showCountdown() {
@@ -549,12 +564,17 @@ a:focus-visible,summary:focus-visible{outline:3px solid #e8b449;outline-offset:3
       const hours = Math.floor(seconds / 3600);
       const minutes = Math.floor(seconds % 3600 / 60);
       const secs = seconds % 60;
-      if(clock) clock.textContent = [hours, minutes, secs].map(n => String(n).padStart(2,'0')).join(':');
+      const countdownText = [hours, minutes, secs].map(n => String(n).padStart(2,'0')).join(':');
+      if(clock) clock.textContent = countdownText;
+      if(topbarClock) topbarClock.textContent = countdownText;
       const ended = remaining <= 0;
       if (ended) {
         if(promotionLabel) promotionLabel.textContent = 'OFERTA ESPECIAL FINALIZADA';
         const promoTopbar = document.getElementById('promo-topbar');
-        if (promoTopbar) promoTopbar.textContent = 'EL PLAZO DE LA OFERTA ESPECIAL TERMINÓ';
+        if (promoTopbar) {
+          promoTopbar.querySelector('.topbar-copy').textContent = 'OFERTA FINALIZADA';
+          promoTopbar.classList.add('topbar-ended');
+        }
         document.querySelectorAll('.offer-heading .kicker').forEach(el => el.textContent = 'OFERTA FINALIZADA');
         document.querySelectorAll('.promotion-label small').forEach(el => el.textContent='El plazo anunciado ha terminado');
         salesLinks.forEach(link => {
@@ -565,6 +585,7 @@ a:focus-visible,summary:focus-visible{outline:3px solid #e8b449;outline-offset:3
           link.innerHTML = 'OFERTA DE HOY FINALIZADA';
         });
       }
+      if(ended && typeof syncSticky === 'function') syncSticky();
       return ended;
     }
     showCountdown();
@@ -606,11 +627,21 @@ a:focus-visible,summary:focus-visible{outline:3px solid #e8b449;outline-offset:3
     document.querySelectorAll('[data-days-to-christmas]').forEach(el => el.textContent = String(days));
     const sticky = document.getElementById('sticky');
     const offer = document.getElementById('oferta');
-    const observer = new IntersectionObserver(([entry]) => {
-      sticky.classList.toggle('show', !entry.isIntersecting && window.scrollY > 650);
-      sticky.setAttribute('aria-hidden', String(entry.isIntersecting || window.scrollY <= 650));
-    });
-    observer.observe(offer);
+    const stickyTrigger = document.getElementById('contenido');
+    function syncSticky(){
+      if(!sticky || !offer || !stickyTrigger) return;
+      // Solo se muestra después de pasar la galería y el personaje extra.
+      const reachedContent = stickyTrigger.getBoundingClientRect().top < window.innerHeight * 0.12;
+      const offerRect = offer.getBoundingClientRect();
+      const nearOffer = offerRect.top < window.innerHeight * 0.82 && offerRect.bottom > 0;
+      const visible = reachedContent && !nearOffer && Date.now() < OFFER_END_AT;
+      sticky.classList.toggle('show', visible);
+      sticky.setAttribute('aria-hidden', String(!visible));
+    }
+    window.addEventListener('scroll', syncSticky, {passive:true});
+    window.addEventListener('resize', syncSticky, {passive:true});
+    document.addEventListener('visibilitychange', syncSticky);
+    syncSticky();
   </script>
 </body>
 </html>
