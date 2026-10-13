@@ -177,10 +177,46 @@ a:focus-visible,summary:focus-visible{outline:3px solid #e8b449;outline-offset:3
 @media(max-width:720px){.sales-section{padding:50px 12px 43px}.offer-content{grid-template-columns:1fr;gap:0;max-width:470px;margin:auto}.offer-heading{margin-bottom:20px}.offer-heading h2{font-size:clamp(30px,8vw,39px)}.offer-heading>p:last-child{font-size:13px}.promotion-clock{max-width:470px;margin-bottom:16px}.offer-product-visual{width:100%;max-width:470px;border-radius:9px 9px 0 0;box-shadow:none}.offer-purchase-panel{border-radius:0 0 10px 10px;padding:20px 18px;box-shadow:none;border-top:0}.offer-clarity{font-size:11px;max-width:470px}}
 @media(max-width:390px){.promotion-clock{padding:10px;gap:9px}.promotion-label strong{font-size:11px}.promotion-label small{font-size:10px}.timer{min-width:92px}.timer time{font-size:24px}.offer-purchase-panel{padding:18px 14px}.price-display>strong{font-size:62px}}
 
+
+/* Revisão oferta em espanhol, referências públicas e reviews dos bonecos de jengibre */
+.important-language.spanish-confirm{background:#e7f2e9;border-left-color:#267e55;color:#2f6846}
+.important-language.spanish-confirm strong{color:#175537}
+.offer-heading h2 em{font-style:normal;color:#f4d791;white-space:nowrap}
+.reference-anchor{margin:16px 0 0;padding:13px 14px 9px;border:1px solid #e2d4b9;background:#f6f0e6;border-radius:8px}
+.reference-heading{text-align:center;display:flex;flex-direction:column;gap:4px;padding:1px 0 12px}
+.reference-heading strong{font-size:12px;line-height:1.4;color:#233d2e}
+.reference-heading small{font-size:10px;line-height:1.45;color:#657167}
+.reference-line{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:7px 0;border-bottom:1px dashed #d9cdb9;font-size:11px;color:#485549}
+.reference-line strong{white-space:nowrap;font-size:12px;color:#303f33}
+.reference-tree strong{color:#26744c}
+.reference-total{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:9px -2px 0;padding:9px 3px 4px;color:#4e574c;font-size:11px;font-weight:850}
+.reference-total strong{font:700 24px/1 Georgia,serif;color:#8a4650}
+.reference-anchor+.offer-pricing{margin:12px 0 11px;padding:12px 6px 7px;border-radius:7px;background:linear-gradient(#fff,#fff6e8)}
+.value-anchor-real span{display:block;margin:4px auto 0;color:#676b5c;font-size:11px;line-height:1.45}
+.offer-pricing .pricing-label{font-size:11px;color:#903544}
+.testimonials-section{overflow:hidden;background:#f7f0e4;padding:54px 0 43px;content-visibility:auto;contain-intrinsic-size:auto 500px}
+.review-marquee{overflow:hidden;position:relative;width:100%;padding:7px 0 15px}
+.review-track{display:flex;width:max-content;animation:reviews-slide 44s linear infinite;will-change:transform}
+.review-group{display:flex;gap:14px;flex:0 0 auto;padding-right:14px}
+.buyer-review{width:315px;min-height:188px;flex:0 0 315px;border:1px solid #e9ddcc;border-radius:11px;background:#fff;padding:21px;box-shadow:0 5px 20px #283a2111;display:flex;flex-direction:column}
+.buyer-review-top{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.stars{font-size:15px;letter-spacing:.07em;color:#d79d2e;white-space:nowrap}
+.verified{color:#42664f;font-size:10px;font-weight:700}
+.buyer-review blockquote{margin:12px 0 15px;font:italic 19px/1.3 Georgia,serif;color:#2c372b;flex:1}
+.buyer-review-person{display:flex;align-items:center;justify-content:space-between;gap:12px;color:#243728;font-size:12px}
+.buyer-review-person span{color:#839082;font-size:10px}
+.buyer-review>small{margin-top:7px;font-size:10px;color:#738076}
+.review-disclaimer{width:min(760px,calc(100% - 30px));margin:9px auto 0;text-align:center;color:#707a70;font-size:11px;line-height:1.5}
+@keyframes reviews-slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(hover:hover) and (pointer:fine){.review-marquee:hover .review-track{animation-play-state:paused}}
+.review-marquee:focus-within .review-track{animation-play-state:paused}
+@media(max-width:600px){.buyer-review{flex-basis:271px;width:271px;padding:18px;min-height:178px}.review-track{animation-duration:56s}.review-group{gap:10px;padding-right:10px}.reference-line{font-size:10.5px}.offer-heading h2{font-size:clamp(29px,7.5vw,36px)}.offer-pricing .pricing-label{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.review-marquee{overflow-x:auto;scroll-snap-type:x proximity}.review-track{animation:none;will-change:auto}.buyer-review{scroll-snap-align:start}}
+
 </style>
 </head>
 <body>
-  <div class="topbar">UNA COLECCIÓN NAVIDEÑA PARA CREAR CON TUS MANOS</div>
+  <div class="topbar" id="promo-topbar">HOY · 9 PATRONES + EXTRA POR US$ 12 · HASTA LAS 23:59 (COL / PER)</div>
   
 
 <main>
@@ -197,7 +233,7 @@ a:focus-visible,summary:focus-visible{outline:3px solid #e8b449;outline-offset:3
       <p class="hero-caption">Imagina el orgullo de decir: «Los hice yo».</p>
       <a href="#oferta" class="btn btn-primary">QUIERO MI COLECCIÓN NAVIDEÑA <span aria-hidden="true">→</span></a>
       <div class="hero-facts"><span><b>9</b> proyectos</span><span><b>+1</b> personaje extra</span><span><b>US$ 12</b> pago único</span></div>
-      <p class="tiny light"><strong>Importante:</strong> patrones originales en inglés, con fotos paso a paso. Producto digital en PDF, no muñecos físicos. Recomendado para quienes ya tienen experiencia tejiendo amigurumis.</p>
+      <p class="tiny light"><strong>Patrones disponibles en español</strong> · PDF digital con fotos paso a paso · No son muñecos físicos · Para quienes ya tienen experiencia en amigurumi.</p>
     </div>
   </section>
 
@@ -382,7 +418,7 @@ a:focus-visible,summary:focus-visible{outline:3px solid #e8b449;outline-offset:3
         <div><span class="tick">✓</span><p><strong>Muñeco de nieve adicional</strong><small>El pequeño acompañante de Emily está incluido.</small></p></div>
         <div><span class="tick">✓</span><p><strong>Instrucciones ilustradas</strong><small>Explicaciones y fotografías para seguir la elaboración.</small></p></div>
         <div><span class="tick">✓</span><p><strong>Descarga digital en PDF</strong><small>Para consultar desde el teléfono o imprimir.</small></p></div>
-        <div class="important-language"><strong>Importante sobre el idioma</strong><span>Los patrones originales están escritos en inglés. No anunciamos una versión traducida al español hasta tenerla revisada y lista.</span></div>
+        <div class="important-language spanish-confirm"><strong>Patrones en español</strong><span>Consulta las instrucciones y fotografías de tus proyectos en español. Material digital en PDF.</span></div>
       </div>
     </div>
   </section>
@@ -409,12 +445,27 @@ a:focus-visible,summary:focus-visible{outline:3px solid #e8b449;outline-offset:3
     </div>
   </section>
 
+  <section class="testimonials-section" id="opiniones">
+    <div class="section-head">
+      <p class="kicker wine">OPINIONES REALES DE ESTE DISEÑO</p>
+      <h2>Los muñecos de jengibre ya conquistaron a otras tejedoras.</h2>
+      <p>Comentarios verificados sobre el patrón individual de la pareja de jengibre, que también forma parte de esta colección.</p>
+    </div>
+    <div class="review-marquee" tabindex="0" aria-label="Opiniones sobre el patrón individual de los muñecos de jengibre">
+      <div class="review-track">
+        <div class="review-group"><article class="buyer-review"><div class="buyer-review-top"><span class="stars" aria-label="5 de 5 estrellas">★★★★★</span><span class="verified">Compra verificada del patrón individual</span></div><blockquote>“Muy fácil de seguir.”</blockquote><div class="buyer-review-person"><strong>Melba</strong><span>23 sep 2026</span></div><small>Proyecto: Pareja de jengibre</small></article><article class="buyer-review"><div class="buyer-review-top"><span class="stars" aria-label="5 de 5 estrellas">★★★★★</span><span class="verified">Compra verificada del patrón individual</span></div><blockquote>“Un patrón fantástico, fácil de seguir.”</blockquote><div class="buyer-review-person"><strong>Jean</strong><span>30 nov 2025</span></div><small>Proyecto: Pareja de jengibre</small></article><article class="buyer-review"><div class="buyer-review-top"><span class="stars" aria-label="5 de 5 estrellas">★★★★★</span><span class="verified">Compra verificada del patrón individual</span></div><blockquote>“Me encantó. Instrucciones muy fáciles de seguir.”</blockquote><div class="buyer-review-person"><strong>Margaret</strong><span>8 nov 2025</span></div><small>Proyecto: Pareja de jengibre</small></article></div>
+        <div class="review-group" aria-hidden="true"><article class="buyer-review"><div class="buyer-review-top"><span class="stars" aria-label="5 de 5 estrellas">★★★★★</span><span class="verified">Compra verificada del patrón individual</span></div><blockquote>“Muy fácil de seguir.”</blockquote><div class="buyer-review-person"><strong>Melba</strong><span>23 sep 2026</span></div><small>Proyecto: Pareja de jengibre</small></article><article class="buyer-review"><div class="buyer-review-top"><span class="stars" aria-label="5 de 5 estrellas">★★★★★</span><span class="verified">Compra verificada del patrón individual</span></div><blockquote>“Un patrón fantástico, fácil de seguir.”</blockquote><div class="buyer-review-person"><strong>Jean</strong><span>30 nov 2025</span></div><small>Proyecto: Pareja de jengibre</small></article><article class="buyer-review"><div class="buyer-review-top"><span class="stars" aria-label="5 de 5 estrellas">★★★★★</span><span class="verified">Compra verificada del patrón individual</span></div><blockquote>“Me encantó. Instrucciones muy fáciles de seguir.”</blockquote><div class="buyer-review-person"><strong>Margaret</strong><span>8 nov 2025</span></div><small>Proyecto: Pareja de jengibre</small></article></div>
+      </div>
+    </div>
+    <p class="review-disclaimer">Opiniones traducidas al español y resumidas. Corresponden al patrón individual de los muñecos de jengibre, no a compras de esta colección completa.</p>
+  </section>
+
   <section class="sales-section" id="oferta">
     <div class="new-offer">
       <div class="offer-heading">
-        <p class="kicker gold">OFERTA ESPECIAL DE HOY · 12 DE OCTUBRE</p>
-        <h2>Teje una Navidad que todos van a recordar.</h2>
-        <p>Una colección coordinada para decorar tu hogar y preparar regalos hechos con tus propias manos.</p>
+        <p class="kicker gold">SOLO HOY · 12 DE OCTUBRE</p>
+        <h2>9 patrones navideños + 1 personaje extra por <em>US$ 12.</em></h2>
+        <p>Teje una Navidad que todos van a recordar. Decora tu hogar y crea regalos con tus propias manos, con los patrones en español.</p>
       </div>
       <div class="promotion-clock" role="group" aria-label="Promoción disponible hasta la medianoche, hora de Colombia y Perú">
         <div class="promotion-label">
@@ -429,24 +480,33 @@ a:focus-visible,summary:focus-visible{outline:3px solid #e8b449;outline-offset:3
           <figcaption><span>COLECCIÓN COMPLETA</span><strong>9 diseños + muñeco de nieve extra</strong></figcaption>
         </figure>
         <div class="offer-purchase-panel">
-          <div class="offer-kicker">EN UN SOLO PAGO RECIBES</div>
+          <div class="offer-kicker">HOY TE LLEVAS TODO ESTO</div>
           <ul class="offer-bundle">
             <li><span class="bundle-check" aria-hidden="true">✓</span><div><strong>9 patrones de amigurumi</strong><small>Papá Noel, Mamá Noel, 2 elfos, 2 jengibres, árbol, reno y Emily</small></div></li>
             <li><span class="bundle-check" aria-hidden="true">✓</span><div><strong>Muñeco de nieve de regalo</strong><small>El pequeño compañero de Emily</small></div></li>
-            <li><span class="bundle-check" aria-hidden="true">✓</span><div><strong>Instrucciones ilustradas en PDF</strong><small>Patrones originales en inglés, con fotografías</small></div></li>
+            <li><span class="bundle-check" aria-hidden="true">✓</span><div><strong>Patrones en español, ilustrados en PDF</strong><small>Instrucciones y fotografías para acompañar cada proyecto</small></div></li>
             <li><span class="bundle-check" aria-hidden="true">✓</span><div><strong>Acceso digital por Hotmart</strong><small>Pago único, sin mensualidades</small></div></li>
           </ul>
-          <div class="offer-pricing">
-            <span class="pricing-label">LA COLECCIÓN ENTERA POR</span>
-            <div class="price-display"><small>US$</small><strong>12</strong><span>pago único</span></div>
-            <div class="value-anchor-real">10 personajes para tejer. <strong>Equivale a US$ 1,20 por personaje.</strong></div>
+          <div class="reference-anchor" aria-label="Referencia de precios públicos de conjuntos similares">
+            <div class="reference-heading"><strong>Para comparar: precios de los conjuntos por separado</strong><small>Referencia de precios públicos de sus patrones, no precio anterior de esta oferta.</small></div>
+            <div class="reference-line"><span>Papá Noel + Mamá Noel</span><strong>US$ 3,95</strong></div>
+            <div class="reference-line"><span>Elfo + Elfa + Reno</span><strong>US$ 3,85</strong></div>
+            <div class="reference-line"><span>Pareja de jengibre</span><strong>US$ 3,00</strong></div>
+            <div class="reference-line"><span>Emily + muñeco de nieve</span><strong>US$ 3,80</strong></div>
+            <div class="reference-line reference-tree"><span>Árbol navideño</span><strong>Incluido</strong></div>
+            <div class="reference-total"><span>Referencia total de los conjuntos</span><strong>US$ 14,60</strong></div>
           </div>
-          <a href="https://pay.hotmart.com/G108001974O?checkoutMode=10" class="btn btn-offer-buy" data-checkout rel="noopener noreferrer" id="offer-buy">SÍ, QUIERO MI COLECCIÓN <span aria-hidden="true">→</span></a>
+          <div class="offer-pricing">
+            <span class="pricing-label">HOY: TODA LA COLECCIÓN POR</span>
+            <div class="price-display"><small>US$</small><strong>12</strong><span>pago único</span></div>
+            <div class="value-anchor-real"><strong>10 personajes en total · US$ 1,20 por personaje</strong><span> Ahorra US$ 2,60 frente a la referencia anterior y recibe el árbol incluido.</span></div>
+          </div>
+          <a href="https://pay.hotmart.com/G108001974O?checkoutMode=10" class="btn btn-offer-buy" data-checkout rel="noopener noreferrer" id="offer-buy">SÍ, QUIERO LOS 10 PERSONAJES POR US$ 12 <span aria-hidden="true">→</span></a>
           <p class="purchase-reassure">Compra procesada por Hotmart · 7 días para solicitar reembolso</p>
           <p class="purchase-support">¿Dudas antes de comprar? <a href="https://wa.me/554892156250?text=Hola%2C%20necesito%20ayuda%20con%20Navidad%20M%C3%A1gica%20en%20Amigurumi." target="_blank" rel="noopener noreferrer">Habla con soporte por WhatsApp</a></p>
         </div>
       </div>
-      <p class="offer-clarity" id="offer-clarity">Son patrones digitales en <strong>inglés</strong>, no muñecos físicos. Se recomienda experiencia previa con crochet y amigurumi. Oferta programada hasta el 12 de octubre de 2026, 23:59 (Colombia y Perú).</p>
+      <p class="offer-clarity" id="offer-clarity">Recibes patrones digitales en <strong>español</strong>, no muñecos físicos. Se recomienda experiencia previa con crochet y amigurumi. La oferta especial termina el 12 de octubre de 2026 a las 23:59 (Colombia y Perú).</p>
     </div>
   </section>
 
@@ -458,7 +518,7 @@ a:focus-visible,summary:focus-visible{outline:3px solid #e8b449;outline-offset:3
     <div class="section-head"><p class="kicker wine">PREGUNTAS FRECUENTES</p><h2>Antes de empezar.</h2></div>
     <div class="faq-list">
       <details><summary>¿Recibo muñecos hechos o patrones?</summary><p>Recibes archivos digitales en PDF con instrucciones para tejer los muñecos. No enviamos productos físicos.</p></details>
-      <details><summary>¿Los patrones están en español?</summary><p>Por ahora, los patrones originales de esta colección están en inglés. La página está en español, pero eso no significa que los archivos ya estén traducidos.</p></details>
+      <details><summary>¿Los patrones están en español?</summary><p>Sí. Esta colección se ofrece con patrones en español, con instrucciones y fotografías de apoyo.</p></details>
       <details><summary>¿Qué nivel de crochet necesito?</summary><p>Se recomienda experiencia previa tejiendo amigurumis. Algunos personajes requieren trabajar varias piezas, ensamblarlas y cuidar sus acabados. No es un curso de iniciación desde cero.</p></details>
       <details><summary>¿Qué incluye el personaje extra?</summary><p>Además de los 9 diseños principales, la colección trae el muñeco de nieve que acompaña a Emily.</p></details>
       <details><summary>¿Cómo recibo los archivos?</summary><p>Después de la confirmación del pago, el acceso al contenido digital se realiza a través de Hotmart. Conserva el correo utilizado durante la compra para consultar tus instrucciones de acceso.</p></details>
