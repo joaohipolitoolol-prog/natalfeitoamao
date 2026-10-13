@@ -114,10 +114,7 @@
 
 /* Foto fiel del reno, recortada desde la composición original con los elfos. */
 .doll-image.reno-photo{position:relative;background:#f3eee4}
-.reno-photo img{position:absolute;left:50%;bottom:0;width:245%;height:auto;max-width:none;transform:translateX(-50%);object-fit:initial}
-.reno-photo .reindeer-fallback{display:none}
-.reno-photo.photo-failed .reindeer-fallback{display:grid;place-items:center;width:100%;height:100%;font-size:42px;background:#efe5d3}
-.reno-photo.photo-failed img{display:none}
+.reno-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
 /* Reducir trabajo de renderizado fuera de pantalla sin afectar los enlaces de compra. */
 @supports (content-visibility:auto) {
   .collection-section,.big-bonus,.clarity-section,.simplicity,.time-note,.faq-section{content-visibility:auto;contain-intrinsic-size:auto 1100px}
@@ -311,9 +308,8 @@ a:focus-visible,summary:focus-visible{outline:3px solid #e8b449;outline-offset:3
   <div class="doll-info"><h3>Muñeca de jengibre</h3><span>13 cm aprox.</span></div>
 </article>
 <article class="doll-card">
-  <div class="doll-image reno-photo" role="group" aria-label="Reno original de la colección de aproximadamente 12 centímetros">
-    <img src="https://www.crazypatterns.net/uploads/cache/items/2022/11/87286/preview/crochet-pattern-doll-amigurumi-doll-crochet-elves-elf-and-deer-2155563041-405x540.png" alt="Reno real de amigurumi, con nariz roja y cuernos tejidos, incluido en el patrón original" width="405" height="540" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none';this.parentNode.classList.add('photo-failed')">
-    <span class="reindeer-fallback" aria-hidden="true">🦌</span>
+  <div class="doll-image reno-photo" role="group" aria-label="Reno de la colección de aproximadamente 12 centímetros">
+    <img src="/assets/navidad-amigurumi-reno-original.webp" alt="Reno de amigurumi con nariz roja y cuernos tejidos, presentado en un escenario navideño" width="1200" height="1200" loading="lazy" decoding="async">
     <span class="doll-no">07</span>
   </div>
   <div class="doll-info"><h3>Reno</h3><span>12 cm aprox.</span></div>
@@ -377,9 +373,8 @@ a:focus-visible,summary:focus-visible{outline:3px solid #e8b449;outline-offset:3
   <div class="doll-info"><h3>Muñeca de jengibre</h3><span>13 cm aprox.</span></div>
 </article>
 <article class="doll-card">
-  <div class="doll-image reno-photo" role="presentation" aria-label="Reno original de la colección de aproximadamente 12 centímetros">
-    <img src="https://www.crazypatterns.net/uploads/cache/items/2022/11/87286/preview/crochet-pattern-doll-amigurumi-doll-crochet-elves-elf-and-deer-2155563041-405x540.png" alt="" width="405" height="540" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none';this.parentNode.classList.add('photo-failed')">
-    <span class="reindeer-fallback" aria-hidden="true">🦌</span>
+  <div class="doll-image reno-photo" role="presentation" aria-label="Reno de la colección de aproximadamente 12 centímetros">
+    <img src="/assets/navidad-amigurumi-reno-original.webp" alt="" width="1200" height="1200" loading="lazy" decoding="async">
     <span class="doll-no">07</span>
   </div>
   <div class="doll-info"><h3>Reno</h3><span>12 cm aprox.</span></div>
