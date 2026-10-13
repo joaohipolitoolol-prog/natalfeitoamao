@@ -553,6 +553,9 @@ a:focus-visible,summary:focus-visible{outline:3px solid #e8b449;outline-offset:3
       const ended = remaining <= 0;
       if (ended) {
         if(promotionLabel) promotionLabel.textContent = 'OFERTA ESPECIAL FINALIZADA';
+        const promoTopbar = document.getElementById('promo-topbar');
+        if (promoTopbar) promoTopbar.textContent = 'EL PLAZO DE LA OFERTA ESPECIAL TERMINÓ';
+        document.querySelectorAll('.offer-heading .kicker').forEach(el => el.textContent = 'OFERTA FINALIZADA');
         document.querySelectorAll('.promotion-label small').forEach(el => el.textContent='El plazo anunciado ha terminado');
         salesLinks.forEach(link => {
           link.setAttribute('aria-disabled', 'true');
