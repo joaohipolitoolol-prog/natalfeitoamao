@@ -126,6 +126,57 @@
 a:focus-visible,summary:focus-visible{outline:3px solid #e8b449;outline-offset:3px}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
+
+/* Personajes en movimiento, inspirado en la colección del pesebre */
+.collection-section{overflow:hidden}
+.amig-marquee{position:relative;width:100%;overflow:hidden;padding:8px 0 24px;outline-offset:-5px}
+.amig-marquee-track{display:flex;width:max-content;animation:amig-loop 78s linear infinite;will-change:transform}
+.amig-marquee-group{display:flex;flex:none;gap:14px;padding-right:14px;align-items:stretch}
+.amig-marquee .doll-card{flex:0 0 200px;width:200px;min-width:200px;border-radius:12px;box-shadow:0 8px 22px #15352617}
+.amig-marquee .doll-image{aspect-ratio:.83}
+.amig-marquee .doll-info{min-height:73px}
+.amig-marquee .doll-info h3{font-size:19px}
+.marquee-hint{display:flex;align-items:center;gap:9px;justify-content:center;text-align:center;color:#6b756b;font-size:12px;padding:0 15px 10px}
+.marquee-hint span{color:#b28d49}
+@keyframes amig-loop{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+@media(hover:hover) and (pointer:fine){.amig-marquee:hover .amig-marquee-track{animation-play-state:paused}}
+.amig-marquee:focus-within .amig-marquee-track{animation-play-state:paused}
+@media(max-width:600px){.amig-marquee .doll-card{flex-basis:166px;width:166px;min-width:166px}.amig-marquee .doll-info h3{font-size:16px}.amig-marquee .doll-info{padding:11px;min-height:66px}.amig-marquee-group{gap:10px;padding-right:10px}.amig-marquee-track{animation-duration:92s}}
+@media(prefers-reduced-motion:reduce){.amig-marquee{overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity}.amig-marquee-track{animation:none;will-change:auto}.amig-marquee .doll-card{scroll-snap-align:start}}
+/* Oferta mobile first, sin precio de referencia inventado */
+.sales-section{padding:65px 16px 52px;background:radial-gradient(circle at 50% 0,#24513b 0,#112d23 44%,#0b241c 100%);color:#fff;scroll-margin-top:0}
+.new-offer{width:min(970px,100%);margin:auto}
+.offer-heading{text-align:center;max-width:730px;margin:0 auto 25px}
+.offer-heading h2{font-size:clamp(31px,4vw,49px);max-width:690px;margin:0 auto 13px}
+.offer-heading>p:last-child{color:#d7e5da;font-size:15px;line-height:1.55;max-width:610px;margin:auto}
+.promotion-clock{display:flex;align-items:center;justify-content:space-between;gap:17px;width:min(770px,100%);margin:0 auto 26px;padding:12px 18px;border:1px solid #e3c77a;border-radius:9px;background:#f4dfb0;color:#3c3021;box-shadow:0 12px 34px #05180b22}
+.promotion-label{display:flex;flex-direction:column;gap:3px}.promotion-label strong{font-size:13px;letter-spacing:.035em}.promotion-label small{font-size:11px;color:#65543b}
+.timer{display:flex;flex-direction:column;align-items:center;flex:none;min-width:118px}.timer time{font:700 29px/1 Georgia,serif;letter-spacing:.03em;font-variant-numeric:tabular-nums;color:#86363d}.timer small{font-size:9px;margin-top:5px;letter-spacing:.08em;color:#645743}
+.offer-content{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:23px;align-items:center}
+.offer-product-visual{position:relative;overflow:hidden;border-radius:11px;box-shadow:0 16px 50px #030e0a65}
+.offer-product-visual img{width:100%;height:auto;aspect-ratio:1;object-fit:cover}
+.offer-product-visual figcaption{position:absolute;bottom:0;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:2px;padding:23px 8px 13px;background:linear-gradient(transparent,#061e18d9);text-align:center}
+.offer-product-visual figcaption span{font-size:9px;font-weight:800;letter-spacing:.12em;color:#f3d98f}
+.offer-product-visual figcaption strong{font-size:14px}
+.offer-purchase-panel{padding:24px;background:#fffaf1;color:#263128;border:1px solid #e7d3a4;border-radius:11px;box-shadow:0 16px 44px #04130950}
+.offer-kicker{margin-bottom:13px;color:#8b3440;font-size:10px;letter-spacing:.11em;font-weight:900}
+.offer-bundle{list-style:none;margin:0;padding:0}
+.offer-bundle li{display:flex;align-items:flex-start;gap:11px;padding:10px 0;border-bottom:1px solid #eae1d2}
+.bundle-check{display:grid;flex:none;place-items:center;width:22px;height:22px;border-radius:50%;background:#dbe8dd;color:#25734e;font-weight:900;font-size:12px}
+.offer-bundle li div{display:flex;flex-direction:column;gap:2px}
+.offer-bundle strong{font-size:13px;line-height:1.3}
+.offer-bundle small{font-size:11px;color:#69736a;line-height:1.45}
+.offer-pricing{margin:18px 0 12px;text-align:center}.pricing-label{display:block;color:#7a6251;font-size:10px;font-weight:900;letter-spacing:.1em}
+.price-display{display:flex;align-items:baseline;justify-content:center;gap:6px}.price-display>small{font-weight:800;font-size:20px;color:#9d3643}.price-display>strong{font:700 68px/.96 Georgia,serif;letter-spacing:-.065em;color:#9d3643}.price-display>span{font-size:12px;color:#667064}
+.value-anchor-real{margin:8px auto 0;padding:10px 8px;border-radius:6px;background:#f2e9d8;font-size:12px;color:#5e6356;text-align:center}.value-anchor-real strong{color:#164b33}
+.btn-offer-buy{display:flex;width:100%;min-height:59px;background:linear-gradient(#bf414c,#9d2d39);color:#fff;box-shadow:0 12px 25px #8e303437;font-size:14px}
+.btn-offer-buy.is-ended{background:#90958f;box-shadow:none;cursor:not-allowed}
+.purchase-reassure{margin:12px 0 0;text-align:center;color:#5b7064;font-size:11px}
+.purchase-support{text-align:center;margin:9px 0 0;font-size:11px;color:#647468}.purchase-support a{color:#28694c;font-weight:800;text-underline-offset:3px}
+.offer-clarity{width:min(750px,100%);margin:22px auto 0;text-align:center;color:#cbd8cd;font-size:12px;line-height:1.6}.offer-clarity strong{color:#fff}
+@media(max-width:720px){.sales-section{padding:50px 12px 43px}.offer-content{grid-template-columns:1fr;gap:0;max-width:470px;margin:auto}.offer-heading{margin-bottom:20px}.offer-heading h2{font-size:clamp(30px,8vw,39px)}.offer-heading>p:last-child{font-size:13px}.promotion-clock{max-width:470px;margin-bottom:16px}.offer-product-visual{width:100%;max-width:470px;border-radius:9px 9px 0 0;box-shadow:none}.offer-purchase-panel{border-radius:0 0 10px 10px;padding:20px 18px;box-shadow:none;border-top:0}.offer-clarity{font-size:11px;max-width:470px}}
+@media(max-width:390px){.promotion-clock{padding:10px;gap:9px}.promotion-label strong{font-size:11px}.promotion-label small{font-size:10px}.timer{min-width:92px}.timer time{font-size:24px}.offer-purchase-panel{padding:18px 14px}.price-display>strong{font-size:62px}}
+
 </style>
 </head>
 <body>
@@ -162,9 +213,12 @@ a:focus-visible,summary:focus-visible{outline:3px solid #e8b449;outline-offset:3
     <div class="section-head">
       <p class="kicker wine">MIRA LO QUE VAS A TEJER</p>
       <h2>Tu colección completa, personaje por personaje.</h2>
-      <p>9 diseños combinados en el mismo estilo navideño. Toca tu favorito con la mirada y piensa por cuál empezarías.</p>
+      <p>Los personajes se muestran uno a uno para que puedas ver sus detalles. ¿Cuál te gustaría tejer primero?</p>
     </div>
-    <div class="doll-grid"><article class="doll-card">
+    <div class="amig-marquee" aria-label="Galería de los nueve personajes incluidos" id="amig-marquee" tabindex="0">
+      <div class="amig-marquee-track">
+        <div class="amig-marquee-group">
+          <article class="doll-card">
   <div class="doll-image" role="img" aria-label="Foto del amigurumi Papá Noel del conjunto original">
     <svg class="doll-crop" viewBox="0 260 530 745" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><image href="/assets/navidad-amigurumi-hero-v2.webp" x="0" y="0" width="1256" height="1256"/></svg>
     <span class="doll-no">01</span>
@@ -227,7 +281,77 @@ a:focus-visible,summary:focus-visible{outline:3px solid #e8b449;outline-offset:3
     <span class="doll-no">09</span>
   </div>
   <div class="doll-info"><h3>Muñeca Emily</h3><span>30 cm aprox.</span></div>
-</article></div>
+</article>
+        </div>
+        <div class="amig-marquee-group" aria-hidden="true">
+          <article class="doll-card">
+  <div class="doll-image" role="presentation" aria-label="Foto del amigurumi Papá Noel del conjunto original">
+    <svg class="doll-crop" viewBox="0 260 530 745" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><image href="/assets/navidad-amigurumi-hero-v2.webp" x="0" y="0" width="1256" height="1256"/></svg>
+    <span class="doll-no">01</span>
+  </div>
+  <div class="doll-info"><h3>Papá Noel</h3><span>20 cm aprox.</span></div>
+</article>
+<article class="doll-card">
+  <div class="doll-image" role="presentation" aria-label="Foto del amigurumi Mamá Noel del conjunto original">
+    <svg class="doll-crop" viewBox="255 295 530 720" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><image href="/assets/navidad-amigurumi-hero-v2.webp" x="0" y="0" width="1256" height="1256"/></svg>
+    <span class="doll-no">02</span>
+  </div>
+  <div class="doll-info"><h3>Mamá Noel</h3><span>19 cm aprox.</span></div>
+</article>
+<article class="doll-card">
+  <div class="doll-image" role="presentation" aria-label="Foto del amigurumi Elfo del conjunto original">
+    <svg class="doll-crop" viewBox="475 95 425 585" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><image href="/assets/navidad-amigurumi-hero-v2.webp" x="0" y="0" width="1256" height="1256"/></svg>
+    <span class="doll-no">03</span>
+  </div>
+  <div class="doll-info"><h3>Elfo</h3><span>26 cm aprox.</span></div>
+</article>
+<article class="doll-card">
+  <div class="doll-image" role="presentation" aria-label="Foto del amigurumi Elfa del conjunto original">
+    <svg class="doll-crop" viewBox="730 95 500 585" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><image href="/assets/navidad-amigurumi-hero-v2.webp" x="0" y="0" width="1256" height="1256"/></svg>
+    <span class="doll-no">04</span>
+  </div>
+  <div class="doll-info"><h3>Elfa</h3><span>26 cm aprox.</span></div>
+</article>
+<article class="doll-card">
+  <div class="doll-image" role="presentation" aria-label="Foto del amigurumi Galleta de jengibre del conjunto original">
+    <svg class="doll-crop" viewBox="440 622 410 540" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><image href="/assets/navidad-amigurumi-hero-v2.webp" x="0" y="0" width="1256" height="1256"/></svg>
+    <span class="doll-no">05</span>
+  </div>
+  <div class="doll-info"><h3>Galleta de jengibre</h3><span>13 cm aprox.</span></div>
+</article>
+<article class="doll-card">
+  <div class="doll-image" role="presentation" aria-label="Foto del amigurumi Muñeca de jengibre del conjunto original">
+    <svg class="doll-crop" viewBox="650 616 440 540" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><image href="/assets/navidad-amigurumi-hero-v2.webp" x="0" y="0" width="1256" height="1256"/></svg>
+    <span class="doll-no">06</span>
+  </div>
+  <div class="doll-info"><h3>Muñeca de jengibre</h3><span>13 cm aprox.</span></div>
+</article>
+<article class="doll-card">
+  <div class="doll-image reno-photo" role="presentation" aria-label="Reno original de la colección de aproximadamente 12 centímetros">
+    <img src="https://www.crazypatterns.net/uploads/cache/items/2022/11/87286/preview/crochet-pattern-doll-amigurumi-doll-crochet-elves-elf-and-deer-2155563041-405x540.png" alt="" width="405" height="540" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none';this.parentNode.classList.add('photo-failed')">
+    <span class="reindeer-fallback" aria-hidden="true">🦌</span>
+    <span class="doll-no">07</span>
+  </div>
+  <div class="doll-info"><h3>Reno</h3><span>12 cm aprox.</span></div>
+</article>
+<article class="doll-card">
+  <div class="doll-image" role="presentation" aria-label="Foto del amigurumi Árbol navideño del conjunto original">
+    <svg class="doll-crop" viewBox="165 805 370 365" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><image href="/assets/navidad-amigurumi-hero-v2.webp" x="0" y="0" width="1256" height="1256"/></svg>
+    <span class="doll-no">08</span>
+  </div>
+  <div class="doll-info"><h3>Árbol navideño</h3><span>8 cm aprox.</span></div>
+</article>
+<article class="doll-card">
+  <div class="doll-image" role="presentation" aria-label="Foto del amigurumi Muñeca Emily del conjunto original">
+    <svg class="doll-crop" viewBox="890 368 360 745" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><image href="/assets/navidad-amigurumi-hero-v2.webp" x="0" y="0" width="1256" height="1256"/></svg>
+    <span class="doll-no">09</span>
+  </div>
+  <div class="doll-info"><h3>Muñeca Emily</h3><span>30 cm aprox.</span></div>
+</article>
+        </div>
+      </div>
+    </div>
+    <div class="marquee-hint">Desliza la mirada por toda la colección <span aria-hidden="true">✦</span> 9 personajes diferentes</div>
     <p class="size-note">Las medidas son aproximadas. Pueden variar según el hilo, la aguja y la tensión de los puntos.</p>
   </section>
 
@@ -286,25 +410,43 @@ a:focus-visible,summary:focus-visible{outline:3px solid #e8b449;outline-offset:3
   </section>
 
   <section class="sales-section" id="oferta">
-    <div class="sales-wrap">
-      <p class="kicker wine">NAVIDAD MÁGICA EN AMIGURUMI</p>
-      <h2>Una colección para hacerla tuya.</h2>
-      <p class="offer-sub">Decora tu hogar o sorprende con regalos hechos por ti. Los 9 diseños navideños y el muñeco de nieve extra están reunidos en una sola colección digital.</p>
-      <div class="offer-cover">
-        <img src="/assets/navidad-amigurumi-hero-v2.webp" alt="Colección completa de amigurumis de Navidad tejidos" width="1256" height="1256" loading="lazy" decoding="async">
-        <span>9 diseños + extra incluido</span>
+    <div class="new-offer">
+      <div class="offer-heading">
+        <p class="kicker gold">OFERTA ESPECIAL DE HOY · 12 DE OCTUBRE</p>
+        <h2>Teje una Navidad que todos van a recordar.</h2>
+        <p>Una colección coordinada para decorar tu hogar y preparar regalos hechos con tus propias manos.</p>
       </div>
-      <div class="offer-included">
-        <div><span>✓</span> 9 diseños de amigurumi</div>
-        <div><span>✓</span> Muñeco de nieve extra</div>
-        <div><span>✓</span> Patrones ilustrados en PDF</div>
-        <div><span>✓</span> Pago único, sin suscripción</div>
+      <div class="promotion-clock" role="group" aria-label="Promoción disponible hasta la medianoche, hora de Colombia y Perú">
+        <div class="promotion-label">
+          <strong>PRECIO ESPECIAL VÁLIDO SOLO HOY</strong>
+          <small>Finaliza a las 23:59, hora de Colombia y Perú</small>
+        </div>
+        <div class="timer" aria-label="Tiempo restante de la oferta"><time id="offer-countdown" datetime="2026-10-12T23:59:59-05:00">--:--:--</time><small>HORAS · MIN · SEG</small></div>
       </div>
-      <div class="price-box"><small>TODO POR UN PAGO ÚNICO DE</small><strong><sup>US$</sup> 12</strong><p>Los patrones originales están en inglés.</p></div>
-      <a href="https://pay.hotmart.com/G108001974O?checkoutMode=10" class="btn btn-buy" data-checkout rel="noopener noreferrer">QUIERO RECIBIR MI COLECCIÓN <span aria-hidden="true">→</span></a>
-      <p class="checkout-note" id="checkout-status">Pago procesado en Hotmart · Producto digital · El acceso se realiza a través de Hotmart.</p>
-      <p class="help-near-checkout">¿Necesitas ayuda antes de comprar? <a href="https://wa.me/554892156250?text=Hola%2C%20tengo%20una%20pregunta%20sobre%20Navidad%20M%C3%A1gica%20en%20Amigurumi" target="_blank" rel="noopener noreferrer">Hablar por WhatsApp</a></p>
-      <p class="tiny">Es un producto digital. No recibirás hilos, materiales ni muñecos físicos.</p>
+      <div class="offer-content">
+        <figure class="offer-product-visual">
+          <img src="/assets/navidad-amigurumi-hero-v2.webp" alt="Colección de Papá Noel, Mamá Noel, elfos, galletas de jengibre, árbol y Emily, patrones de crochet" width="1256" height="1256" loading="lazy" decoding="async">
+          <figcaption><span>COLECCIÓN COMPLETA</span><strong>9 diseños + muñeco de nieve extra</strong></figcaption>
+        </figure>
+        <div class="offer-purchase-panel">
+          <div class="offer-kicker">EN UN SOLO PAGO RECIBES</div>
+          <ul class="offer-bundle">
+            <li><span class="bundle-check" aria-hidden="true">✓</span><div><strong>9 patrones de amigurumi</strong><small>Papá Noel, Mamá Noel, 2 elfos, 2 jengibres, árbol, reno y Emily</small></div></li>
+            <li><span class="bundle-check" aria-hidden="true">✓</span><div><strong>Muñeco de nieve de regalo</strong><small>El pequeño compañero de Emily</small></div></li>
+            <li><span class="bundle-check" aria-hidden="true">✓</span><div><strong>Instrucciones ilustradas en PDF</strong><small>Patrones originales en inglés, con fotografías</small></div></li>
+            <li><span class="bundle-check" aria-hidden="true">✓</span><div><strong>Acceso digital por Hotmart</strong><small>Pago único, sin mensualidades</small></div></li>
+          </ul>
+          <div class="offer-pricing">
+            <span class="pricing-label">LA COLECCIÓN ENTERA POR</span>
+            <div class="price-display"><small>US$</small><strong>12</strong><span>pago único</span></div>
+            <div class="value-anchor-real">10 personajes para tejer. <strong>Equivale a US$ 1,20 por personaje.</strong></div>
+          </div>
+          <a href="https://pay.hotmart.com/G108001974O?checkoutMode=10" class="btn btn-offer-buy" data-checkout rel="noopener noreferrer" id="offer-buy">SÍ, QUIERO MI COLECCIÓN <span aria-hidden="true">→</span></a>
+          <p class="purchase-reassure">Compra procesada por Hotmart · 7 días para solicitar reembolso</p>
+          <p class="purchase-support">¿Dudas antes de comprar? <a href="https://wa.me/554892156250?text=Hola%2C%20necesito%20ayuda%20con%20Navidad%20M%C3%A1gica%20en%20Amigurumi." target="_blank" rel="noopener noreferrer">Habla con soporte por WhatsApp</a></p>
+        </div>
+      </div>
+      <p class="offer-clarity" id="offer-clarity">Son patrones digitales en <strong>inglés</strong>, no muñecos físicos. Se recomienda experiencia previa con crochet y amigurumi. Oferta programada hasta el 12 de octubre de 2026, 23:59 (Colombia y Perú).</p>
     </div>
   </section>
 
@@ -335,7 +477,38 @@ a:focus-visible,summary:focus-visible{outline:3px solid #e8b449;outline-offset:3
 
   <script>
     const CHECKOUT_URL = 'https://pay.hotmart.com/G108001974O?checkoutMode=10';
+    // Vencimiento fijo, sin reiniciar el reloj según el visitante.
+    // 12 octubre de 2026, 23:59:59 en Colombia y Perú (UTC-05).
+    const OFFER_END_AT = new Date('2026-10-12T23:59:59-05:00').getTime();
+    const clock = document.getElementById('offer-countdown');
+    const promotionLabel = document.querySelector('.promotion-label strong');
     const salesLinks = document.querySelectorAll('[data-checkout]');
+    function showCountdown() {
+      const remaining = Math.max(0, OFFER_END_AT - Date.now());
+      const seconds = Math.floor(remaining / 1000);
+      const hours = Math.floor(seconds / 3600);
+      const minutes = Math.floor(seconds % 3600 / 60);
+      const secs = seconds % 60;
+      if(clock) clock.textContent = [hours, minutes, secs].map(n => String(n).padStart(2,'0')).join(':');
+      const ended = remaining <= 0;
+      if (ended) {
+        if(promotionLabel) promotionLabel.textContent = 'OFERTA ESPECIAL FINALIZADA';
+        document.querySelectorAll('.promotion-label small').forEach(el => el.textContent='El plazo anunciado ha terminado');
+        salesLinks.forEach(link => {
+          link.setAttribute('aria-disabled', 'true');
+          link.classList.add('is-ended');
+          link.removeAttribute('href');
+          link.setAttribute('role','button');
+          link.innerHTML = 'OFERTA DE HOY FINALIZADA';
+        });
+      }
+      return ended;
+    }
+    showCountdown();
+    const countdownId = setInterval(() => {
+      if(showCountdown()) clearInterval(countdownId);
+    }, 1000);
+    document.addEventListener('visibilitychange', () => {if(!document.hidden)showCountdown()});
     const checkout = new URL(CHECKOUT_URL);
     const tracking = new URLSearchParams(window.location.search);
     for (const [key, value] of tracking) {
@@ -344,9 +517,16 @@ a:focus-visible,summary:focus-visible{outline:3px solid #e8b449;outline-offset:3
       }
     }
     salesLinks.forEach((link) => {
-      link.href = checkout.toString();
-      link.removeAttribute('aria-disabled');
-      link.addEventListener('click', () => {
+      if (Date.now() < OFFER_END_AT) {
+        link.href = checkout.toString();
+        link.removeAttribute('aria-disabled');
+      }
+      link.addEventListener('click', (event) => {
+        if (Date.now() >= OFFER_END_AT) {
+          event.preventDefault();
+          showCountdown();
+          return;
+        }
         if (typeof fbq === 'function') fbq('track', 'InitiateCheckout', {
           content_name: 'Navidad Mágica en Amigurumi',
           content_type: 'product',
