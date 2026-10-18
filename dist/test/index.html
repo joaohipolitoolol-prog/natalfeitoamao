@@ -226,7 +226,7 @@ body{background:#fbf6f0}
 /* Corrige regra antiga de order do mobile: respeita a sequência do HTML da prévia original. */
 .hero .hero-inner > * { order: 0 !important; }
 </style></head><body>
-
+<div class="topbar" id="offer-topbar">OFERTA ENCERRA EM <strong id="timer">00:00:00</strong></div>
 <main>
 <section class="hero"><div class="wrap hero-inner">
   <span class="original-eyebrow">3 PROJETOS COMPLETOS + 3 BÔNUS</span>
@@ -257,4 +257,5 @@ body{background:#fbf6f0}
 
 <script>(()=>{const sticky=document.querySelector('[data-sticky]'),hero=document.querySelector('.hero'),offer=document.getElementById('oferta');if(!sticky||!hero||!offer)return;const jumpLinks=[...document.querySelectorAll('a[href="#oferta"]')].map(link=>({link,tabindex:link.getAttribute('tabindex'),ariaHidden:link.getAttribute('aria-hidden'),visibility:link.style.visibility,pointerEvents:link.style.pointerEvents}));let ticking=false,offerVisible=false,lastOfferVisible=null;const measureOffer=()=>{const rect=offer.getBoundingClientRect();return rect.top<window.innerHeight&&rect.bottom>0};const update=()=>{if(!('IntersectionObserver' in window))offerVisible=measureOffer();sticky.classList.toggle('visible',window.scrollY>hero.offsetHeight*.72&&!offerVisible);if(lastOfferVisible!==offerVisible){jumpLinks.forEach(({link,tabindex,ariaHidden,visibility,pointerEvents})=>{link.style.visibility=offerVisible?'hidden':visibility;link.style.pointerEvents=offerVisible?'none':pointerEvents;if(offerVisible){link.setAttribute('aria-hidden','true');link.setAttribute('tabindex','-1')}else{if(ariaHidden===null)link.removeAttribute('aria-hidden');else link.setAttribute('aria-hidden',ariaHidden);if(tabindex===null)link.removeAttribute('tabindex');else link.setAttribute('tabindex',tabindex)}});lastOfferVisible=offerVisible}ticking=false};offerVisible=measureOffer();if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{offerVisible=entries.some(entry=>entry.isIntersecting);update()},{threshold:0});observer.observe(offer)}addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(update)}},{passive:true});addEventListener('resize',()=>{offerVisible=measureOffer();update()},{passive:true});update()})();</script>
 
+<script>(()=>{'use strict';const el=document.getElementById('timer');if(!el)return;const pad=n=>String(n).padStart(2,'0');function update(){const now=new Date(),end=new Date(now);end.setHours(24,0,0,0);let seconds=Math.max(0,Math.floor((end-now)/1000));el.textContent=pad(Math.floor(seconds/3600))+':'+pad(Math.floor(seconds%3600/60))+':'+pad(seconds%60)}update();setInterval(update,1000)})();</script>
 </body></html>
