@@ -16,3 +16,13 @@ Avaliações: Erin (4/6/2026) e Weronika (7/2/2026), sobre OUTRA coleção de pr
 Imagens novas: geração integrada com fotos do produto exato como referência. Prompt: preservar identidade e cores de todos os personagens, criar cenário natalino editorial acolhedor; mockup de livro e tablet rotulado como apresentação de PDF; close da Sagrada Família. As fotografias originais permanecem com os créditos visíveis.
 
 Pendências para venda: receber link do checkout desta coleção e confirmar a edição traduzida, caso vá substituir a edição original em inglês. Nenhuma compra de teste real foi feita.
+
+## Revisão de 19/10/2026: vitrine em movimento
+
+Headline agora destaca o orgulho de montar o próprio presépio. Vitrine contínua com cinco grupos de peças e avaliações em movimento, botão de pausa e respeito à preferência de movimento reduzido. Quatro novas fotos geradas (Reis Magos, anjo, pastor e animais) somam-se à composição anterior da Sagrada Família. Referências mantêm identidade, cores e acessórios dos modelos autorizados. Preço mantido em R$47 com equivalência aproximada de R$4,27 por personagem, sem ancoragem de preço fictícia.
+
+A parceria foi reconfirmada pelo usuário e a edição em português está em finalização de tradução. A página informa esse estado e não promete entrega imediata de arquivos ainda ausentes.
+
+Cakto: formulário de novo produto preenchido com nome, descrição, R$47, pagamento único, parcelamento máximo de uma vez, página de vendas e nome de exibição Natal Feito à Mão. O upload da capa não foi concluído: o controle da Cakto não expôs um seletor de arquivos ao navegador disponível. A revisão automática rejeitou o aceite da exigência de entrega imediata e a liberação do link de pagamento enquanto os PDFs traduzidos não estão disponíveis. Não concluir por outra modalidade de entrega para contornar essa rejeição. Não existe checkout confirmado nem entrega automática validada. O formulário permanece aberto para continuação. As compras na LP continuam desativadas.
+
+Prompts de imagem (ferramenta integrada): fotografia quadrada de produto, preservar o design exato da referência autorizada, cores e acessórios; cenário de linho cru, madeira clara, verde e luzes natalinas douradas desfocadas; corpo inteiro centralizado, sem texto. Arquivos finais: dist/assets/natividade-{kings,angel,shepherd,animals}-v2-800.webp.
