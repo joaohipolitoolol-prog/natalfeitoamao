@@ -44,3 +44,11 @@ Bônus incluídos sem custo extra, criados em PDF com três páginas cada e capa
 O usuário confirmou que os depoimentos correspondem ao mesmo produto. A seção passa a apresentar avaliações das receitas sem atribuir origem a este checkout ou alegar compra verificada nesta página. Removido o aviso de outros projetos a partir dessa confirmação do responsável pelo produto; nomes, datas e falas reais foram preservados.
 
 Removida a contagem de 4 PDFs da promessa da landing page. Ela vinha do campo de tipos de arquivos do anúncio original, mas não representa necessariamente a organização dos arquivos traduzidos que serão entregues pelo usuário. A LP agora informa apenas receitas em PDF.
+
+## Três capas geradas e lista de compras
+
+Criado um terceiro guia: Lista de Compras, com três páginas (capa, checklist de materiais e planilha de fios/orçamento). Quantidades são preenchidas pela compradora conforme as receitas; não foram inventadas quantidades de materiais. Os outros dois PDFs recebem as novas capas.
+
+Capas originais geradas pela ferramenta integrada, sem referências externas: série em verde escuro, creme e dourado; capa frontal plana com títulos em português, fotografia editorial de novelos, ferramentas, agenda e checklist, detalhes natalinos discretos. Texto principal específico por guia: Guia de Materiais e Cores; Planejador do Presépio; Lista de Compras. Arquivos: dist/assets/natividade-bonus-{materiais,planejador,compras}-v2.webp. As mesmas capas compõem os PDFs entregáveis.
+
+Página: três bônus com selo Bônus incluso; seção final lista explicitamente o presépio completo e os três guias. R$47 e pagamento único mantidos. Ancoragem por custo equivalente aproximado de R$4,27 por personagem, com os três bônus incluídos. Nenhum preço avulso, desconto ou preço anterior fictício foi atribuído aos guias. Checkout continua pendente do link do material principal; entrega Cakto não foi alterada.

@@ -1,5 +1,8 @@
 from pathlib import Path
 from reportlab.pdfgen import canvas
+from reportlab.lib.utils import ImageReader
+from PIL import Image
+from io import BytesIO
 from reportlab.lib.colors import HexColor, Color
 from reportlab.lib.pagesizes import A4
 from reportlab.platypus import Paragraph, Table, TableStyle
@@ -28,6 +31,13 @@ def page(c,n,title):
  return para(c,title,50,H-70,style=head)-10
 
 def cover(c,k,title,sub,number):
+ key={'materials':'materiais','plan':'planejador','shopping':'compras'}[k]
+ artwork=root/'dist/assets'/f'natividade-bonus-{key}-v2.webp'
+ if artwork.exists():
+  jpeg=BytesIO();Image.open(artwork).convert("RGB").save(jpeg,format="JPEG",quality=86);jpeg.seek(0)
+  c.drawImage(ImageReader(jpeg),0,0,W,H)
+  c.showPage()
+  return
  c.setFillColor(green);c.rect(0,0,W,H,fill=1,stroke=0)
  c.setStrokeColor(gold);c.setLineWidth(1);c.rect(28,28,W-56,H-56,fill=0,stroke=1)
  c.setFillColor(gold);c.setFont('Bold',11);c.drawString(55,H-95,'MEU PRESÉPIO ENCANTADO')
@@ -74,4 +84,24 @@ for name in ['Maria','José','Menino Jesus','Anjo','Rei Mago 1','Rei Mago 2','Re
 y=table(c,rows,y,[W-328,76,76,76])
 y=para(c,'<b>Antes de montar a cena</b><br/>[ ] Arremates conferidos e fios soltos retirados.<br/>[ ] Partes unidas e acessórios fixados conforme a receita.<br/>[ ] Peças posicionadas em uma superfície estável.<br/>[ ] Foto do conjunto pronto para guardar esse momento.',50,y)
 c.save()
-print('Created two bonus PDFs, three pages each.')
+
+
+p=out/'bonus-lista-de-compras.pdf';c=canvas.Canvas(str(p),pagesize=A4);c.setTitle('Lista de Compras | Meu Presépio Encantado');c.setAuthor('Natal Feito à Mão')
+cover(c,'shopping','Lista de<br/>compras.','Confira o que você já tem, preencha as quantidades e leve sua lista para comprar só o que falta.','03')
+y=page(c,2,'O que falta para começar?')
+y=para(c,'Leia as receitas antes de preencher as quantidades. Marque o que já tem e o que precisa comprar. Os acessórios variam por personagem: compre apenas os itens indicados nos projetos escolhidos.',50,y)
+rows=[['Item','Quantidade','Já tenho','Comprar']]
+for item in ['Fio de algodão (cores na próxima página)','Agulha de crochê na medida da receita','Enchimento para amigurumi','Agulha de tapeçaria','Marcadores de pontos','Tesoura','Olhos na medida indicada no projeto','Arame, se indicado na receita','Cola de acabamento, se indicada','Fio e acessórios dourados do projeto','Outros: __________________________']:
+ rows.append([item,'________','[  ]','[  ]'])
+y=table(c,rows,y,[W-295,75,60,60])
+y=para(c,'<b>Antes de passar no caixa</b><br/>[ ] Conferi as medidas nas receitas.<br/>[ ] Comparei as cores dos fios lado a lado.<br/>[ ] Conferi marca, cor e lote dos novelos.<br/>[ ] Revisei se já tenho algum desses materiais em casa.',50,y)
+c.showPage()
+y=page(c,3,'Minha compra de fios.')
+y=para(c,'Esta é uma paleta de referência do conjunto. Ajuste os tons ao seu gosto, mantendo a mesma espessura de fio entre os personagens. Anote as quantidades conforme as receitas e seu estoque.',50,y)
+rows=[['Cor / referência','Quantidade','Já tenho','Comprar']]
+for cor in ['Branco / creme','Rosa suave','Azul','Azul claro','Verde suave','Lavanda','Coral','Castanho','Preto','Cinza','Bege','Dourado','Outros: __________________________']:
+ rows.append([cor,'________','[  ]','[  ]'])
+y=table(c,rows,y,[W-295,75,60,60])
+y=para(c,'<b>Meu orçamento</b><br/>Loja: __________________________________________________<br/>Data da compra: ______ / ______ / ______<br/>Quanto posso gastar: R$ ______________<br/>Total da compra: R$ ______________',50,y)
+c.save()
+print('Created three bonus PDFs, three pages each.')
