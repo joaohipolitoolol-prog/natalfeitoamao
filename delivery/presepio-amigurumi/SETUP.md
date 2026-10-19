@@ -32,3 +32,15 @@ Prompts de imagem (ferramenta integrada): fotografia quadrada de produto, preser
 O usuário confirmou material em português pronto e envio por e-mail. Removidos WhatsApp, controles visíveis de pausa, referências à plataforma de origem dos reviews e avisos de tradução pendente. Os reviews permanecem contextualizados como comentários sobre outra coleção da criadora, sem falsa atribuição a esta página. Vitrine reduzida para cartões de 260 px em desktop e 220 px no celular, respeitando movimento reduzido e pausa por hover/foco.
 
 Cakto: descrição atualizada para material pronto e envio ao e-mail do comprador. Uma tentativa de selecionar Link de pagamento foi rejeitada pela revisão automática por não configurar o canal de entrega por e-mail. Em seguida foi selecionada a opção correta Acesso por e-mail. Ela exige Link de acesso enviado no e-mail; esse link não foi fornecido. Buscas focadas nos arquivos conectados não localizaram os PDFs desta coleção. Não foi inventado link, configurado outro produto ou concluída entrega vazia. O cadastro permanece aberto aguardando o link dos arquivos. O checkout ainda não existe e a LP não gera IC em cliques internos. Imagens do produto na Cakto serão adicionadas pelo usuário, conforme pedido.
+
+
+## Reviews compactos e dois bônus reais
+Reviews: cartões de 311 px no desktop e 232 px no celular; fonte das citações de 19 px/17 px, padding e altura reduzidos. O aviso sobre outros projetos continua discreto, sem atribuição falsa a compras nesta página.
+
+Bônus incluídos sem custo extra, criados em PDF com três páginas cada e capas do próprio arquivo: dist/downloads/presepio-amigurumi/bonus-guia-materiais-e-cores.pdf e bonus-planejador-do-presepio.pdf. Material original de organização: inventário de materiais/cores e planejamento/checklist dos 11 personagens. Não incluem novas receitas nem prazos garantidos. Arquivos revisados por renderização das seis páginas. Os PDFs precisam acompanhar o e-mail da compra junto às receitas principais; a entrega Cakto ainda aguarda o link do material principal.
+
+
+## Correção de quantidade e enquadramento dos reviews
+O usuário confirmou que os depoimentos correspondem ao mesmo produto. A seção passa a apresentar avaliações das receitas sem atribuir origem a este checkout ou alegar compra verificada nesta página. Removido o aviso de outros projetos a partir dessa confirmação do responsável pelo produto; nomes, datas e falas reais foram preservados.
+
+Removida a contagem de 4 PDFs da promessa da landing page. Ela vinha do campo de tipos de arquivos do anúncio original, mas não representa necessariamente a organização dos arquivos traduzidos que serão entregues pelo usuário. A LP agora informa apenas receitas em PDF.
