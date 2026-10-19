@@ -85,5 +85,12 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/almofadas-natalinas-test",
+      "destination": "/almofadas-natalinas",
+      "permanent": true
+    }
   ]
 }
