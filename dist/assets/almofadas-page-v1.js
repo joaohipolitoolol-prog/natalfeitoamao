@@ -7,7 +7,7 @@ const days=Math.max(0,Math.ceil((target-today)/86400000));document.querySelector
 const keys=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','utm_id','fbclid','gclid','ttclid','xcod','sck','src'],params=new URLSearchParams(location.search),storage='almofadas_attribution_v1';let attr={};
 try{attr=JSON.parse(sessionStorage.getItem(storage)||'{}')||{}}catch(_){}if(typeof attr!=='object'||Array.isArray(attr))attr={};
 for(const k of keys){const v=params.get(k);if(v&&v.length<=1000)attr[k]=v}try{sessionStorage.setItem(storage,JSON.stringify(attr))}catch(_){}
-let destination;try{if(config.checkout){destination=new URL(config.checkout);if(destination.protocol!=='https:')destination=null}}catch(_){}
+let destination;try{if(config.checkoutEnabled && config.checkout){destination=new URL(config.checkout);if(destination.protocol!=='https:')destination=null}}catch(_){}
 if(destination){for(const k of keys)if(attr[k])destination.searchParams.set(k,attr[k]);document.querySelectorAll('[data-checkout]').forEach(el=>{const a=document.createElement('a');a.className=el.className;a.setAttribute('data-checkout','');a.href=destination.href;a.textContent='Quero minha coleção de Natal →';el.replaceWith(a)})}
 if(config.pixel){if(!window.fbq){const f=window.fbq=function(){f.callMethod?f.callMethod.apply(f,arguments):f.queue.push(arguments)};if(!window._fbq)window._fbq=f;f.push=f;f.loaded=true;f.version='2.0';f.queue=[]}fbq('init',config.pixel);fbq('track','PageView');fbq('track','ViewContent',{content_name:name,content_type:'product',value:price,currency:config.currency||'BRL'});
 const meta=document.createElement('script');meta.async=true;meta.src='https://connect.facebook.net/en_US/fbevents.js';document.head.appendChild(meta);
