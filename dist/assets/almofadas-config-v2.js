@@ -2,7 +2,7 @@
 window.ALMOFADAS_CONFIG = Object.freeze({
   checkout: 'https://pay.cakto.com.br/3bpgg82_1219106',
   checkoutEnabled: true,
-  pixel: '1671969474547490',
+  pixel: '1051422547811449',
   price: 47,
   currency: 'BRL',
   productName: 'Almofadas de Natal: 4 Projetos de Crochê',
