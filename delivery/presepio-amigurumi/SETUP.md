@@ -52,3 +52,13 @@ Criado um terceiro guia: Lista de Compras, com três páginas (capa, checklist d
 Capas originais geradas pela ferramenta integrada, sem referências externas: série em verde escuro, creme e dourado; capa frontal plana com títulos em português, fotografia editorial de novelos, ferramentas, agenda e checklist, detalhes natalinos discretos. Texto principal específico por guia: Guia de Materiais e Cores; Planejador do Presépio; Lista de Compras. Arquivos: dist/assets/natividade-bonus-{materiais,planejador,compras}-v2.webp. As mesmas capas compõem os PDFs entregáveis.
 
 Página: três bônus com selo Bônus incluso; seção final lista explicitamente o presépio completo e os três guias. R$47 e pagamento único mantidos. Ancoragem por custo equivalente aproximado de R$4,27 por personagem, com os três bônus incluídos. Nenhum preço avulso, desconto ou preço anterior fictício foi atribuído aos guias. Checkout continua pendente do link do material principal; entrega Cakto não foi alterada.
+
+## Retorno do checkout e CTAs, 20/10/2026
+
+Checkout correto já existente: https://pay.cakto.com.br/cf86v3q_1223436, produto 1223436. Rota definitiva /presepio-amigurumi preservada. Quatro CTAs de leitura, incluindo o inicial e o fixo, agora usam âncora nativa #oferta; somente o CTA da oferta final abre o checkout. Não disparam InitiateCheckout ao descer a página.
+
+Nova página /presepio-amigurumi/voltar: revisão do pacote por R$47 com os três bônus existentes, sem desconto ou prazo fictício. Pixel Meta 1051422547811449, ViewContent, InitiateCheckout somente em clique para pagamento, RecoveryView na recuperação, script de UTMs da UTMify e atribuição de campanhas nas duas páginas. Nenhum Purchase na landing page. Não foi inventado ID de container GTM nem pixel próprio da UTMify.
+
+Retorno: marca apenas clique normal para o checkout exato, na mesma aba, exige saída efetiva e navegação de volta (BFCache ou back_forward), validade 30 minutos. Exibe uma vez por sessão da aba; consome marcador antes de redirecionar com replace. Acesso direto, reload, links internos, cliques modificados/nova aba, armazenamento bloqueado e voltar à LP pela recuperação não produzem redirecionamento indevido. Sem pushState ou aprisionamento do botão voltar. Mantém a página visível se houver falha.
+
+Assets v3/v4 versionados evitam configuração antiga em cache. Meta recebe a fila imediatamente e a biblioteca carrega após pintura da foto, com carregamento antecipado por interação e timeout de segurança. Imagens AVIF existentes reutilizadas, sem fontes externas. Validação: 22 testes Node de navegação, atribuição, eventos e scripts, mais checagem das âncoras e arquivos HTML.
