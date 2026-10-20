@@ -100,6 +100,26 @@
       "source": "/almofadas-natalinas-test",
       "destination": "/almofadas-natalinas",
       "permanent": true
+    },
+    {
+      "source": "/presepio-amigurumi-test/termos",
+      "destination": "/presepio-amigurumi/termos",
+      "permanent": true
+    },
+    {
+      "source": "/presepio-amigurumi-test/privacidade",
+      "destination": "/presepio-amigurumi/privacidade",
+      "permanent": true
+    },
+    {
+      "source": "/presepio-amigurumi-test/reembolso",
+      "destination": "/presepio-amigurumi/reembolso",
+      "permanent": true
+    },
+    {
+      "source": "/presepio-amigurumi-test",
+      "destination": "/presepio-amigurumi",
+      "permanent": true
     }
   ]
 }
