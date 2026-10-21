@@ -3,6 +3,6 @@ window.PINGUIM_UPSELL_CONFIG=Object.freeze({
   checkoutEnabled:false,
   checkout:'',
   productId:'',
-  price:17.90,
+  price:27,
   pixel:'1051422547811449'
 });
