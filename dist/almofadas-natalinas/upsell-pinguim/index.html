@@ -36,7 +36,7 @@ footer{background:var(--green);text-align:center;color:#f5eee4;padding:24px 16px
 <div class="offer" id="oferta"><span class="eyebrow">Mais um projeto para criar</span><h2>Pinguim de Natal em Crochê</h2>
 <p>Faça um pinguim de pelúcia em crochê com formato de almofada e um charmoso cachecol vermelho.</p>
 <ul><li>Receita digital em PDF</li><li>Projeto de pinguim fofinho, estilo amigurumi</li><li>Modelo com poucas costuras</li><li>Para decorar, presentear ou fazer por encomenda</li></ul>
-<div class="price-label">Oferta complementar de Natal</div><div class="price">R$17,90</div>
+<div class="price-label">Oferta complementar de Natal</div><div class="price">R$27,00</div>
 <button class="cta" data-upsell-checkout disabled>Ativação da oferta em preparação</button>
 <p class="micro">Oferta adicional e opcional. Produto digital, sem peça pronta ou material físico.</p>
 <a href="/almofadas-natalinas" class="decline">Não, obrigada. Prefiro continuar com as almofadas.</a>
@@ -54,10 +54,10 @@ const config=window.PINGUIM_UPSELL_CONFIG||{},button=document.querySelector('[da
 let saved={};try{saved=JSON.parse(sessionStorage.getItem('almofadas_attribution_v2')||'{}').values||{}}catch(_){}
 let query=new URLSearchParams(location.search);
 if(config.checkoutEnabled&&config.checkout){
-try{let url=new URL(config.checkout);if(url.origin==='https://pay.cakto.com.br'){for(const k of keys){let v=query.get(k)||saved[k];if(v&&v.length<=1000)url.searchParams.set(k,v)}let a=document.createElement('a');a.className=button.className;a.href=url.href;a.rel='noopener noreferrer';a.textContent='Sim! Quero o pinguim por R$17,90 →';a.setAttribute('data-upsell-checkout','');button.replaceWith(a);a.addEventListener('click',()=>{try{window.fbq('track','InitiateCheckout',{content_name:'Pinguim de Natal em Crochê',content_ids:[String(config.productId||'pinguim-pendente')],content_type:'product',value:17.90,currency:'BRL'})}catch(_){}})}}catch(_){}
+try{let url=new URL(config.checkout);if(url.origin==='https://pay.cakto.com.br'){for(const k of keys){let v=query.get(k)||saved[k];if(v&&v.length<=1000)url.searchParams.set(k,v)}let a=document.createElement('a');a.className=button.className;a.href=url.href;a.rel='noopener noreferrer';a.textContent='Sim! Quero o pinguim por R$27,00 →';a.setAttribute('data-upsell-checkout','');button.replaceWith(a);a.addEventListener('click',()=>{try{window.fbq('track','InitiateCheckout',{content_name:'Pinguim de Natal em Crochê',content_ids:[String(config.productId||'pinguim-pendente')],content_type:'product',value:27,currency:'BRL'})}catch(_){}})}}catch(_){}
 }
 if(config.pixel){if(!window.fbq){let f=window.fbq=function(){f.callMethod?f.callMethod.apply(f,arguments):f.queue.push(arguments)};if(!window._fbq)window._fbq=f;f.push=f;f.loaded=true;f.version='2.0';f.queue=[]}
-fbq('init',String(config.pixel));fbq('track','PageView');fbq('track','ViewContent',{content_name:'Pinguim de Natal em Crochê',content_ids:[String(config.productId||'pinguim-pendente')],content_type:'product',value:17.90,currency:'BRL'});
+fbq('init',String(config.pixel));fbq('track','PageView');fbq('track','ViewContent',{content_name:'Pinguim de Natal em Crochê',content_ids:[String(config.productId||'pinguim-pendente')],content_type:'product',value:27,currency:'BRL'});
 let s=document.createElement('script');s.async=true;s.src='https://connect.facebook.net/en_US/fbevents.js';document.head.appendChild(s)}
 let utm=document.createElement('script');utm.async=true;utm.src='https://cdn.utmify.com.br/scripts/utms/latest.js';utm.dataset.utmifyPreventXcodSck='';utm.dataset.utmifyPreventSubids='';document.head.appendChild(utm);
 })();
