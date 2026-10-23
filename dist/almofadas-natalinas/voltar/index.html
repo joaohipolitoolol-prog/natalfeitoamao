@@ -28,6 +28,35 @@ h1{color:var(--green);font:700 clamp(31px,5vw,52px)/1.12 Georgia,"Times New Roma
 footer{font-size:11px;text-align:center;padding:15px;color:var(--muted)}
 @media(max-width:720px){main{padding:22px 0 27px}.head{margin-bottom:17px}.head p{font-size:14px}.card{grid-template-columns:1fr;max-width:500px;margin:auto}.visual{padding:12px;gap:9px}.visual>img{max-height:220px}.pitch{padding:22px 19px 25px}.price-line strong{font-size:39px}.questions{max-width:500px}.questions article{padding:14px}}
 @media(max-width:460px){.questions{grid-template-columns:1fr}.visual>img{max-height:190px}.pitch h2{font-size:27px}.head h1{font-size:34px}}
+
+/* Prévia legível e ampliável do material real */
+.visual{padding:22px 23px 25px;display:flex;flex-direction:column;align-items:stretch;gap:12px;background:linear-gradient(145deg,#f1e5d2,#f8efe3)}
+.preview-head{text-align:left}.preview-kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:850;color:var(--wine)}
+.preview-head h3{font:700 clamp(23px,2.8vw,29px)/1.14 Georgia,serif;color:var(--green);margin:7px 0 7px}
+.preview-head p{font-size:12px;color:#625b52;line-height:1.5}
+.preview-tabs{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:3px}
+.preview-tab{font:750 12px/1.3 system-ui,sans-serif;border:1px solid #d8c6ac;border-radius:9px;padding:10px 7px;cursor:pointer;color:#635744;background:#fffaf2;min-height:44px}
+.preview-tab.is-active{color:#fff;background:var(--green);border-color:var(--green)}
+.preview-tab:focus-visible,.preview-open:focus-visible,.zoom-dialog button:focus-visible,.zoom-dialog a:focus-visible{outline:3px solid #cfaa58;outline-offset:3px}
+.preview-open{position:relative;display:grid;place-items:center;width:100%;padding:13px;background:white;border:1px solid #d7c9b8;border-radius:13px;box-shadow:0 7px 20px #58432a12;cursor:zoom-in;min-height:280px;overflow:hidden}
+.preview-open img{display:block;max-width:100%;width:auto;max-height:485px;height:auto;object-fit:contain;object-position:center;border-radius:4px}
+.preview-open-label{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);background:#173b30f2;color:#fff;white-space:nowrap;border-radius:100px;font-size:12px;font-weight:800;padding:9px 15px;box-shadow:0 5px 18px #20221f40}
+.preview-open-label span{font-size:20px;line-height:0;vertical-align:-2px;margin-right:4px}
+.preview-details{padding:0 3px;text-align:left}.preview-details strong{font-size:13px;color:var(--green);display:block}.preview-details p{font-size:12px;color:#635c51;line-height:1.5;margin-top:3px}
+.zoom-dialog[hidden]{display:none!important}
+.zoom-dialog{position:fixed;z-index:1000;inset:0;background:#101815ed;display:flex;align-items:center;justify-content:center;padding:12px}
+.zoom-panel{display:flex;flex-direction:column;width:min(990px,100%);height:min(930px,calc(100dvh - 24px));max-height:calc(100dvh - 24px);background:#fcfaf6;color:#292d27;border-radius:14px;box-shadow:0 12px 50px #0007;overflow:hidden}
+.zoom-header,.zoom-actions{display:flex;gap:9px;justify-content:space-between;align-items:center;padding:12px 15px;background:#fff;border-bottom:1px solid #e9e1d4}
+.zoom-header strong{color:var(--green);font-size:15px}.zoom-header button,.zoom-actions button{border:1px solid #d7cbb8;background:#f8f4ed;color:#293c30;border-radius:9px;min-height:40px;min-width:42px;font-size:19px;font-weight:800;cursor:pointer}
+.zoom-header button{font-size:25px;line-height:1}
+.zoom-viewport{flex:1;overflow:auto;padding:17px;text-align:center;background:#e9e2d7;overscroll-behavior:contain}
+.zoom-viewport img{width:100%;max-width:none;height:auto;display:block;margin:0 auto;background:#fff;box-shadow:0 5px 18px #0002}
+.zoom-actions{border-bottom:0;border-top:1px solid #e9e1d4;justify-content:center;flex-wrap:wrap}
+.zoom-actions span{min-width:54px;text-align:center;font-size:13px;font-weight:800}
+.zoom-actions a{font-size:12px;color:var(--green);font-weight:750;text-underline-offset:2px;margin-left:6px}
+.zoom-hint{color:#6c655b;font-size:11px;text-align:center;padding:0 12px 10px;background:#fff}
+@media(max-width:720px){.visual{padding:17px 15px 18px;gap:10px}.preview-head h3{font-size:25px}.preview-open{min-height:200px;padding:8px}.preview-open img{max-height:370px}.preview-open-label{bottom:12px;font-size:11px;padding:8px 11px}.zoom-dialog{padding:0}.zoom-panel{width:100%;height:100dvh;max-height:100dvh;border-radius:0}.zoom-viewport{padding:12px}.zoom-actions{padding:10px;gap:7px}}
+@media(max-width:370px){.preview-tab{font-size:11px}.preview-head h3{font-size:23px}}
 </style></head><body>
 <header>UM NATAL FEITO À MÃO</header>
 <main class="wrap">
@@ -36,11 +65,23 @@ footer{font-size:11px;text-align:center;padding:15px;color:var(--muted)}
 <p>Talvez você queira conferir o que vem nos arquivos antes de decidir. Aqui estão páginas reais das receitas em português.</p></div>
 <section class="card" aria-labelledby="recovery-title">
 <div class="visual">
-<img src="/assets/almofadas-hero-v1-800.webp" width="800" height="533" alt="As quatro almofadas de crochê: Papai Noel, rena, urso-polar e boneco de neve" fetchpriority="high">
-<div class="preview">
-<img src="/assets/almofadas-previa-materiais-20261022.webp" width="600" height="400" alt="Prévia real da lista de materiais da receita" loading="lazy">
-<img src="/assets/almofadas-previa-receita-20261022.webp" width="600" height="400" alt="Prévia real das instruções escritas com fotografias" loading="lazy">
-</div><p class="preview-caption">Prévia do conteúdo real: lista de materiais e instruções do PDF.</p>
+  <div class="preview-head">
+    <span class="preview-kicker">Dê uma olhada por dentro</span>
+    <h3>Veja uma página real do passo a passo</h3>
+    <p>É assim que você acompanha as orientações da receita. Amplie para conferir os detalhes.</p>
+  </div>
+  <div class="preview-tabs" role="group" aria-label="Escolha a página da receita">
+    <button class="preview-tab is-active" type="button" data-preview-tab="receita" aria-pressed="true">Passo a passo com fotos</button>
+    <button class="preview-tab" type="button" data-preview-tab="materiais" aria-pressed="false">Lista de materiais</button>
+  </div>
+  <button type="button" class="preview-open" data-preview-open aria-label="Ampliar a prévia de instruções da receita">
+    <img data-preview-image src="/assets/almofadas-previa-receita-20261022.webp" alt="Página real da receita com instruções escritas e fotografias de apoio" fetchpriority="high">
+    <span class="preview-open-label"><span aria-hidden="true">⌕</span> Clique para ampliar e ler</span>
+  </button>
+  <div class="preview-details">
+    <strong data-preview-title>Passo a passo com fotos</strong>
+    <p data-preview-description>Confira como o PDF apresenta as instruções escritas e as imagens que ajudam a acompanhar a confecção.</p>
+  </div>
 </div>
 <div class="pitch">
 <h2 id="recovery-title">Não é só inspiração. Você recebe as receitas.</h2>
@@ -61,7 +102,23 @@ footer{font-size:11px;text-align:center;padding:15px;color:var(--muted)}
 </div>
 <a class="skip" data-return href="/almofadas-natalinas">Voltar e ver a coleção completa</a>
 </main>
+<div class="zoom-dialog" data-zoom-dialog role="dialog" aria-modal="true" aria-label="Prévia ampliada da receita" hidden>
+  <div class="zoom-panel">
+    <div class="zoom-header"><strong data-zoom-title>Passo a passo com fotos</strong><button type="button" data-zoom-close aria-label="Fechar ampliação">×</button></div>
+    <div class="zoom-viewport" data-zoom-viewport>
+      <img src="/assets/almofadas-previa-receita-20261022.webp" data-zoom-image alt="Página ampliada da receita de crochê">
+    </div>
+    <div class="zoom-actions">
+      <button type="button" data-zoom-out aria-label="Diminuir zoom">−</button>
+      <span data-zoom-value>100%</span>
+      <button type="button" data-zoom-in aria-label="Aumentar zoom">+</button>
+      <a data-zoom-original href="/assets/almofadas-previa-receita-20261022.webp" target="_blank" rel="noopener noreferrer">Abrir imagem original ↗</a>
+    </div>
+    <p class="zoom-hint">Use + e − para ampliar ou diminuir. Pressione Esc para fechar.</p>
+  </div>
+</div>
+
 <footer>Natal Feito à Mão · Nenhum pagamento é realizado nesta página.</footer>
 <script src="/assets/almofadas-config-v2.js" defer></script>
-<script src="/assets/almofadas-recovery-20261023.js" defer></script>
+<script src="/assets/almofadas-recovery-v2-20261023.js" defer></script>
 </body></html>
