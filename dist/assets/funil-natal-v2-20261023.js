@@ -1,0 +1,12 @@
+(()=>{'use strict';
+const offer=document.body.dataset.offer||'',config=window.NATAL_UPSELL_CHECKOUTS||{},keys=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','utm_id','fbclid','gclid','ttclid','xcod','sck','src','src_id'],query=new URLSearchParams(location.search);
+let stored={};try{stored=JSON.parse(sessionStorage.getItem('almofadas_attribution_v2')||'{}').values||{}}catch(_){}
+const attr=new URLSearchParams();for(const k of keys){const v=query.get(k)||stored[k];if(v&&v.length<=1000)attr.set(k,v)}
+try{sessionStorage.setItem('almofadas_attribution_v2',JSON.stringify({values:{...stored,...Object.fromEntries(attr.entries())}}))}catch(_){}
+function stamp(link){const url=new URL(link.href,location.origin);for(const [k,v] of attr.entries())url.searchParams.set(k,v);link.href=url.href}
+document.querySelectorAll('[data-next]').forEach(stamp);
+const button=document.querySelector('[data-checkout-button]'),entry=config[offer];
+if(button&&typeof entry==='string'&&entry){try{const u=new URL(entry);if(u.protocol==='https:'&&u.hostname==='pay.cakto.com.br'){for(const [k,v] of attr.entries())u.searchParams.set(k,v);const link=document.createElement('a');link.className=button.className;link.href=u.href;link.textContent=button.textContent;link.rel='noopener noreferrer';link.dataset.checkout='';button.replaceWith(link);link.addEventListener('click',()=>{try{window.fbq&&window.fbq('track','InitiateCheckout',{content_name:document.body.dataset.product||offer,content_type:'product',value:Number(document.body.dataset.price||0),currency:'BRL'})}catch(_){}})}}catch(_){}}
+try{if(!window.fbq){const f=window.fbq=function(){f.callMethod?f.callMethod.apply(f,arguments):f.queue.push(arguments)};if(!window._fbq)window._fbq=f;f.push=f;f.loaded=true;f.version='2.0';f.queue=[]}window.fbq('init','1051422547811449');window.fbq('track','PageView');window.fbq('track','ViewContent',{content_name:document.body.dataset.product||offer,content_type:'product',value:Number(document.body.dataset.price||0),currency:'BRL'});const s=document.createElement('script');s.async=true;s.src='https://connect.facebook.net/en_US/fbevents.js';document.head.appendChild(s)}catch(_){}
+const utm=document.createElement('script');utm.async=true;utm.src='https://cdn.utmify.com.br/scripts/utms/latest.js';utm.dataset.utmifyPreventXcodSck='';utm.dataset.utmifyPreventSubids='';document.head.appendChild(utm);
+})();
