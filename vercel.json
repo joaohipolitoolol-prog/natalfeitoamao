@@ -120,6 +120,21 @@
       "source": "/presepio-amigurumi-test",
       "destination": "/presepio-amigurumi",
       "permanent": true
+    },
+    {
+      "source": "/cojines-navidenos/oferta-especial-mesa-encantada",
+      "destination": "/cojines-navidenos/oferta-mesa-encantada",
+      "permanent": false
+    },
+    {
+      "source": "/cojines-navidenos/oferta-especial-familia-munecos-nieve",
+      "destination": "/cojines-navidenos/oferta-familia-munecos-nieve",
+      "permanent": false
+    },
+    {
+      "source": "/cojines-navidenos/oferta-especial-mi-arbol-hecho-mano",
+      "destination": "/cojines-navidenos/oferta-mi-arbol-hecho-mano",
+      "permanent": false
     }
   ]
 }
