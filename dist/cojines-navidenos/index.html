@@ -97,7 +97,7 @@ html{scroll-padding-top:95px}.topbar{justify-content:space-between;gap:12px;padd
 <div class="sticky" data-sticky><a class="cta" data-checkout href="https://pay.hotmart.com/E108118367H?checkoutMode=10">Quiero los 4 patrones por US$12 <span aria-hidden="true">→</span></a></div>
 <script src="/assets/cojines-config-es-v2.js" defer></script>
 <script src="/assets/cojines-page-es-v3-20261024.js" defer></script>
-<script src="/assets/cojines-back-es-20261024.js" defer></script>
+<script src="/assets/natal-exit-prompt-v4-20261024.js" defer></script>
 <script>
 (()=>{const tr=document.querySelector("#opiniones .review-track");if(tr){for(const item of [...tr.children]){const copy=item.cloneNode(true);copy.setAttribute("aria-hidden","true");tr.appendChild(copy)}}const target=new Date(2026,11,25).getTime();let interval;const tick=()=>{const left=Math.max(0,target-Date.now());const t=Math.floor(left/1000);const v={days:Math.floor(t/86400),hours:Math.floor(t/3600)%24,minutes:Math.floor(t/60)%60,seconds:t%60};document.querySelectorAll('[data-christmas]').forEach(el=>el.textContent=String(v[el.dataset.christmas]).padStart(2,'0'));document.querySelectorAll('[data-days]').forEach(el=>el.textContent=String(Math.ceil(left/86400000)));if(!left){const header=document.querySelector('[data-season-header]');if(header)header.style.display='none';if(interval)clearInterval(interval)}return left>0};document.addEventListener('DOMContentLoaded',()=>{if(tick())interval=setInterval(tick,1000)})})();
 </script></body></html>
