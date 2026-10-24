@@ -1,17 +1,21 @@
 # Funil Hotmart em espanhol
 
-Fluxo final: três upsells, sem downsells. Tanto o aceite quanto a recusa levam à próxima oferta.
+Três upsells; aceite e recusa seguem para a próxima oferta:
+- Mesa, US$ 9,90 → Família.
+- Família, US$ 12,90 → Árvore.
+- Árvore, US$ 6,90 → /cojines-navidenos/gracias.
 
-| Etapa | Preço USD | Aceite e recusa |
-| --- | --- | --- |
-| /cojines-navidenos/oferta-mesa-encantada | 9,90 | /cojines-navidenos/oferta-familia-munecos-nieve |
-| /cojines-navidenos/oferta-familia-munecos-nieve | 12,90 | /cojines-navidenos/oferta-mi-arbol-hecho-mano |
-| /cojines-navidenos/oferta-mi-arbol-hecho-mano | 6,90 | /cojines-navidenos/gracias |
+O código oficial fornecido pelo proprietário foi integrado: hotmart-checkout-elements.js e checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel'). O widget recebe o contexto da sessão e das etapas no painel Hotmart; nenhum aceite ou Purchase é simulado localmente. Os dados productId no arquivo de configuração são usados como metadados e não substituem a configuração nativa das ofertas.
 
-Os antigos endereços de downsell redirecionam à oferta normal do respectivo produto. As páginas não oferecem desconto após a recusa. Não há promessa de preço maior na área de membros: essa precificação ainda não foi definida.
+A configuração exige apenas widgetEnabled. Fora de uma sessão válida, pode não haver botões nativos. O botão local de compra permanece desativado. A navegação local de recusa é somente a alternativa de visualização, ocultada quando a interface nativa é renderizada.
 
-A LP e o checkout principal permanecem sem alterações. A cobrança de um clique ainda depende do widget nativo. Os botões ficam desabilitados enquanto a integração estiver pendente.
+Área de membros criada: NAVIDAD HECHA A MANO, slug navidadhechaamano-es. Sete produtos adicionados pelo painel:
+- Cojines de Navidad, 8772584.
+- Pantuflas, 8785564.
+- Galletita, 8799525.
+- Pingüino, 8799850.
+- Mesa, 8800882.
+- Família, 8800941.
+- Árvore, 8800964.
 
-Arquivo de configuração: dist/assets/funil-hotmart-es-config-20261024.js. Preencher productId, offerCode e widgetHtml por etapa ou o widgetHtml global fornecido pela Hotmart. Usar o mesmo destino para os conectores de aceite e recusa no painel. Conferir o preço em cada página e na oferta selecionada. O widget é responsável pela cobrança e pelo fluxo real. Testar em uma sessão real antes de direcionar o front para U1.
-
-Não anunciar vídeo em espanhol sem conferir o idioma. Não disparar Purchase pela visita.
+A criação e a adição dos sete produtos foram confirmadas na UI. A edição de MIS COMPRAS foi iniciada, mas não publicada antes da indisponibilidade do navegador. Ainda faltam a revisão visual da vitrine, os arquivos anexados e a verificação real do funil Hotmart. Não afirmar que a cobrança de um clique foi testada só pela publicação do código.
