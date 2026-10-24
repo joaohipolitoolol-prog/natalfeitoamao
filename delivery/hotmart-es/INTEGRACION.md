@@ -5,7 +5,7 @@ Fluxo final: três upsells, sem downsells. Tanto o aceite quanto a recusa levam 
 | Etapa | Preço USD | Aceite e recusa |
 | --- | --- | --- |
 | /cojines-navidenos/oferta-mesa-encantada | 9,90 | /cojines-navidenos/oferta-familia-munecos-nieve |
-| /cojines-navidenos/oferta-familia-munecos-nieve | 17,90 | /cojines-navidenos/oferta-mi-arbol-hecho-mano |
+| /cojines-navidenos/oferta-familia-munecos-nieve | 12,90 | /cojines-navidenos/oferta-mi-arbol-hecho-mano |
 | /cojines-navidenos/oferta-mi-arbol-hecho-mano | 6,90 | /cojines-navidenos/gracias |
 
 Os antigos endereços de downsell redirecionam à oferta normal do respectivo produto. As páginas não oferecem desconto após a recusa. Não há promessa de preço maior na área de membros: essa precificação ainda não foi definida.

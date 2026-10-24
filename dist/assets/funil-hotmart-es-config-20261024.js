@@ -17,7 +17,7 @@ window.NAVIDAD_HOTMART_FUNNEL = {
       "productId": null,
       "offerCode": null,
       "widgetHtml": null,
-      "price": 17.9,
+      "price": 12.9,
       "acceptNext": "/cojines-navidenos/oferta-mi-arbol-hecho-mano",
       "declineNext": "/cojines-navidenos/oferta-mi-arbol-hecho-mano",
       "path": "/cojines-navidenos/oferta-familia-munecos-nieve"
