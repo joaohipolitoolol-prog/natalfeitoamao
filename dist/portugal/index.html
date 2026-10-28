@@ -171,6 +171,6 @@ const original=[...tr.children];for(const item of original){const copy=item.clon
 <script>
 (()=>{const target=Date.parse('2026-12-25T00:00:00+00:00');function tick(){const left=Math.max(0,target-Date.now());const total=Math.floor(left/1000);const values={days:Math.floor(total/86400),hours:Math.floor(total/3600)%24,minutes:Math.floor(total/60)%60,seconds:total%60};document.querySelectorAll('[data-christmas]').forEach(el=>el.textContent=String(values[el.dataset.christmas]).padStart(2,'0'));document.querySelectorAll('[data-days]').forEach(el=>el.textContent=String(Math.ceil(left/86400000)));if(!left){document.querySelector('[data-season-header]')?.classList.add('hidden');clearInterval(timer)}}let timer;document.addEventListener('DOMContentLoaded',()=>{tick();timer=setInterval(tick,1000)});})();
 </script>
-<script src="/assets/portugal-config-v1-20261028.js" defer></script>
+<script src="/assets/portugal-config-v2-20261028.js" defer></script>
 <script src="/assets/portugal-page-v2-20261028.js" defer></script>
 </body></html>
