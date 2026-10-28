@@ -1,0 +1,37 @@
+{
+  "pt": [
+    [
+      "materiais",
+      9,
+      "Lista de materiais"
+    ],
+    [
+      "tecnica",
+      5,
+      "Passo a passo com fotografias"
+    ],
+    [
+      "montagem",
+      21,
+      "Montagem da almofada"
+    ],
+    [
+      "acabamento",
+      2,
+      "Guia de acabamento"
+    ],
+    [
+      "precos",
+      2,
+      "Guia para calcular preços"
+    ],
+    [
+      "planeamento",
+      3,
+      "Ficha de planeamento da produção"
+    ]
+  ],
+  "es": "Two existing Spanish PDF previews and three existing guide covers",
+  "it": "Existing product photograph and three existing guide covers. Italian interior PDF not available locally.",
+  "pt-PT": "Same actual Portuguese PDF pages; explicitly identified as Brazilian Portuguese edition"
+}
