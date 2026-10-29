@@ -71,14 +71,7 @@ if(config.pixel){
     });
   });
 }
-/* UTMify da mesma instalação existente nas LPs de Bonecas Encantadas. */
-const utm=document.createElement('script');
-utm.async=true;
-utm.src='https://cdn.utmify.com.br/scripts/utms/latest.js';
-utm.dataset.utmifyPreventXcodSck='';
-utm.dataset.utmifyPreventSubids='';
-document.head.appendChild(utm);
-
+/* Os parâmetros são repassados acima sem reescrever os valores originais. */
 const sticky=document.querySelector('[data-sticky]');
 const hero=document.querySelector('.hero');
 const offer=document.querySelector('#oferta');

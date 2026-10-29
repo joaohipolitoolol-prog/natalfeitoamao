@@ -22,7 +22,7 @@ test('main and recovery HTML have Wiapy fallbacks at their existing prices',()=>
     assert.equal(tags.length,count);for(const tag of tags)assert.ok(tag[0].includes(url));
     assert.equal(html.includes('pay.cakto.com.br'),false);
     assert.ok(html.includes(`R$ ${amount}`));
-    assert.ok(html.includes('almofadas-config-v2.js?v=wiapy20261029'));
+    assert.ok(html.includes('almofadas-config-v2.js?v=wiapy20261029b'));
   }
 });
 test('all CTAs preserve campaign identifiers and Unicode without leaking unrelated parameters',()=>{
@@ -47,3 +47,5 @@ test('LP retains the existing pixel and product identity without fabricating pur
   e.anchors[0].events.click();assert.ok(e.calls.some(x=>x[0]==='trackCustom'&&x[1]==='CheckoutClick'));
   assert.equal(e.calls.some(x=>x.includes('Purchase')||x.includes('InitiateCheckout')),false);
 });
+
+test("native attribution is not overwritten by a third-party link rewriter",()=>{const e=boot();assert.equal(e.scripts.some(s=>s.src.includes("utmify")),false);assert.equal(fs.readFileSync("dist/assets/almofadas-recovery-v3-20261024.js","utf8").includes("cdn.utmify.com.br"),false)});

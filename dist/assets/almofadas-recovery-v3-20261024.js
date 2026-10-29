@@ -21,7 +21,7 @@ try{
     const s=document.createElement('script');s.async=true;s.src='https://connect.facebook.net/en_US/fbevents.js';document.head.appendChild(s);
   }
 }catch(_){}
-const utm=document.createElement('script');utm.async=true;utm.src='https://cdn.utmify.com.br/scripts/utms/latest.js';utm.dataset.utmifyPreventXcodSck='';utm.dataset.utmifyPreventSubids='';document.head.appendChild(utm);
+/* A atribuição acima preserva os valores originais dos parâmetros. */
 })();
 
 (() => {'use strict';
