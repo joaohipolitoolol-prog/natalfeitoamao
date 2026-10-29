@@ -1,6 +1,6 @@
 /* Almofadas de Natal | configuração pública do checkout e de mensuração. */
 window.ALMOFADAS_CONFIG = Object.freeze({
-  checkout: 'https://pay.cakto.com.br/3bpgg82_1219106',
+  checkout: 'https://pay.wiapy.com/rOZoq0kqHyl8',
   checkoutEnabled: true,
   pixel: '1051422547811449',
   price: 47,

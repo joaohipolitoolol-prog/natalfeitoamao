@@ -1,5 +1,5 @@
 (()=>{'use strict';
-/* Trackeamento da LP; Purchase é responsabilidade da Cakto, nunca desta página. */
+/* Trackeamento da LP; Purchase é responsabilidade do checkout, nunca desta página. */
 const config=window.ALMOFADAS_CONFIG||{};
 const price=Number(config.price)||47;
 const currency=config.currency||'BRL';
@@ -33,7 +33,7 @@ let destination=null;
 try{
   if(config.checkoutEnabled&&config.checkout){
     const next=new URL(config.checkout);
-    if(next.protocol==='https:'&&next.hostname==='pay.cakto.com.br'){
+    if(next.protocol==='https:'&&next.hostname==='pay.wiapy.com'){
       for(const k of keys){if(attr[k])next.searchParams.set(k,attr[k])}
       destination=next.href;
     }
@@ -64,7 +64,7 @@ if(config.pixel){
   const meta=document.createElement('script');meta.async=true;
   meta.src='https://connect.facebook.net/en_US/fbevents.js';
   document.head.appendChild(meta);
-  /* Clique separado do IC nativo enviado pela Cakto ao carregar o checkout. */
+  /* Clique da LP separado dos eventos enviados pelo provedor do checkout. */
   document.querySelectorAll('a[data-checkout]').forEach(link=>{
     link.addEventListener('click',()=>{
       try{window.fbq('trackCustom','CheckoutClick',product)}catch(_){}
