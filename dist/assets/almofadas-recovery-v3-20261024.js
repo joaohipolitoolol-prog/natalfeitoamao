@@ -9,7 +9,7 @@ try{sessionStorage.setItem(store,JSON.stringify({time:Date.now(),values:attr}))}
 for(const link of document.querySelectorAll('[data-checkout],[data-return]')){
   try{const url=new URL(link.href,location.origin);for(const key of keys){if(typeof attr[key]==='string'&&attr[key].length<=1000)url.searchParams.set(key,attr[key])}link.href=url.href}catch(_){}
 }
-const prod={content_name:config.productName||'4 Almofadas Natalinas',content_ids:[String(config.productId||'1219106')],content_type:'product',value:37,currency:'BRL'};
+const prod={content_name:config.productName||'4 Almofadas Natalinas',content_ids:[String(config.productId||'1219106')],content_type:'product',value:67,currency:'BRL'};
 try{
   if(config.pixel){
     if(!window.fbq){const f=window.fbq=function(){f.callMethod?f.callMethod.apply(f,arguments):f.queue.push(arguments)};if(!window._fbq)window._fbq=f;f.push=f;f.loaded=true;f.version='2.0';f.queue=[]}

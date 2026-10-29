@@ -18,11 +18,11 @@ price:'4 patrones + 3 bonos · US$12',
 cta:'Ver los patrones por dentro',
 dismiss:'Seguir viendo la colección',close:'Cerrar'
 }:{
-eyebrow:'R$ 10 DE DESCONTO NA COLEÇÃO',
-title:'Suas 4 almofadas podem começar por R$ 37.',
-text:'Leve as 4 receitas em PDF e os 3 bônus por R$ 37, em vez de R$ 47. Veja os detalhes antes de decidir.',
-price:'4 receitas + 3 bônus · R$ 37',
-cta:'Quero aproveitar os R$ 10 de desconto',
+eyebrow:'VEJA O MATERIAL POR DENTRO',
+title:'Quer conferir as receitas antes de decidir?',
+text:'Veja páginas reais do passo a passo em português. As 4 receitas e os 3 guias estão incluídos por R$ 67.',
+price:'4 receitas + 3 guias · R$ 67',
+cta:'Quero ver o material por dentro',
 dismiss:'Continuar vendo a coleção',close:'Fechar'
 };
 const style=document.createElement('style');
