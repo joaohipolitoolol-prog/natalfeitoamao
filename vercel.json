@@ -97,6 +97,11 @@
   ],
   "redirects": [
     {
+      "source": "/",
+      "destination": "/almofadas-natalinas",
+      "permanent": false
+    },
+    {
       "source": "/almofadas-natalinas-test",
       "destination": "/almofadas-natalinas",
       "permanent": true
