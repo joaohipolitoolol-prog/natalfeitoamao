@@ -20,8 +20,8 @@ dismiss:'Seguir viendo la colección',close:'Cerrar'
 }:{
 eyebrow:'VEJA O MATERIAL POR DENTRO',
 title:'Quer conferir as receitas antes de decidir?',
-text:'Veja páginas reais do passo a passo em português. As 4 receitas e os 3 guias estão incluídos por R$ 67.',
-price:'4 receitas + 3 guias · R$ 67',
+text:'Veja páginas reais do passo a passo em português. As 4 receitas e os 3 guias estão incluídos por R$ 47.',
+price:'4 receitas + 3 guias · R$ 47',
 cta:'Quero ver o material por dentro',
 dismiss:'Continuar vendo a coleção',close:'Fechar'
 };
