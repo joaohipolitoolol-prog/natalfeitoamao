@@ -52,13 +52,14 @@ if(destination){
   });
 }
 
-if(config.pixel){
+const pixelIds=[...new Set([config.pixel,...(Array.isArray(config.additionalPixels)?config.additionalPixels:[])].filter(Boolean).map(String))];
+if(pixelIds.length){
   if(!window.fbq){
     const f=window.fbq=function(){f.callMethod?f.callMethod.apply(f,arguments):f.queue.push(arguments)};
     if(!window._fbq)window._fbq=f;
     f.push=f;f.loaded=true;f.version='2.0';f.queue=[];
   }
-  window.fbq('init',String(config.pixel));
+  pixelIds.forEach(id=>window.fbq('init',id));
   window.fbq('track','PageView');
   window.fbq('track','ViewContent',product);
   const meta=document.createElement('script');meta.async=true;
