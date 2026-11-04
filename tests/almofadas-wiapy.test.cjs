@@ -22,7 +22,7 @@ test('main and recovery HTML have Wiapy fallbacks at their existing prices',()=>
     assert.equal(tags.length,count);for(const tag of tags)assert.ok(tag[0].includes(url));
     assert.equal(html.includes('pay.cakto.com.br'),false);
     assert.ok(html.includes(`R$ ${amount}`));
-    assert.ok(html.includes('almofadas-config-v2.js?v=wiapy20261029b'));
+    assert.ok(html.includes('almofadas-config-v2.js?v=wiapy20261103a'));
   }
 });
 test('all CTAs preserve campaign identifiers and Unicode without leaking unrelated parameters',()=>{

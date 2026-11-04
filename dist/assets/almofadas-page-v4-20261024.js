@@ -33,7 +33,7 @@ let destination=null;
 try{
   if(config.checkoutEnabled&&config.checkout){
     const next=new URL(config.checkout);
-    if(next.protocol==='https:'&&next.hostname==='pay.cakto.com.br'){
+    if(next.protocol==='https:'&&next.hostname==='pay.wiapy.com'){
       for(const k of keys){if(attr[k])next.searchParams.set(k,attr[k])}
       destination=next.href;
     }

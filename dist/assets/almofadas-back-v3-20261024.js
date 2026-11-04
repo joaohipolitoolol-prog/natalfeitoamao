@@ -12,7 +12,7 @@
     if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || link.target === '_blank') return;
     try {
       const url = new URL(link.href);
-      if (url.hostname === 'pay.cakto.com.br') sessionStorage.setItem(checkoutKey, String(Date.now()));
+      if (url.hostname === 'pay.wiapy.com') sessionStorage.setItem(checkoutKey, String(Date.now()));
     } catch (_) {}
   });
   window.addEventListener('pageshow', event => {
