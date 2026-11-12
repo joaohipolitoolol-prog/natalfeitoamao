@@ -39,9 +39,10 @@ if(widget&&step&&config.widgetEnabled){
   }
 }
 // Purchase e aceite nunca são inferidos pela visita ou por um clique local.
-if(config.pixel&&step){
+const pixelIds=[...new Set([config.pixel,...(Array.isArray(config.additionalPixels)?config.additionalPixels:[])].filter(Boolean).map(String))];
+if(pixelIds.length&&step){
  if(!window.fbq){const f=window.fbq=function(){f.callMethod?f.callMethod.apply(f,arguments):f.queue.push(arguments)};if(!window._fbq)window._fbq=f;f.push=f;f.loaded=true;f.version='2.0';f.queue=[]}
- window.fbq('init',String(config.pixel));window.fbq('track','PageView');
+ pixelIds.forEach(id=>window.fbq('init',id));window.fbq('track','PageView');
  window.fbq('track','ViewContent',{content_name:document.body.dataset.product,content_type:'product',value:step.price,currency:config.currency||'USD'});
  const load=()=>{const script=document.createElement('script');script.async=true;script.src='https://connect.facebook.net/en_US/fbevents.js';document.head.appendChild(script)};
  if('requestIdleCallback'in window)requestIdleCallback(load,{timeout:1500});else setTimeout(load,500);

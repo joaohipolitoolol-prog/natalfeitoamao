@@ -1,1 +1,1 @@
-window.ALMOFADAS_CONFIG=Object.freeze({checkout:'https://pay.hotmart.com/E108118367H?checkoutMode=10',checkoutEnabled:true,pixel:'1051422547811449',price:12,currency:'USD',productName:'Cojines de Navidad: 4 patrones de crochet',productId:'E108118367H'});
+window.ALMOFADAS_CONFIG=Object.freeze({checkout:'https://pay.hotmart.com/E108118367H?checkoutMode=10',checkoutEnabled:true,pixel:'1051422547811449',additionalPixels:['972684655428222'],price:12,currency:'USD',productName:'Cojines de Navidad: 4 patrones de crochet',productId:'E108118367H'});

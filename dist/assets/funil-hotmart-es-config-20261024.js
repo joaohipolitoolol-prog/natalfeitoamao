@@ -2,6 +2,7 @@
 window.NAVIDAD_HOTMART_FUNNEL = {
   "currency": "USD",
   "pixel": "1051422547811449",
+  "additionalPixels": ["972684655428222"],
   "steps": {
     "mesa": {
       "productId": "8800882",
